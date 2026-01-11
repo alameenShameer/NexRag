@@ -1,0 +1,9 @@
+@prefix : <http://example.org/unifaq#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+:faq1 rdf:type :FAQ ;
+      :hasQuestion :q1 ;
+      :hasAnswer :a1 .
+
+:q1 :text "what is a seminar?" .
+:a1 :text "A seminar is an academic presentation given by a student or expert to present research findings or discuss a specific topic." .

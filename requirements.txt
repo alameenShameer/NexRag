@@ -1,0 +1,28 @@
+# ---------- UI ----------
+streamlit
+# Web UI framework for building the chatbot interface
+
+
+# ---------- PDF Processing ----------
+pdfplumber
+# Extracts text content from PDF files
+
+
+# ---------- Machine Learning / RAG ----------
+scikit-learn
+# Provides TF-IDF vectorizer and cosine similarity
+
+
+# ---------- Knowledge Graph ----------
+SPARQLWrapper
+# Used to query Apache Jena Fuseki (SPARQL endpoint)
+
+
+# ---------- Local LLM ----------
+ollama
+# Python client to interact with local LLMs like Mistral
+
+
+# ---------- Utilities ----------
+numpy
+# Required internally by scikit-learn

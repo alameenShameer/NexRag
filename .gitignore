@@ -1,0 +1,56 @@
+# ===============================
+# Python bytecode & cache
+# ===============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+# ===============================
+# Virtual Environment
+# ===============================
+venv/
+.env/
+
+
+# ===============================
+# Streamlit
+# ===============================
+.streamlit/
+*.log
+
+
+# ===============================
+# Uploaded / Generated Data
+# ===============================
+data/pdfs/*
+!data/pdfs/.gitkeep
+
+
+# ===============================
+# Ollama / LLM (local runtime)
+# ===============================
+# Ollama models are stored locally and should NOT be committed
+.ollama/
+
+
+# ===============================
+# OS-specific files
+# ===============================
+.DS_Store
+Thumbs.db
+
+
+# ===============================
+# IDE / Editor settings
+# ===============================
+.vscode/
+.idea/
+
+
+# ===============================
+# Temporary files
+# ===============================
+*.tmp
+*.swp
