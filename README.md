@@ -44,9 +44,10 @@ Supports CPU-only mode (stable)
 
 No data leaves your machine
 
-🏗️ Project Structure
+## 📁 Project Structure
+
+```text
 NexRag/
-│
 ├── app.py            # Streamlit UI & main flow
 ├── rag.py            # PDF RAG logic (TF-IDF + similarity)
 ├── kg.py             # Knowledge Graph (SPARQL queries)
@@ -60,25 +61,32 @@ NexRag/
 ├── requirements.txt
 ├── README.md
 └── venv/
+```
 
-🔁 System Architecture (High Level)
+## 🏗️ System Architecture (High Level)
+
+```text
 User Question
-     ↓
+      |
+      v
 Query Router
-     ↓
+      |
  ┌───────────────┬──────────────────┐
  │ Definition?   │ Other Queries    │
  │               │                  │
  │ Knowledge     │ PDF Retrieval    │
  │ Graph (KG)    │ (TF-IDF + Cosine)│
- │               │                  │
  └───────┬───────┴─────────┬────────┘
-         ↓                 ↓
-     Answer from KG   Context from PDF
-                          ↓
-                   LLM (Ollama)
-                          ↓
+         |                 |
+         v                 v
+  Answer from KG     Context from PDF
+                          |
+                          v
+                    LLM (Ollama)
+                          |
+                          v
                     Final Answer
+```
 
 ⚙️ Requirements
 
@@ -109,7 +117,8 @@ Install Ollama from:
 Then pull the model:
 
 ollama pull mistral:7b-instruct-q4_K_M
-# or faster alternative
+
+faster alternative:
 ollama pull phi3:mini
 
 5️⃣ Setup Knowledge Graph (Fuseki)
