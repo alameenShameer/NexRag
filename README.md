@@ -96,7 +96,7 @@ cd NexRag
 2️⃣ Create Virtual Environment
 python -m venv venv
 venv\Scripts\activate   # Windows
-# source venv/bin/activate  # Linux/Mac
+source venv/bin/activate  # Linux/Mac
 
 3️⃣ Install Dependencies
 pip install -r requirements.txt

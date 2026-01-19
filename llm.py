@@ -13,7 +13,7 @@ def generate_answer(question, context):
     """
 
     response = ollama.chat(
-        model="mistral:7b-instruct-q4_K_M",
+        model="llama3.2:3b",
         messages=[{"role": "user", "content": prompt}],
         options={"temperature": 0.4}
     )
