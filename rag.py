@@ -1,5 +1,4 @@
 import os
-import shutil
 import pickle
 import numpy as np
 import pdfplumber
@@ -18,16 +17,25 @@ VECTOR_DB_PATH = "data/vector_store.index"
 CHUNKS_METADATA_PATH = "data/chunks_metadata.pkl"
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 100
+DEFAULT_MIN_SCORE = 0.2
+
+
+def _model_load_kwargs():
+    # Prefer cached models to keep startup reliable in offline use.
+    if os.environ.get("NEXRAG_ALLOW_MODEL_DOWNLOAD") == "1":
+        return {}
+    return {"local_files_only": True}
 
 class RAGEngine:
     def __init__(self):
         # Load Embedding Model
         print("Loading embedding model...")
-        self.encoder = SentenceTransformer(EMBEDDING_MODEL_NAME)
+        model_kwargs = _model_load_kwargs()
+        self.encoder = SentenceTransformer(EMBEDDING_MODEL_NAME, **model_kwargs)
         
         # Load Reranker
         print("Loading reranker...")
-        self.reranker = CrossEncoder(RERANK_MODEL_NAME)
+        self.reranker = CrossEncoder(RERANK_MODEL_NAME, **model_kwargs)
         
         # Initialize Vector Store
         self.index = None
@@ -122,7 +130,7 @@ class RAGEngine:
         print(f"Indexed {len(new_chunks)} chunks.")
         return len(new_chunks)
 
-    def retrieve(self, query, top_k=5, filter_category=None):
+    def retrieve(self, query, top_k=5, filter_category=None, min_score=DEFAULT_MIN_SCORE):
         if self.index is None or self.index.ntotal == 0:
             return []
         
@@ -181,22 +189,39 @@ class RAGEngine:
             })
             
         results.sort(key=lambda x: x["score"], reverse=True)
-        return results[:top_k]
+        filtered_results = [item for item in results if item["score"] >= min_score]
+        return filtered_results[:top_k]
 
-# Helper function for lazy initialization
-def get_rag_engine():
-    return RAGEngine()
+_global_engine = None
+_global_engine_error = None
+
+
+def get_rag_engine(force_reload=False):
+    global _global_engine, _global_engine_error
+
+    if force_reload:
+        _global_engine = None
+        _global_engine_error = None
+
+    if _global_engine is None and _global_engine_error is None:
+        try:
+            _global_engine = RAGEngine()
+        except Exception as exc:
+            _global_engine_error = exc
+            raise
+
+    if _global_engine_error is not None:
+        raise RuntimeError(f"RAG engine unavailable: {_global_engine_error}") from _global_engine_error
+
+    return _global_engine
+
 
 # Globals for script compatibility
-_global_engine = None
 def _get_global_engine():
-    global _global_engine
-    if _global_engine is None:
-        _global_engine = RAGEngine()
     return _global_engine
 
 def index_pdf(pdf_path, category="General"):
-    return _get_global_engine().index_pdf(pdf_path, category)
+    return get_rag_engine().index_pdf(pdf_path, category)
 
-def retrieve(query, top_k=5, filter_category=None):
-    return _get_global_engine().retrieve(query, top_k, filter_category)
+def retrieve(query, top_k=5, filter_category=None, min_score=DEFAULT_MIN_SCORE):
+    return get_rag_engine().retrieve(query, top_k, filter_category, min_score)

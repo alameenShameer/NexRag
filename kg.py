@@ -4,66 +4,92 @@ import re
 # Updated Endpoint for MESITAM KG
 FUSEKI_ENDPOINT = "http://localhost:3030/mesitam_kg/sparql"
 
+STOPWORDS = {
+    "what", "is", "who", "describe", "tell", "me", "about", "details", "of",
+    "the", "for", "rule", "define", "meaning", "course", "subject", "faculty",
+    "teacher", "teaches", "taught", "instructor", "department", "professor"
+}
+
+
+def _extract_search_terms(question):
+    cleaned = question.lower()
+    cleaned = re.sub(r"[^a-z0-9\s]", " ", cleaned)
+    tokens = [token for token in cleaned.split() if token not in STOPWORDS]
+    joined = " ".join(tokens).strip()
+
+    phrases = []
+    if joined:
+        phrases.append(joined)
+
+    for size in range(min(4, len(tokens)), 0, -1):
+        for start in range(0, len(tokens) - size + 1):
+            phrase = " ".join(tokens[start:start + size]).strip()
+            if phrase and phrase not in phrases:
+                phrases.append(phrase)
+
+    return phrases
+
 def query_kg(question):
     sparql = SPARQLWrapper(FUSEKI_ENDPOINT)
 
-    # Updated Keyword cleanup
-    keyword = question.lower()
-    for word in ["what is", "who is", "describe", "tell me about", "details of", "?", "the", "for", "rule", "about", "define", "meaning", "of"]:
-        keyword = keyword.replace(word, " ")
-    keyword = keyword.strip()
-    
-    if not keyword or len(keyword) < 2:
+    keywords = _extract_search_terms(question)
+    if not keywords:
         return None
 
-    print(f"DEBUG: Searching KG for '{keyword}'")
+    print(f"DEBUG: Searching KG for {keywords}")
+    bindings = []
 
-    # Improved query: Search in Name OR Code OR Abbreviation
-    # Also fetch INCOMING relationships (e.g., Who teaches this?)
-    query = f"""
-    PREFIX : <http://mesitam.ac.in/ns#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    
-    SELECT ?label ?type ?desc ?prop ?valname ?invProp ?invValName WHERE {{
-        {{ ?entity :hasName ?label . }} 
-        UNION {{ ?entity :hasCode ?label . }}
-        UNION {{ ?entity :abbreviation ?label . }}
-        
-        ?entity a ?type .
-        
-        OPTIONAL {{ ?entity :description ?desc . }}
-        
-        # Outgoing properties (What does this entity have?)
-        OPTIONAL {{ 
-            ?entity ?prop ?val . 
-            FILTER(?prop != :hasName && ?prop != rdf:type && ?prop != :description && ?prop != :hasCode && ?prop != :abbreviation)
-            OPTIONAL {{ ?val :hasName ?valLabel . }} 
-            BIND(COALESCE(?valLabel, str(?val)) AS ?valname) 
-        }}
-        
-        # Incoming properties (Who points to this entity?)
-        OPTIONAL {{
-            ?invVal ?invProp ?entity .
-            FILTER(?invProp != rdf:type)
-            OPTIONAL {{ ?invVal :hasName ?invLabel . }}
-            BIND(COALESCE(?invLabel, str(?invVal)) AS ?invValName)
-        }}
-        
-        FILTER (CONTAINS(LCASE(?label), "{keyword}"))
-    }} LIMIT 20
-    """
+    for keyword in keywords:
+        if len(keyword) < 2:
+            continue
 
-    sparql.setQuery(query)
-    sparql.setReturnFormat(JSON)
-    
-    try:
-        results = sparql.query().convert()
-    except Exception as e:
-        print(f"Warning: KG Connection Failed. {e}")
-        return None
+        # Improved query: Search in Name OR Code OR Abbreviation
+        # Also fetch INCOMING relationships (e.g., Who teaches this?)
+        query = f"""
+        PREFIX : <http://mesitam.ac.in/ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        
+        SELECT ?label ?type ?desc ?prop ?valname ?invProp ?invValName WHERE {{
+            {{ ?entity :hasName ?label . }} 
+            UNION {{ ?entity :hasCode ?label . }}
+            UNION {{ ?entity :abbreviation ?label . }}
+            
+            ?entity a ?type .
+            
+            OPTIONAL {{ ?entity :description ?desc . }}
+            
+            OPTIONAL {{ 
+                ?entity ?prop ?val . 
+                FILTER(?prop != :hasName && ?prop != rdf:type && ?prop != :description && ?prop != :hasCode && ?prop != :abbreviation)
+                OPTIONAL {{ ?val :hasName ?valLabel . }} 
+                BIND(COALESCE(?valLabel, str(?val)) AS ?valname) 
+            }}
+            
+            OPTIONAL {{
+                ?invVal ?invProp ?entity .
+                FILTER(?invProp != rdf:type)
+                OPTIONAL {{ ?invVal :hasName ?invLabel . }}
+                BIND(COALESCE(?invLabel, str(?invVal)) AS ?invValName)
+            }}
+            
+            FILTER (CONTAINS(LCASE(?label), "{keyword}"))
+        }} LIMIT 20
+        """
 
-    bindings = results["results"]["bindings"]
+        sparql.setQuery(query)
+        sparql.setReturnFormat(JSON)
+
+        try:
+            results = sparql.query().convert()
+        except Exception as e:
+            print(f"Warning: KG Connection Failed. {e}")
+            return None
+
+        bindings = results["results"]["bindings"]
+        if bindings:
+            break
+
     if not bindings:
         return None
 

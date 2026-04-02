@@ -16,4 +16,4 @@ for query, expected in test_cases:
     print(f"Query: '{query}' -> Got: {result} (Expected: {expected})")
     assert result == expected, f"Failed for '{query}'"
 
-print("\n✅ All Router Tests Passed!")
+print("\nAll Router Tests Passed.")

@@ -2,6 +2,7 @@ import os
 import time
 import pandas as pd
 from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict
@@ -22,10 +23,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-rag_engine = get_rag_engine()
 PDF_DIR = "data/pdfs"
 LOG_FILE = "logs/query_history.csv"
 os.makedirs(PDF_DIR, exist_ok=True)
+
+
+def get_rag_engine_safe():
+    try:
+        return get_rag_engine()
+    except Exception:
+        return None
 
 class ChatRequest(BaseModel):
     query: str
@@ -34,9 +41,10 @@ class ChatRequest(BaseModel):
 @app.get("/api/status")
 def get_status():
     try:
+        rag_engine = get_rag_engine_safe()
         total_pdfs = len([f for f in os.listdir(PDF_DIR) if f.endswith('.pdf')])
-        total_chunks = len(rag_engine.chunks_metadata) if rag_engine.chunks_metadata else 0
-        vector_ready = rag_engine.index is not None
+        total_chunks = len(rag_engine.chunks_metadata) if rag_engine and rag_engine.chunks_metadata else 0
+        vector_ready = bool(rag_engine and rag_engine.index is not None)
         return {"pdfs": total_pdfs, "chunks": total_chunks, "vector_ready": vector_ready}
     except Exception:
         return {"pdfs": 0, "chunks": 0, "vector_ready": False}
@@ -58,6 +66,11 @@ def get_history():
 
 @app.post("/api/upload")
 async def upload_file(file: UploadFile = File(...), category: str = Form("General")):
+    try:
+        rag_engine = get_rag_engine()
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
     path = os.path.join(PDF_DIR, file.filename)
     with open(path, "wb") as f:
         f.write(await file.read())
@@ -69,6 +82,7 @@ def chat(request: ChatRequest):
     question = request.query
     history = request.history
     start_time = time.time()
+    rag_engine = get_rag_engine_safe()
     
     intent = get_intent(question)
     kg_answer = None
@@ -76,10 +90,12 @@ def chat(request: ChatRequest):
     
     if intent in ["FACULTY_INFO", "COURSE_INFO", "REGULATION", "DEFINITION"]:
         kg_answer = query_kg(question)
-    vector_results = rag_engine.retrieve(question)
+    if rag_engine:
+        vector_results = rag_engine.retrieve(question)
 
     context_parts = []
-    reasoning_log = f"Intent Detected: **{intent}**\nRouting: **{'KG + Vector' if kg_answer else 'Vector DB Search'}**\nConfidence: **High (0.98)**"
+    routing_mode = "KG + Vector" if kg_answer and vector_results else "Knowledge Graph" if kg_answer else "Vector DB Search" if vector_results else "No Retrieval Hit"
+    reasoning_log = f"Intent Detected: **{intent}**\nRouting: **{routing_mode}**\nConfidence: **High (0.98)**"
     source_bullets = ""
 
     if kg_answer:
@@ -103,7 +119,11 @@ def chat(request: ChatRequest):
     if not context_parts and not history:
         return {
             "answer": "I couldn't find any relevant information.",
-            "mode": "No DB hit"
+            "mode": "No DB hit",
+            "confidence": 0,
+            "sources": "",
+            "reasoning": reasoning_log,
+            "snippets": []
         }
 
     final_context = "\n\n---\n\n".join(context_parts) if context_parts else "No specific documentation context found for this immediate query. Rely on existing memory if present."

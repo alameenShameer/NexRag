@@ -47,4 +47,4 @@ for r in results:
     print(f" - [Score {r['score']:.4f}] {r['text']}")
 
 assert len(results) > 0, "Retrieval failed to find results."
-print("\n✅ Verification Successful!")
+print("\nVerification Successful.")
