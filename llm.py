@@ -1,5 +1,14 @@
 import ollama
 
+MODEL_NAME = "llama3.2:3b"
+
+
+def get_llm_info():
+    return {
+        "provider": "ollama",
+        "model": MODEL_NAME,
+    }
+
 def generate_answer(question, context, history=None):
     if history is None:
         history = []
@@ -8,10 +17,12 @@ You must answer the User's question using the Context below. If the Context lack
 If the answer cannot be logically deduced from the Context or History, explicitly say "I don't know".
 
 Guidelines:
-- Provide a detailed and comprehensive answer.
-- Explain concepts clearly.
-- Use standard markdown bullet points (e.g., starting with '-') if listing information.
-- CRUCIAL: Always add a blank line between paragraphs and before/after lists to ensure correct alignment and spacing.
+- Start with the most direct answer possible.
+- Never guess, invent faculty names, or fill gaps with likely-sounding details.
+- If the context only gives a partial answer, clearly separate what is known from what is unknown.
+- Prefer short paragraphs or flat bullet lists over long filler text.
+- Mention the source basis briefly, such as "According to the knowledge graph" or "From the uploaded documents", when helpful.
+- Always keep the tone confident but honest.
 
 Context:
 {context}
@@ -29,13 +40,13 @@ Context:
 
     try:
         response = ollama.chat(
-            model="llama3.2:3b",
+            model=MODEL_NAME,
             messages=messages_list,
             stream=False,
             options={
-                "temperature": 0.5, # Slightly more creative for better flow
+                "temperature": 0.2,
                 "num_ctx": 2048, 
-                "num_predict": 512  # Allow for longer responses
+                "num_predict": 384
             }
         )
         yield response["message"]["content"]

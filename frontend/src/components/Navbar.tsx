@@ -1,14 +1,27 @@
-import { Brain, Settings, Moon, Sun, Database } from 'lucide-react';
+import { Brain, Moon, Sun, Database } from 'lucide-react';
+
+interface SystemStatus {
+  pdfs: number;
+  chunks: number;
+  vector_ready: boolean;
+  kg_ready: boolean;
+  llm_provider: string;
+  llm_model: string;
+}
 
 export function Navbar({ 
   onEditKG, 
   isDark, 
-  onToggleTheme 
+  onToggleTheme,
+  status
 }: { 
   onEditKG?: () => void;
   isDark?: boolean;
   onToggleTheme?: () => void;
+  status?: SystemStatus | null;
 }) {
+  const backendReady = Boolean(status?.vector_ready || status?.kg_ready);
+
   return (
     <div className="h-16 border-b border-border bg-card px-6 flex items-center justify-between">
       <div className="flex items-center gap-3">
@@ -23,8 +36,10 @@ export function Navbar({
       
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted/50 border border-border">
-          <div className="w-2 h-2 rounded-full bg-foreground animate-pulse"></div>
-          <span className="text-xs text-muted-foreground">Mistral (Local)</span>
+          <div className={`w-2 h-2 rounded-full ${backendReady ? 'bg-emerald-400 animate-pulse' : 'bg-rose-400'}`}></div>
+          <span className="text-xs text-muted-foreground">
+            {status ? `${status.llm_model} (${status.llm_provider})` : 'Backend status unavailable'}
+          </span>
         </div>
         
         <button 

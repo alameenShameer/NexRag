@@ -11,7 +11,7 @@ interface SourceChunk {
   relevance: number;
 }
 
-export function IntelligencePanel({ snippets = [] }: { snippets?: any[] }) {
+export function IntelligencePanel({ snippets = [], status: externalStatus }: { snippets?: any[]; status?: any }) {
   const [activeTab, setActiveTab] = useState<TabType>('sources');
   const [status, setStatus] = useState<any>(null);
 
@@ -29,6 +29,12 @@ export function IntelligencePanel({ snippets = [] }: { snippets?: any[] }) {
     return () => clearInterval(int);
   }, []);
 
+  useEffect(() => {
+    if (externalStatus) {
+      setStatus(externalStatus);
+    }
+  }, [externalStatus]);
+
   const sourceChunks: SourceChunk[] = snippets.map((s, i) => ({
     id: i.toString(),
     fileName: s.source,
@@ -36,6 +42,8 @@ export function IntelligencePanel({ snippets = [] }: { snippets?: any[] }) {
     content: s.text,
     relevance: s.score,
   }));
+  const kgReady = Boolean(status?.kg_ready);
+  const vectorReady = Boolean(status?.vector_ready);
 
   const tabs = [
     { id: 'sources' as TabType, label: 'Sources', icon: FileText },
@@ -73,6 +81,11 @@ export function IntelligencePanel({ snippets = [] }: { snippets?: any[] }) {
         {activeTab === 'sources' && (
           <div className="space-y-3">
             <h3 className="text-sm font-semibold text-foreground mb-3">Retrieved Sources</h3>
+            {sourceChunks.length === 0 && (
+              <div className="p-4 rounded-lg bg-muted/20 border border-border text-xs text-muted-foreground leading-relaxed">
+                No ranked snippets for the latest answer yet. This usually means the response came directly from the knowledge graph or the system could not find reliable document evidence.
+              </div>
+            )}
             {sourceChunks.map((chunk) => (
               <div
                 key={chunk.id}
@@ -115,12 +128,16 @@ export function IntelligencePanel({ snippets = [] }: { snippets?: any[] }) {
 
         {activeTab === 'knowledge-graph' && (
           <div className="space-y-4 text-center py-10">
-            <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mx-auto mb-4 border border-primary/10">
-              <Network className="w-8 h-8 text-primary opacity-50" />
+            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 border ${
+              kgReady ? 'bg-emerald-500/5 border-emerald-500/10' : 'bg-rose-500/5 border-rose-500/10'
+            }`}>
+              <Network className={`w-8 h-8 ${kgReady ? 'text-emerald-400' : 'text-rose-400'} opacity-70`} />
             </div>
-            <h3 className="text-sm font-semibold text-foreground">KG Engine Active</h3>
+            <h3 className="text-sm font-semibold text-foreground">{kgReady ? 'KG Engine Active' : 'KG Engine Offline'}</h3>
             <p className="text-xs text-muted-foreground px-6 leading-relaxed">
-              The Knowledge Graph is operational and handling entity-based routing for faculty and course queries.
+              {kgReady
+                ? 'The knowledge graph is responding and can support entity-centric answers for faculty, courses, and regulations.'
+                : 'The knowledge graph is not reachable right now, so entity-centric answers may fall back to document retrieval only.'}
             </p>
           </div>
         )}
@@ -152,18 +169,18 @@ export function IntelligencePanel({ snippets = [] }: { snippets?: any[] }) {
               <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-purple-500" />
-                    <span className="text-xs font-semibold text-purple-400">Knowledge Graph</span>
+                    <CheckCircle2 className={`w-4 h-4 ${kgReady ? 'text-purple-500' : 'text-rose-500'}`} />
+                    <span className={`text-xs font-semibold ${kgReady ? 'text-purple-400' : 'text-rose-400'}`}>Knowledge Graph</span>
                   </div>
                 </div>
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">Status:</span>
-                    <span className="text-foreground font-medium">Connected</span>
+                    <span className="text-foreground font-medium">{kgReady ? 'Connected' : 'Offline'}</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className="text-muted-foreground">Fuseki DB:</span>
-                    <span className="text-foreground font-medium">Awaiting Ops</span>
+                    <span className="text-muted-foreground">Endpoint:</span>
+                    <span className="text-foreground font-medium">{kgReady ? 'Responding' : 'Unavailable'}</span>
                   </div>
                 </div>
               </div>
@@ -172,17 +189,17 @@ export function IntelligencePanel({ snippets = [] }: { snippets?: any[] }) {
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-blue-500" />
-                    <span className="text-xs font-semibold text-blue-400">Vector DB {status?.vector_ready ? 'Ready' : 'Off'}</span>
+                    <span className="text-xs font-semibold text-blue-400">Vector DB {vectorReady ? 'Ready' : 'Off'}</span>
                   </div>
                 </div>
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">FAISS Index:</span>
-                    <span className="text-foreground font-medium">{status?.vector_ready ? 'Active' : 'Offline'}</span>
+                    <span className="text-foreground font-medium">{vectorReady ? 'Active' : 'Offline'}</span>
                   </div>
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">BM25 Index:</span>
-                    <span className="text-foreground font-medium">{status?.vector_ready ? 'Active' : 'Offline'}</span>
+                    <span className="text-foreground font-medium">{vectorReady ? 'Active' : 'Offline'}</span>
                   </div>
                 </div>
               </div>
@@ -197,11 +214,11 @@ export function IntelligencePanel({ snippets = [] }: { snippets?: any[] }) {
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">Model:</span>
-                    <span className="text-foreground font-medium">Llama 3.2</span>
+                    <span className="text-foreground font-medium">{status?.llm_model || 'Unknown'}</span>
                   </div>
                   <div className="flex justify-between text-xs">
                     <span className="text-muted-foreground">Provider:</span>
-                    <span className="text-foreground font-medium">Ollama (Local)</span>
+                    <span className="text-foreground font-medium">{status?.llm_provider || 'Unknown'}</span>
                   </div>
                 </div>
               </div>

@@ -8,8 +8,8 @@ from pydantic import BaseModel
 from typing import List, Optional, Dict
 
 from rag import get_rag_engine
-from kg import query_kg
-from llm import generate_answer
+from kg import query_kg, ping_kg
+from llm import generate_answer, get_llm_info
 from router import get_intent
 from logger import log_interaction
 
@@ -34,6 +34,18 @@ def get_rag_engine_safe():
     except Exception:
         return None
 
+
+def compute_confidence(kg_answer, vector_results):
+    if kg_answer and vector_results:
+        top_score = vector_results[0]["score"] if vector_results else 0.0
+        return min(98, max(90, int(90 + top_score * 8)))
+    if kg_answer:
+        return 94
+    if vector_results:
+        top_score = vector_results[0]["score"]
+        return min(92, max(35, int(top_score * 100)))
+    return 0
+
 class ChatRequest(BaseModel):
     query: str
     history: Optional[List[Dict[str, str]]] = []
@@ -45,9 +57,25 @@ def get_status():
         total_pdfs = len([f for f in os.listdir(PDF_DIR) if f.endswith('.pdf')])
         total_chunks = len(rag_engine.chunks_metadata) if rag_engine and rag_engine.chunks_metadata else 0
         vector_ready = bool(rag_engine and rag_engine.index is not None)
-        return {"pdfs": total_pdfs, "chunks": total_chunks, "vector_ready": vector_ready}
+        llm_info = get_llm_info()
+        return {
+            "pdfs": total_pdfs,
+            "chunks": total_chunks,
+            "vector_ready": vector_ready,
+            "kg_ready": ping_kg(),
+            "llm_provider": llm_info["provider"],
+            "llm_model": llm_info["model"],
+        }
     except Exception:
-        return {"pdfs": 0, "chunks": 0, "vector_ready": False}
+        llm_info = get_llm_info()
+        return {
+            "pdfs": 0,
+            "chunks": 0,
+            "vector_ready": False,
+            "kg_ready": False,
+            "llm_provider": llm_info["provider"],
+            "llm_model": llm_info["model"],
+        }
 
 @app.get("/api/documents")
 def get_documents():
@@ -95,7 +123,8 @@ def chat(request: ChatRequest):
 
     context_parts = []
     routing_mode = "KG + Vector" if kg_answer and vector_results else "Knowledge Graph" if kg_answer else "Vector DB Search" if vector_results else "No Retrieval Hit"
-    reasoning_log = f"Intent Detected: **{intent}**\nRouting: **{routing_mode}**\nConfidence: **High (0.98)**"
+    confidence = compute_confidence(kg_answer, vector_results)
+    reasoning_log = f"Intent Detected: **{intent}**\nRouting: **{routing_mode}**\nConfidence: **{confidence}%**"
     source_bullets = ""
 
     if kg_answer:
@@ -120,7 +149,7 @@ def chat(request: ChatRequest):
         return {
             "answer": "I couldn't find any relevant information.",
             "mode": "No DB hit",
-            "confidence": 0,
+            "confidence": confidence,
             "sources": "",
             "reasoning": reasoning_log,
             "snippets": []
@@ -140,11 +169,11 @@ def chat(request: ChatRequest):
 
     return {
         "answer": response_msg,
-        "confidence": 98,
+        "confidence": confidence,
         "sources": source_bullets,
         "reasoning": reasoning_log,
         "snippets": snippets,
-        "mode": "Knowledge Graph Mode" if kg_answer else "Vector Search Mode"
+        "mode": "Combined Mode" if kg_answer and vector_results else "Knowledge Graph Mode" if kg_answer else "Vector Search Mode"
     }
 
 class KGFileUpdate(BaseModel):

@@ -3,13 +3,17 @@ import { useState } from 'react';
 
 interface MessageInputProps {
   onSendMessage: (message: string) => void;
+  disabled?: boolean;
 }
 
-export function MessageInputBar({ onSendMessage }: MessageInputProps) {
+export function MessageInputBar({ onSendMessage, disabled = false }: MessageInputProps) {
   const [input, setInput] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (disabled) {
+      return;
+    }
     if (input.trim()) {
       onSendMessage(input);
       setInput('');
@@ -29,6 +33,7 @@ export function MessageInputBar({ onSendMessage }: MessageInputProps) {
         <div className="relative flex items-center gap-2 bg-muted/30 border border-border rounded-full px-4 py-2.5 focus-within:border-primary/50 transition-colors">
           <button
             type="button"
+            disabled={disabled}
             className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-muted flex items-center justify-center transition-colors"
           >
             <Paperclip className="w-4 h-4 text-muted-foreground" />
@@ -40,12 +45,14 @@ export function MessageInputBar({ onSendMessage }: MessageInputProps) {
             onKeyDown={handleKeyDown}
             placeholder="Ask anything about your college..."
             rows={1}
+            disabled={disabled}
             className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none resize-none py-1"
             style={{ maxHeight: '120px' }}
           />
           
           <button
             type="button"
+            disabled={disabled}
             className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-muted flex items-center justify-center transition-colors"
           >
             <Mic className="w-4 h-4 text-muted-foreground" />
@@ -53,12 +60,15 @@ export function MessageInputBar({ onSendMessage }: MessageInputProps) {
           
           <button
             type="submit"
-            disabled={!input.trim()}
+            disabled={disabled || !input.trim()}
             className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary hover:bg-primary/90 disabled:bg-muted disabled:cursor-not-allowed flex items-center justify-center transition-colors"
           >
             <Send className="w-4 h-4 text-white" />
           </button>
         </div>
+        <p className="mt-2 px-2 text-xs text-muted-foreground">
+          {disabled ? 'NexRAG is preparing a response...' : 'Press Enter to send. Shift+Enter adds a new line.'}
+        </p>
       </form>
     </div>
   );

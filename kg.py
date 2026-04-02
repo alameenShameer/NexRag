@@ -29,6 +29,17 @@ def _extract_search_terms(question):
 
     return phrases
 
+
+def ping_kg():
+    sparql = SPARQLWrapper(FUSEKI_ENDPOINT)
+    sparql.setQuery("ASK { ?s ?p ?o }")
+    sparql.setReturnFormat(JSON)
+    try:
+        sparql.query().convert()
+        return True
+    except Exception:
+        return False
+
 def query_kg(question):
     sparql = SPARQLWrapper(FUSEKI_ENDPOINT)
 

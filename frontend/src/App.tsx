@@ -3,15 +3,15 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Navbar } from './components/Navbar';
 import { LeftSidebar } from './components/LeftSidebar';
-import { ChatArea } from './components/ChatArea';
 import { MessageInputBar } from './components/MessageInputBar';
 import { IntelligencePanel } from './components/IntelligencePanel';
 import { KnowledgeGraphEditor } from './components/KnowledgeGraphEditor';
+
 interface Message {
   id: string;
   type: 'user' | 'assistant';
   content: string;
-  mode?: 'knowledge-graph' | 'hybrid-rag' | 'combined';
+  mode?: 'knowledge-graph' | 'hybrid-rag' | 'combined' | 'fallback';
   confidence?: number;
   sources?: Array<{ type: string; reference: string }>;
   reasoning?: {
@@ -24,12 +24,22 @@ interface Message {
   timestamp: string;
 }
 
+interface SystemStatus {
+  pdfs: number;
+  chunks: number;
+  vector_ready: boolean;
+  kg_ready: boolean;
+  llm_provider: string;
+  llm_model: string;
+}
+
 function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [activeSnippets, setActiveSnippets] = useState<any[]>([]);
   const chatAreaRef = useRef<HTMLDivElement>(null);
   const [showKGEditor, setShowKGEditor] = useState(false);
+  const [systemStatus, setSystemStatus] = useState<SystemStatus | null>(null);
   const [isDark, setIsDark] = useState(() => {
     if (typeof document !== 'undefined') {
       return document.documentElement.classList.contains('dark') || 
@@ -48,6 +58,34 @@ function App() {
     }
   }, [isDark]);
 
+  useEffect(() => {
+    let active = true;
+
+    const fetchStatus = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/status');
+        if (!response.ok) {
+          throw new Error('Status request failed');
+        }
+        const data = await response.json();
+        if (active) {
+          setSystemStatus(data);
+        }
+      } catch (error) {
+        if (active) {
+          setSystemStatus(null);
+        }
+      }
+    };
+
+    fetchStatus();
+    const intervalId = window.setInterval(fetchStatus, 5000);
+    return () => {
+      active = false;
+      window.clearInterval(intervalId);
+    };
+  }, []);
+
   const handleSendMessage = async (content: string) => {
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -58,6 +96,7 @@ function App() {
 
     setMessages(prev => [...prev, userMessage]);
     setIsTyping(true);
+    setActiveSnippets([]);
 
     // Gather last 4 turns for context
     const history = messages.slice(-4).map(msg => ({
@@ -72,24 +111,40 @@ function App() {
         body: JSON.stringify({ query: content, history: history }),
       });
 
-      if (!response.ok) throw new Error('API Error');
+      if (!response.ok) {
+        let detail = 'API Error';
+        try {
+          const errorPayload = await response.json();
+          detail = errorPayload.detail || errorPayload.error || detail;
+        } catch {
+          // Ignore JSON parse failure and use fallback text.
+        }
+        throw new Error(detail);
+      }
       const data = await response.json();
 
       const assistantMessage: Message = {
         id: Date.now().toString(),
         type: 'assistant',
         content: data.answer,
-        mode: data.mode === 'Knowledge Graph Mode' ? 'knowledge-graph' : 'hybrid-rag',
+        mode:
+          data.mode === 'Knowledge Graph Mode'
+            ? 'knowledge-graph'
+            : data.mode === 'Combined Mode'
+              ? 'combined'
+              : data.mode === 'No DB hit'
+                ? 'fallback'
+                : 'hybrid-rag',
         confidence: data.confidence,
         sources: data.snippets?.map((s: any) => ({
           type: 'Document',
-          reference: `${s.source} (score: ${s.score.toFixed(2)})`
+          reference: `${s.source} (${(s.score * 100).toFixed(0)}% match)`
         })) || [],
         reasoning: {
           intent: data.reasoning.match(/Intent Detected: \*\*(.*?)\*\*/)?.[1] || 'GENERAL',
           routing: data.reasoning.match(/Routing: \*\*(.*?)\*\*/)?.[1] || 'Vector Search',
           queryType: data.reasoning.match(/Query Type: \*\*(.*?)\*\*/)?.[1] || 'Standard RAG',
-          confidence: data.confidence / 100,
+          confidence: (data.confidence || 0) / 100,
           chunksUsed: data.snippets?.length || 0
         },
         timestamp: new Date().toISOString(),
@@ -102,7 +157,9 @@ function App() {
       const errorMessage: Message = {
         id: Date.now().toString(),
         type: 'assistant',
-        content: 'I apologize, but I am having trouble connecting to the backend right now.',
+        content: `I could not complete that request.\n\nReason: ${(error as Error).message || 'The backend is unavailable right now.'}\n\nPlease check whether the API, Ollama, and Fuseki services are running.`,
+        mode: 'fallback',
+        confidence: 0,
         timestamp: new Date().toISOString(),
       };
       setMessages(prev => [...prev, errorMessage]);
@@ -117,6 +174,7 @@ function App() {
         onEditKG={() => setShowKGEditor(true)} 
         isDark={isDark} 
         onToggleTheme={() => setIsDark(!isDark)} 
+        status={systemStatus}
       />
       
       {showKGEditor && (
@@ -135,10 +193,10 @@ function App() {
             />
           </div>
           
-          <MessageInputBar onSendMessage={handleSendMessage} />
+          <MessageInputBar onSendMessage={handleSendMessage} disabled={isTyping} />
         </div>
         
-        <IntelligencePanel snippets={activeSnippets} />
+        <IntelligencePanel snippets={activeSnippets} status={systemStatus} />
       </div>
     </div>
   );
@@ -172,13 +230,15 @@ function ChatAreaWithMessages({
   const getModeConfig = (mode?: string) => {
     switch (mode) {
       case 'knowledge-graph':
-        return { emoji: '⚫', label: 'Knowledge Graph Mode', color: 'text-white bg-white/10' };
+        return { emoji: 'KG', label: 'Knowledge Graph Mode', color: 'text-emerald-300 bg-emerald-500/10' };
       case 'hybrid-rag':
-        return { emoji: '⚪', label: 'Hybrid RAG Mode', color: 'text-gray-300 bg-gray-300/10' };
+        return { emoji: 'RAG', label: 'Hybrid RAG Mode', color: 'text-sky-300 bg-sky-500/10' };
       case 'combined':
-        return { emoji: '◐', label: 'Combined Mode', color: 'text-gray-400 bg-gray-400/10' };
+        return { emoji: 'Mix', label: 'Combined Mode', color: 'text-amber-300 bg-amber-500/10' };
+      case 'fallback':
+        return { emoji: 'Low', label: 'Low Context Mode', color: 'text-rose-300 bg-rose-500/10' };
       default:
-        return { emoji: '⚪', label: 'AI Mode', color: 'text-gray-300 bg-gray-300/10' };
+        return { emoji: 'AI', label: 'AI Mode', color: 'text-gray-300 bg-gray-300/10' };
     }
   };
 
@@ -299,11 +359,15 @@ function MessageBubble({
             </ReactMarkdown>
           </div>
           
-          {message.type === 'assistant' && message.confidence && (
+          {message.type === 'assistant' && message.confidence !== undefined && (
             <div className="mt-4 pt-4 border-t border-border/50">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs text-muted-foreground">Confidence:</span>
-                <span className="text-xs font-semibold text-green-400">{message.confidence}%</span>
+                <span className={`text-xs font-semibold ${
+                  message.confidence >= 85 ? 'text-green-400' : message.confidence >= 60 ? 'text-amber-400' : 'text-rose-400'
+                }`}>
+                  {message.confidence}%
+                </span>
               </div>
               
               {message.sources && message.sources.length > 0 && (
@@ -312,7 +376,7 @@ function MessageBubble({
                   <div className="space-y-1">
                     {message.sources.map((source, idx) => (
                       <div key={idx} className="text-xs text-foreground flex items-start gap-1.5">
-                        <span className="text-primary">•</span>
+                        <span className="text-primary">-</span>
                         <span className="font-medium">{source.type}:</span>
                         <span className="text-muted-foreground">{source.reference}</span>
                       </div>
@@ -392,7 +456,7 @@ function ReasoningPanel({
             <span className="text-xs text-muted-foreground">Confidence:</span>
             <span className="text-xs font-mono text-green-400">{message.reasoning.confidence.toFixed(2)}</span>
           </div>
-          {message.reasoning.chunksUsed && (
+          {message.reasoning.chunksUsed !== undefined && (
             <div className="flex justify-between">
               <span className="text-xs text-muted-foreground">Chunks Used:</span>
               <span className="text-xs font-mono text-foreground">{message.reasoning.chunksUsed}</span>
