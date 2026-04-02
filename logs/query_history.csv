@@ -1,0 +1,1389 @@
+Timestamp,Question,Intent,Latency (s),Answer
+2026-02-17 12:06:11,What is RAG?,DEFINITION,13.87,"Based on the provided context, I can explain what RAG stands for and its relevance in the NexRag project.
+
+RAG stands for Retrieval-Augmented Generation. It's a technique used in natural language processing (NLP) to improve the accuracy of text generation models. The core idea behind RAG is to leverage pre-trained retrieval models to retrieve relevant documents from a large corpus, which are then used as input to a generation model to generate high-quality text.
+
+In the context of the NexRag project, Retrieval-Augmented Generation (RAG) chatbot was built to answer academic queries using curated documents. The RAG chatbot uses pre-trained retrieval models to retrieve relevant documents from a large corpus, which are then used as input to a generation model to generate answers to user queries.
+
+Here's a brief overview of how RAG works:
+
+• **Retrieval**: A pre-trained retrieval model is used to search for relevant documents in the curated corpus based on the user query.
+• **Augmentation**: The retrieved documents are then used as input to a generation model, which generates text based on the content of these documents.
+• **Generation**: The generated text is then returned as the answer to the user's query.
+
+The use of RAG in the NexRag project allows for more accurate and informative responses to user queries, especially when dealing with complex or nuanced topics."
+2026-02-17 12:33:54,Who teaches CS301?,GENERAL,11.18,"I don't know. The provided context does not mention who teaches CS301. It only mentions the user's role as a student, their academic institution (MES Institute of Technology and Management), and their involvement in the computer science association (MATRIX) as a secretary. There is no information about specific courses, including CS301, or their instructors."
+2026-02-17 12:34:41,What is the rule for Duty Leave?,DEFINITION,2.77,"Based on the provided context, here's a detailed answer to your question:
+
+According to R.4 Leave Rules, specifically under ""Duty Leave"", the following rules apply:
+
+• Duty leave is granted to students for participating in official events, sports, or university activities.
+• The maximum limit for duty leave per semester is 10 days.
+
+Additionally, it is mentioned that application for duty leave must be recommended by the Faculty Advisor and approved by the Head of Department (HOD).
+
+In summary, the rule for Duty Leave is as follows:
+
+* Maximum limit: 10 days per semester
+* Application must be recommended by the Faculty Advisor
+* Approval required from the HOD"
+2026-02-17 12:37:16,What is the syllabus for Module 1 of Theory of Computation?,DEFINITION,3.30,"Based on the provided context, the syllabus for Module 1: Finite Automata of the Theory of Computation course is as follows:
+
+* Introduction to Automata Theory, Strings, and Languages
+* DFA (Deterministic Finite Automata):
+	+ Definition
+	+ Transition diagram
+
+There is no specific outline or detailed list of topics provided in the context. However, it can be inferred that the module will cover the fundamental concepts of finite automata theory, including deterministic finite automata.
+
+As a faculty member, you may want to consider covering the following topics in Module 1:
+
+* Introduction to automata theory and its applications
+* Types of finite automata (DFA, NFA)
+* Transition diagrams and their interpretation
+* Regular expressions and languages
+* Pumping lemma for regular languages
+
+You can also use the provided context to familiarize yourself with the course outline and plan your lectures accordingly."
+2026-02-17 12:38:51,what are seminar guidelines,GENERAL,4.15,"Based on the provided context, here is a detailed explanation of the seminar guidelines:
+
+**Seminar Diary Guidelines:**
+
+* The seminar diary is mandatory.
+* You must maintain weekly entries about your progress in the seminar.
+* Your guide will review and sign your diary every week.
+
+In essence, the seminar diary serves as a record of your participation and progress in the seminar. By maintaining regular entries, you can demonstrate your engagement with the material and your ability to track your own learning.
+
+**Abstract Guidelines:**
+
+* The purpose of the abstract is to provide a concise summary of your seminar topic.
+* Although there are no specific guidelines provided for the abstract itself, it is implied that the abstract should accurately reflect the content of your seminar presentation.
+
+The abstract is an important tool in communicating the key points and themes of your seminar presentation to others. By providing a clear and concise overview of your topic, you can help your audience understand the main ideas and takeaways from your presentation.
+
+**Key Takeaways:**
+
+* Maintain regular entries in your seminar diary to track your progress.
+* Ensure that your guide reviews and signs your diary every week.
+* Use your abstract to provide a concise summary of your seminar topic."
+2026-02-17 12:39:19,how to take leave,GENERAL,4.85,"Based on the provided context, it appears that there are two types of leaves: Duty Leave and Medical Leave. Here's a detailed explanation of how to take leave:
+
+**Duty Leave**
+
+* Purpose: To participate in official events, sports, or university activities.
+* Maximum limit: 10 days per semester.
+* Application process:
+	+ Recommended by the Faculty Advisor
+	+ Approved by the Head of Department (HOD)
+
+To take Duty Leave, follow these steps:
+
+1. Obtain approval from your Faculty Advisor to apply for Duty Leave.
+2. Submit an application to the HOD, ensuring that it meets the required criteria.
+3. Receive approval from the HOD to take the leave.
+
+**Medical Leave**
+
+* Purpose: Due to illness or medical reasons.
+* Application process:
+	+ Recommended by the Faculty Advisor
+	+ Approved by the HOD
+
+To take Medical Leave, follow these steps:
+
+1. Obtain approval from your Faculty Advisor to apply for Medical Leave.
+2. Submit an application to the HOD, ensuring that it meets the required criteria.
+3. Receive approval from the HOD to take the leave.
+
+**Important Notes**
+
+* Both Duty and Medical Leave do not exempt students from meeting the minimum attendance requirement of 75%.
+* Medical Leave can be considered for Condonation, but this is not explicitly stated in the provided context.
+
+It's essential to follow the proper application process and obtain approval from both your Faculty Advisor and the HOD before taking leave."
+2026-02-17 12:54:09,Who teaches CS301?,GENERAL,7.35,"I don't know. The provided context does not mention who teaches CS301. It only provides information about the user's role as a faculty member, their involvement with the MATRIX student association, and their responsibilities in coordinating technical workshops and industry interactions. There is no mention of specific courses or instructors."
+2026-02-17 12:56:03,Who teaches CS301?,GENERAL,1.61,"I don't know. The provided context does not mention who teaches CS301. It only mentions the role of the faculty member as a secretary for the Computer Science Association (MATRIX) at MES Institute of Technology and Management (MESITAM), their responsibilities, and some of their past experiences. There is no information about specific courses or instructors teaching particular subjects."
+2026-02-17 12:57:40,What is the rule for Duty Leave?,DEFINITION,2.98,"Based on the provided context, I can provide a detailed explanation of the rule for Duty Leave.
+
+According to R.4 Leave Rules, specifically R.4.1 Duty Leave, the following rules apply:
+
+* Duty leave is granted to students for participating in official events, sports, or university activities.
+* The maximum limit for duty leave is 10 days per semester.
+* Application for duty leave must be recommended by the Faculty Advisor and approved by the Head of Department (HOD).
+
+In summary, the rule for Duty Leave allows students to take up to 10 days off from their academic schedule within a semester, provided that the application is supported by the student's faculty advisor and subsequently approved by the HOD."
+2026-02-17 12:59:18,What are the modules in Theory of Computation?,GENERAL,2.27,"Based on the provided context, the modules in Theory of Computation for CST301 - Theory of Computation at MES Institute of Technology and Management are:
+
+* Module 1: Finite Automata
+	+ Introduction to Automata Theory, Strings, Languages.
+	+ DFA (Deterministic Finite Automata): Definition, Transition diagram.
+	+ NFA (Nondeterministic Finite Automata): Definition, Equivalence of NFA and DFA.
+
+There is no mention of any other modules in the provided context."
+2026-02-17 13:02:51,Who teaches CS301?,GENERAL,1.60,"I don't know. The provided context does not mention who teaches CS301. It only mentions the user's role as a faculty member, their responsibilities, and their affiliation with MES Institute of Technology and Management (MESITAM). There is no information about specific courses or instructors."
+2026-02-17 13:11:42,Who teaches CS301?,GENERAL,9.60,"I don't know. The provided context does not mention who teaches CS301. It only mentions the role of a faculty member as Secretary – MATRIX (Computer Science Association) 2024 – 2025 at MES Institute of Technology and Management (MESITAM), but it does not provide information about specific courses or instructors."
+2026-02-17 13:12:55,Who teaches CS301?,GENERAL,1.38,"I don't know. The provided context does not mention who teaches CS301. It only mentions the user's role as a faculty member, their responsibilities, and their affiliation with MES Institute of Technology and Management (MESITAM). There is no information about specific courses or instructors."
+2026-02-17 13:15:23,Who teaches CS301?,GENERAL,1.19,I don't know. The provided context does not mention who teaches CS301. It only mentions the user's role as a faculty member and provides information about their experience and responsibilities at MES Institute of Technology and Management (MESITAM).
+2026-02-17 13:16:22,Who teaches CS301?,GENERAL,1.36,"I don't know. The provided context does not mention who teaches CS301. It only provides information about the user's role as a faculty member and their responsibilities, but it does not specify which course they teach or who teaches specific courses."
+2026-02-17 13:19:09,Who teaches CS301?,FACULTY_INFO,2.57,"Based on the provided context, I can answer that Dr. Anitha S is the one who teaches CS301, as indicated in the Fact from Knowledge Graph:
+
+**CS301**
+- hasCredit: 4
+- Taught by: Dr. Anitha S
+- governedBy: http://mesitam.ac.in/ns#KTU_2019_Scheme
+
+There is no additional information provided about other instructors or teaching staff for CS301 in the context, so I can only confirm that Dr. Anitha S is the teacher for this course."
+2026-02-17 15:34:57,Who teaches CS301?,FACULTY_INFO,14.23,"Based on the provided context, I can answer that Dr. Anitha S teaches CS301."
+2026-02-17 15:53:10,What is the rule for Duty Leave?,REGULATION,11.85,"Based on the provided context, here's a detailed explanation of the rule for Duty Leave:
+
+**Duty Leave Rule:**
+
+* Duty leave is granted to students participating in official events, sports, or university activities.
+* The maximum limit for duty leave per semester is 10 days.
+
+**Eligibility and Approval Requirements:**
+
+* Application must be recommended by the Faculty Advisor.
+* The application must be approved by the Head of Department (HOD).
+
+In summary, duty leave is a type of leave that allows students to participate in official university events or activities. To be eligible for duty leave, students must obtain approval from their Faculty Advisor and the HOD. The maximum duration of duty leave per semester is 10 days.
+
+It's worth noting that there are no specific rules mentioned regarding the frequency of duty leave or the types of events that qualify as ""official"" university activities. However, based on the provided context, it appears that duty leave is intended to support students' participation in university-sponsored events and activities."
+2026-02-17 15:53:50,Who teaches CS301?,FACULTY_INFO,2.53,"Based on the provided context, I can answer that Dr. Anitha S teaches CS301.
+
+Here are the details about CS301:
+
+* Course Code: CS301
+* Credits: 4
+* Taught by: Dr. Anitha S
+* Governed By: http://mesitam.ac.in/ns#KTU_2019_Scheme
+
+No further information is available in the provided context, but according to the course details, Dr. Anitha S is the instructor for CS301."
+2026-02-17 15:54:20,What are the modules in Theory of Computation?,COURSE_INFO,3.13,"The modules in Theory of Computation, as per the provided context, are:
+
+* Module 1: Finite Automata
+	+ Introduction to Automata Theory, Strings, Languages.
+	+ DFA (Deterministic Finite Automata): Definition, Transition diagram.
+	+ NFA (Nondeterministic Finite Automata): Definition, Equivalence of NFA and DFA.
+
+There is no mention of Regular Expressions as a separate module in the provided context. However, it is mentioned under Module 1: Finite Automata.
+
+Please note that the context only provides information about the modules for CST301 - Theory of Computation course, and does not cover other topics or modules within the broader field of Theory of Computation."
+2026-03-30 00:02:59,what is nexRag?,DEFINITION,3.48,"NexRag is an AI-Powered Educational Assistant project that was developed by you. Here are some key details about the project:
+
+• **Project Overview**: NexRag is a Retrieval-Augmented Generation (RAG) chatbot designed to answer academic queries using curated documents.
+• **Key Features**:
+	+ Built on top of a RAG chatbot framework
+	+ Utilizes pdfplumber for document ingestion with chunking and overlap strategies
+	+ Implemented to process natural language processing (NLP)
+• **Objective**: The primary objective of the NexRag project is to create an effective educational assistant that can provide accurate and relevant information to students, helping them with their academic queries.
+
+In summary, NexRag is a chatbot project that aims to assist students by providing answers to their academic questions using a combination of RAG technology and NLP processing."
+2026-03-30 00:06:25,what is rag,DEFINITION,5.24,"As a student at MES Institute of Technology and Management, I'd be happy to help you understand the concept of RAG (Retrieval-Augmented Generation) chatbot.
+
+RAG is a type of chatbot architecture used in natural language processing (NLP) that combines retrieval and generation techniques to generate human-like responses. The name ""RAG"" stands for Retrieval-Augmented Generation, which refers to the two main components of this architecture:
+
+1. **Retrieval**: This component uses a knowledge base or a database to retrieve relevant information related to the user's query. In the context of NexRag, the retrieval component is used to fetch curated documents that are relevant to the user's question.
+2. **Generation**: This component generates a response based on the retrieved information. In NexRag, the generation component uses a model to generate a human-like response to the user's query.
+
+The RAG architecture is particularly useful in applications like educational chatbots, where the goal is to provide accurate and informative responses to users' queries. By combining retrieval and generation techniques, RAG chatbots can provide more accurate and relevant responses than traditional chatbot architectures.
+
+In the context of NexRag, the Retrieval-Augmented Generation (RAG) chatbot was built using a combination of pdfplumber for document ingestion and chunking, as well as overlap strategies. This allowed the chatbot to efficiently retrieve and process large amounts of data to generate accurate responses.
+
+I hope this helps you understand the concept of RAG! If you have any further questions, feel free to ask."
+2026-03-30 00:07:08,what is saheer,DEFINITION,2.07,"Based on the provided context, I can answer your question.
+
+According to the text:
+
+* Prof. Saheer H is mentioned as the Head of the Department of Computer Science and Engineering.
+* He has provided facilities for you to complete your work.
+* He is also an Assistant Professor in the same department.
+
+In summary, Prof. Saheer H is a professor and the head of the computer science and engineering department at MES Institute of Technology and Management, who has facilitated your work by providing necessary resources and support."
+2026-03-30 00:07:48,what is rgb,DEFINITION,3.12,"I don't know. The context provided does not mention ""RGB"" (Red, Green, Blue). It appears to be related to Explainable Artificial Intelligence (XAI) and its applications in various fields, including computer science and engineering.
+
+However, if you're referring to the color model RGB, it's a widely used standard in digital design and imaging. In this context, I can provide some general information:
+
+* RGB stands for Red, Green, and Blue.
+* It's a additive color model, meaning that when combined in different intensities, these colors produce a wide range of hues and shades.
+* The RGB color model is commonly used in digital displays such as monitors, televisions, and mobile devices.
+
+If you could provide more context or clarify what you mean by ""RGB"" in relation to the provided documents, I'd be happy to try and assist further."
+2026-03-30 00:08:27,leave application process,GENERAL,4.98,"As a Faculty Advisor for MES Institute of Technology and Management, I can provide you with information on the leave application process.
+
+**Leave Application Process:**
+
+* Medical Leave: A student must apply for medical leave to take time off due to illness or injury. The application must be recommended by the Faculty Advisor and approved by the Head of Department (HOD).
+* Duty Leave: Students may apply for duty leave to participate in official events, sports, or university activities. The application must also be recommended by the Faculty Advisor and approved by the HOD.
+
+**Key Points to Note:**
+
+* Maximum limit for duty leave is 10 days per semester.
+* Medical leave does not exempt a student from the minimum attendance requirement of 75%.
+* Medical leave can be considered for Condonation, but this is at the discretion of the university.
+
+**Procedure for Submitting Leave Application:**
+
+1. The student must submit an application to their Faculty Advisor, explaining the reason for leave.
+2. The Faculty Advisor will review the application and ensure it meets the required criteria.
+3. If approved, the Faculty Advisor will recommend the application to the HOD.
+4. The HOD will review the application and make a decision on whether to approve or reject the leave.
+
+**Timeline:**
+
+* The Faculty Advisor should complete the formation of IEC (Internship Education Committee) and guide allotment within a week after the university examination (or last working day) of the previous semester.
+
+I hope this information helps! If you have any further questions, please don't hesitate to ask."
+2026-03-30 00:09:10,how do i apply for my leave,GENERAL,5.62,"As a Faculty, I'd be happy to guide you on the process of applying for leave.
+
+According to the MES Institute of Technology and Management's policies, there are two types of leaves: Duty Leave and Medical Leave. Here's a step-by-step guide on how to apply for each:
+
+**Duty Leave:**
+
+* The application must be recommended by your Faculty Advisor (in this case, Prof. Amina M).
+* The application must be approved by the Head of Department (HOD).
+* You can apply for duty leave up to 10 days per semester.
+* You need to submit a formal application to the HOD, stating the purpose of the leave and providing any necessary documentation.
+
+**Medical Leave:**
+
+* The application must also be recommended by your Faculty Advisor (in this case, Prof. Amina M).
+* However, medical leave does not exempt you from the minimum attendance requirement of 75%.
+* Medical leave can be considered for Condonation, but this is at the discretion of the HOD.
+* You need to submit a formal application to the HOD, stating your medical condition and providing any necessary documentation.
+
+To apply for either type of leave, follow these steps:
+
+1. **Submit an application**: Write a formal letter or email to the HOD, requesting leave on the desired date(s).
+2. **Get approval from Faculty Advisor**: Your Faculty Advisor must recommend your application and provide their support.
+3. **Get approval from Head of Department (HOD)**: The HOD will review your application and grant or deny your request for leave.
+
+Please note that these policies are subject to change, and you should always check with the relevant authorities for the most up-to-date information.
+
+If you have any further questions or concerns, feel free to reach out to me!"
+2026-03-30 00:10:31,whom am i,GENERAL,3.17,"Based on the provided context, it can be inferred that you are:
+
+* A student at MES Institute of Technology and Management (specifically in the Department of Computer Science and Engineering)
+* The author of the abstract and acknowledgement section of a seminar presentation
+* Reg. No: MEK21CS023, indicating your registration number as a student
+
+You are also mentioned as one of the recipients of gratitude from:
+
+* Prof. Basima Yoosaf, Assistant Professor, Dept. of Computer Science and Engineering (seminar coordinator)
+* Dr. K.K. Abdul Rasheed, Principal of MES Institute of Technology and Management
+* Prof. Amina M, Assistant Professor, Dept. of Computer Science and Engineering (guide)
+
+Please note that the context only provides information about your role as a student and faculty members' gratitude towards you, but does not explicitly state your name."
+2026-03-30 00:11:55,what is a btech fest,DEFINITION,3.03,"I don't know. The provided context does not mention ""BTech Fest"". However, based on the context of the Tech Fest 'NexTech 2026' notice, it can be inferred that ""BTech Fest"" might be an abbreviation for ""B.Tech Festival"", which is likely a student event organized by MES Institute of Technology and Management.
+
+Here's a possible interpretation:
+
+* B.Tech (Bachelor of Technology) is the degree program offered by the institute.
+* Tech Fest or B.Tech Fest could be a celebration or festival held to commemorate the completion of the B.Tech program, showcase student projects, or provide a platform for students to demonstrate their skills and knowledge.
+
+However, without further information, it's difficult to provide a definitive answer. If you have any additional context or clarification, I'd be happy to try and help further."
+2026-03-31 01:02:11,who is al ameen,FACULTY_INFO,8.13,"Based on the provided context, I can answer that:
+
+Al Ameen is a Full Stack Developer. The details about Al Ameen are as follows:
+
+• Name: Al Ameen
+• Email: alameencse2022@gmail.com
+• Phone Number: +91-9207606345
+• LinkedIn Profile: linkedin/in/alameenshameer
+• GitHub Profile: github/alameenShameer"
+2026-03-31 01:02:17,who is saheer,FACULTY_INFO,3.28,"Based on the provided context, it can be inferred that Prof. Saheer H is:
+
+* An Assistant Professor in the Department of Computer Science and Engineering
+* The Head of the Department (HOD)
+* A key figure who has provided facilities for the completion of the work
+
+It can also be noted that Prof. Saheer H is mentioned alongside other individuals, including Dr. K.K. Abdul Rasheed, Prof. Basima Yoosaf, Prof. Aminam, and Prof. Saheer H's colleagues as part of the academic staff at MES Institute of Technology and Management.
+
+Some key details about Prof. Saheer H are:
+
+• He is a member of the Department of Computer Science and Engineering
+• He has provided facilities for the completion of the work
+• He is an Assistant Professor, indicating his role within the institution
+
+It's worth noting that there is limited information available about Prof. Saheer H in the context provided, so some details may remain unclear or unknown without additional information."
+2026-03-31 01:05:30,who is al ameen,FACULTY_INFO,2.17,"Based on the provided context, here is the information about Al Ameen:
+
+* Full Stack Developer
+* Email: alameencse2022@gmail.com
+* Phone Number: +91-9207606345
+* LinkedIn Profile: linkedin/in/alameenshameer
+* GitHub Profile: github/alameenShameer
+* Location: Kollam, Kerala, India
+
+Additionally, Al Ameen is also mentioned as a participant in the seminar ""EXPLAINABLE AI FOR DRUG DISCOVERY AND DEVELOPMENT"" at MES Institute of Technology and Management."
+2026-03-31 01:06:24,who is saheer,FACULTY_INFO,3.19,"Based on the provided context, I can answer your question about ""Saheer"" as follows:
+
+According to the context, Prof. Saheer H is the Head of the Department of Computer Science and Engineering at MES Institute of Technology and Management.
+
+Here are some key points about Prof. Saheer H:
+
+• He is an Assistant Professor in the Department of Computer Science and Engineering.
+• He is also the Head of the Department (HOD).
+• He has provided facilities for the completion of the work, which is mentioned in the acknowledgement section of the seminar.
+• He is also a guide for the AL AMEEN, who is a Full Stack Developer.
+
+In summary, Prof. Saheer H is a prominent figure in the Department of Computer Science and Engineering at MES Institute of Technology and Management, and has played an important role in facilitating the completion of the work and guiding AL AMEEN's professional development."
+2026-03-31 01:09:02,what is rag,DEFINITION,3.93,"RAG-based Educational Chatbot 2025
+
+
+RAG stands for Retrieval-Augmented Generation, which is a technique used in natural language processing (NLP) to improve the performance of language models. In the context of the NexRag project, RAG is used to build an educational chatbot that can answer academic queries.
+
+
+Retrieval-Augmented Generation involves two main components:
+
+
+• **Retrieval**: This component uses a retrieval mechanism to search for relevant documents or information from a large database. The goal is to find the most relevant and accurate information related to the user's query.
+• **Generation**: Once the relevant documents are retrieved, the generation component uses them to generate a response to the user's query.
+
+
+In the NexRag project, document ingestion using pdfplumber with chunking and overlap strategies was implemented to facilitate the retrieval process. This allowed the chatbot to efficiently search for and retrieve relevant documents from the database.
+
+
+The use of RAG in the NexRag project enables the educational chatbot to provide accurate and informative responses to users' queries, making it a valuable tool for students and educators alike."
+2026-03-31 01:09:17,who is muneera,FACULTY_INFO,0.62,I don't know.
+2026-03-31 01:09:32,why you dont know,GENERAL,2.70,"I don't know.
+
+
+However, based on the provided context and guidelines, I can attempt to provide a comprehensive answer.
+
+The question seems to be asking ""why"" you don't know something. Given the context of the abstract and the guidelines provided, it appears that the question is related to the topic of AI-driven drug discovery and interpretability.
+
+To address this question, I would need more information or clarification on what specifically you don't know. However, based on the context, it seems that the lack of interpretability in AI models is a significant challenge in the field of drug discovery.
+
+
+If you could provide more context or clarify what you are trying to understand, I would be happy to try and assist you further."
+2026-03-31 01:10:05,what are the knowledge graph,GENERAL,6.82,"A question about Knowledge Graphs!
+
+
+Knowledge graphs are a fundamental concept in Artificial Intelligence (AI), particularly in the realm of Explainable AI (XAI). Here's an overview:
+
+
+### What is a Knowledge Graph?
+
+
+A knowledge graph is a type of database that stores information in the form of nodes and edges. Each node represents a entity, such as a person, place, or object, while edges represent relationships between these entities.
+
+
+In the context of XAI, knowledge graphs are used to represent complex relationships between entities, making it easier to understand how different inputs affect the output of a machine learning model.
+
+
+### Key Components of a Knowledge Graph:
+
+
+- **Entities**: These are the individual objects or concepts that make up the graph. Examples include people, places, and objects.
+- **Relationships**: These are the connections between entities, representing various types of associations (e.g., ""is-a"" relationships, causal relationships, etc.).
+- **Edges**: These represent the actual connections between entities, often labeled with a specific type of relationship.
+
+
+### Applications of Knowledge Graphs in XAI:
+
+
+Knowledge graphs can be used to:
+- Represent complex domain knowledge
+- Provide a structured framework for understanding how different inputs affect model outputs
+- Enable more transparent and interpretable machine learning models
+
+
+In the context of drug discovery and XAI, knowledge graphs can help researchers better understand how different drugs interact with various diseases, facilitating a more data-driven approach to finding new uses for old drugs.
+
+
+### Tools Used in MESITAM Project:
+
+
+The provided text mentions Apache Jena Fuseki and SPARQL as tools used in the MESITAM project. These are part of a suite of technologies designed to work together to create and manage knowledge graphs, including:
+
+
+- **Apache Jena**: A Java-based framework for building and managing knowledge graphs.
+- **Fuseki**: A triple store that provides a scalable and flexible platform for storing and querying RDF data.
+- **SPARQL**: A query language used to retrieve and manipulate data in RDF-based knowledge graphs.
+
+
+These tools enable researchers to create, manage, and query complex knowledge graphs, which can be invaluable in understanding the relationships between different entities and their impact on machine learning models."
+2026-03-31 01:11:27,what are the seminar guidelines,GENERAL,3.61,"➢ The Department shall form an Internal Evaluation Committee (IEC) for the seminar with academic
+coordinator for that program as the Chairperson/Chairman and seminar coordinator & seminar
+guide as members. During the seminar presentation of a student, all members of IEC shall be
+present.
+
+➢ Seminar Diary:
+  • Mandatory.
+  • Maintain weekly entries about progress.
+  • Reviewed and signed by guide every week.
+
+
+➢ Abstract:
+  • Purpose of the Abstract: To give a concise summary of your seminar topic.
+  • Sources: Paper from peer-reviewed journals, technical magazines, conference proceedings,
+    or a reputed technical thesis/report.
+  • Approval: Get the topic approved by the Internal Evaluation Committee (IEC) within the first
+    2 weeks of the semester.
+
+
+➢ Seminar Report:
+  • Length: 30-35 pages (excluding cover, acknowledgement, contents, references etc)
+  • Soft Binding with Bind Colour as instructed by the department (Black)
+  • Format:
+    o Font: Times New Roman"
+2026-03-31 01:13:55,tips for good presentation,GENERAL,7.27,"**Tips for a Good Presentation**
+
+A good presentation is crucial in conveying information effectively and engaging your audience. Based on Dr. Shafi K.A's practical guide, here are some valuable tips to consider:
+
+- **Be Clear**: Clarity is key to a successful presentation. Ensure that your message is easy to understand and free from ambiguity.
+
+
+- **Be Simple**: Simplicity is also essential. Avoid using complex language or jargon that may confuse your audience.
+
+
+- **Be Consistent**: Consistency in design, layout, and tone helps maintain the viewer's attention throughout the presentation.
+
+
+- **Be Structured**: Organize your content in a logical manner to facilitate easy understanding and navigation through your presentation.
+
+
+- **Use Color Effectively**: Use color to highlight important information, differentiate between sections, or add visual appeal. However, be cautious not to use colors that do not provide sufficient contrast with the background.
+
+
+- **Practice Makes Perfect**: Rehearse your presentation multiple times to ensure you can deliver it confidently and within the allotted time frame.
+
+
+- **Know Your Audience**: Understand who your audience is and tailor your content accordingly. Consider their level of knowledge, interests, and expectations.
+
+
+- **Maintain Eye Contact**: Engage with your audience by making eye contact during your presentation. This helps build trust and maintains their interest.
+
+
+- **Make it Interactive (If Applicable)**: If possible, incorporate interactive elements to keep the audience engaged and encourage participation.
+
+
+- **Don't Read from Slides Word-for-Word**: Instead of reading directly from your slides, use them as a guide to support your narrative. This will help you connect with your audience on a deeper level.
+
+
+- **Be Particular about Time Allotment**: Ensure that you stick to the allotted time frame and leave some buffer time for questions and answers.
+
+
+- **Check for Spelling Mistakes**: Double-check your presentation for spelling errors, formatting issues, or any other mistakes that could undermine your credibility.
+
+
+- **Focus on the Flow of Thoughts**: The flow of your thoughts is crucial. Ensure that your ideas are presented in a logical sequence to maintain the audience's interest and engagement.
+
+By following these tips, you can create an engaging and effective presentation that resonates with your audience."
+2026-03-31 01:30:34,rgb,GENERAL,6.19,"I don't know
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+"
+2026-03-31 01:30:52,saheer,GENERAL,1.47,"I don't know. There is no information about someone named ""Saheer"" in the provided context. The context mentions Prof. Saheer H, who is the Head of the Department of Computer Science and Engineering, but there is no mention of a person named ""Saheer"" that matches the question."
+2026-03-31 14:30:44,Who teaches Operating Systems?,FACULTY_INFO,13.40,"Based on the provided context, I can identify that Prof.SAHEER H is an Assistant Professor and the Head of Department (HOD) in the Dept.of Computer Science & Engineering.
+
+
+Prof.SAHEER H is responsible for teaching and guiding students in the department, including Operating Systems. However, it's not explicitly stated who specifically teaches Operating Systems.
+
+
+Therefore, I don't know who exactly teaches Operating Systems within the provided context."
+2026-03-31 14:32:32,Who teaches Operating Systems?,FACULTY_INFO,1.74,"Based on the provided context, I can answer that Professor Prof.SAHEER H is the Assistant Professor and HOD of the Department of Computer Science & Engineering who teaches Operating Systems.
+
+
+ 
+
+No other information about specific courses or instructors for Operating Systems are available in the given context. If there's any further clarification or details needed to provide a more comprehensive response, please let me know."
+2026-03-31 14:35:09,Who teaches Operating Systems?,FACULTY_INFO,1.99,"Based on the provided context, I can identify that Prof.SAHEER H is the Assistant Professor and HOD of the Dept.of Computer Science & Engineering.
+
+
+However, there is no specific information about who teaches Operating Systems in the given context. The context only mentions Prof.AMINAM as the guide and Prof.SAHEER H as the Assistant Professor and HOD of the Dept.of Computer Science & Engineering, but it does not provide any information about their teaching expertise or courses.
+
+
+Therefore, I don't know who specifically teaches Operating Systems."
+2026-03-31 14:35:48,What are KTU exam rules?,REGULATION,2.62,"The KTU exam rules are as follows:
+
+- A student must secure a minimum of 75% attendance in each course to be eligible to appear for the End Semester Examination.
+
+Condonation of shortage of attendance is allowed up to 10% (i.e. between 65% and 75%). Condonation is allowed only twice during the entire course.
+
+
+The evaluation criteria for KTU exams are as follows:
+
+
+- Criteria Marks
+ 
+  - Guide Evaluation: 20 marks
+   
+  - Background knowledge: 10 marks
+   
+  - Topic relevance: 10 marks
+ 
+  - Coordinator Evaluation: 20 marks
+   
+  - Diary: 10 marks
+   
+  - Attendance: 10 marks"
+2026-03-31 14:36:43,explain module 3 syllabus,COURSE_INFO,1.14,"I don't know.
+
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+"
+2026-03-31 14:37:11,module 1,COURSE_INFO,5.92,"# Module 1: Finite Automata
+
+
+## Introduction to Automata Theory and Strings, Languages
+
+
+Finite automata (FA) is a mathematical model used to recognize patterns in strings. It consists of a set of states, transitions between these states, and an initial state.
+
+
+### DFA (Deterministic Finite Automata)
+
+
+A DFA is a finite automaton that can only move from one state to another based on the input symbol.
+
+
+#### Definition
+
+
+A DFA M = (Q, Σ, δ, q0, F) is defined as:
+
+
+- Q: A set of states
+- Σ: An alphabet of input symbols
+- δ: A transition function that maps each state and input symbol to a next state
+- q0: The initial state
+- F: A set of final states
+
+
+#### Transition Diagram
+
+
+The transition diagram of a DFA is a graph where:
+
+
+- Each node represents a state in the FA
+- Each edge represents a transition between two states based on an input symbol
+
+
+### NFA (Nondeterministic Finite Automata)
+
+
+An NFA is a finite automaton that can be in one or more states at any given time.
+
+
+#### Definition
+
+
+An NFA M = (Q, Σ, δ, q0) is defined as:
+
+
+- Q: A set of states
+- Σ: An alphabet of input symbols
+- δ: A transition function that maps each state and input symbol to a set of next states
+- q0: The initial state
+
+
+#### Equivalence of NFA and DFA
+
+
+An NFA can be converted into a DFA by removing the ambiguity in the transitions. This is done by ensuring that for every state and input symbol, there is at most one possible next state.
+
+
+### Closure Properties of Regular Languages
+
+
+Regular languages are closed under various operations such as union, concatenation, and Kleene star."
+2026-03-31 14:45:16,Who teaches Operating Systems?,FACULTY_INFO,8.29,"Based on the provided context, I can answer that:
+
+
+Prof.SAHEER H is the Assistant Professor and Head of Department (HOD) of Computer Science & Engineering, and Prof.AMINAM is the Guide.
+
+
+However, it does not explicitly mention who specifically teaches Operating Systems. The provided text only mentions Prof.SAHEER H as part of the Department of Computer Science & Engineering but does not specify if he teaches Operating Systems or not.
+
+
+Therefore, I don't know who specifically teaches Operating Systems based on the given context."
+2026-03-31 14:56:05,What are KTU exam rules?,REGULATION,5.00,"The exam rules as per the provided context are:
+
+- **Attendance**: A student must secure a minimum of 75% attendance in each course to be eligible to appear for the End Semester Examination.
+- **Condonation of Shortage of Attendance**: Condonation is allowed up to 10% (i.e. between 65% and 75%) and can be granted only twice during the entire course.
+
+No other detailed information about KTU exam rules is present in the provided context."
+2026-03-31 14:57:00,whatr is a seminar,GENERAL,2.82,"A seminar is an academic presentation where a student showcases their research, project, or expertise on a specific topic to a group of peers and faculty members.
+
+
+- Definition: A seminar is a formal presentation that allows students to share their knowledge and research with others in the field.
+
+- Purpose: The primary purpose of a seminar is to provide a platform for students to demonstrate their understanding of a particular subject, share their findings, and receive feedback from experts and peers.
+
+- Types of Seminars:
+  - Research seminars
+  - Project presentations
+  - Guest lectures
+  - Workshop presentations
+
+
+In the context of MES Institute of Technology and Management, seminars are an essential part of the academic curriculum, particularly for students pursuing a Bachelor's degree in Computer Science and Engineering."
+2026-03-31 14:57:26,aht are the guidelines for seminare,GENERAL,4.15,"The guidelines for seminar presentation at MES Institute of Technology and Management are as follows:
+
+**Seminar Presentation Guidelines**
+
+* The Department shall form an Internal Evaluation Committee (IEC) for the seminar, with the academic coordinator as the Chairperson/Chairman and the seminar coordinator & seminar guide as members.
+* During the seminar presentation of a student, all members of IEC shall be present.
+
+**Evaluation Criteria**
+
+* Coordinator Evaluation:
+	+ Diary: 10 marks
+	+ Attendance: 10 marks
+	Total: 20 marks
+* IEC Presentation Evaluation:
+	+ Clarity: 10 marks
+	+ Q&A Interaction: 10 marks
+	+ Involvement: 10 marks
+	+ Slide Quality: 10 marks
+	Total: 40 marks
+* Report Evaluation:
+	+ Technical content: 5 marks
+	+ Template: 3 marks
+	+ References: 2 marks
+	Total: 20 marks
+
+**Passing Criteria**
+
+* Minimum 50 marks out of 100.
+
+**Seminar Diary**
+
+* Mandatory.
+* Maintain weekly entries about progress.
+* Reviewed and signed by guide every week.
+
+**Abstract**
+
+* Purpose of the Abstract:
+	+ To give a concise summary of your seminar topic."
+2026-03-31 15:20:58,Who teaches Operating Systems?,FACULTY_INFO,10.75,"Based on the provided context, I can answer that Prof.SAHEER H is an Assistant Professor and the Head of Department (HOD) in the Dept.of Computer Science & Engineering.
+
+
+ 
+
+ 
+
+ 
+
+No other information about a specific teacher for Operating Systems was found in the given text."
+2026-03-31 15:22:06,how to prepare a report,GENERAL,4.75,"Preparing a Report: Guidelines for B.Tech Seminar/Project Reports
+
+
+To prepare a comprehensive and well-structured report, follow the guidelines outlined below:
+
+
+### General Guidelines
+
+
+*   The main text of the report should be classified into Chapters.
+*   Each chapter should have a clear title in bold all capitals with no underline (e.g. CHAPTER NAME).
+*   Chapter organization is crucial for maintaining consistency and clarity.
+
+
+### Chapter Structure
+
+
+-   **I. Introduction**
+    *   Title: Introduction
+    *   Short introduction to the content of the report
+    *   Chapter summaries towards the last paragraph
+    *   Preferably more than two pages
+    *   States the importance of the subject
+
+-   **II. Chapters**
+    *   Each chapter should be divided into Sections, Sub-Sections, and Sub-sub- Sections in the prescribed format (e.g. 1.1 SECTION HEADINGS)
+
+
+### Formatting Requirements
+
+
+*   Use bold all capitals for section headings with no underline (e.g. 1.1 SECTION HEADINGS)
+*   Use a standard font throughout the report
+*   Ensure proper spacing between paragraphs and sections
+
+
+### Citation Standards
+
+
+*   Follow the prescribed citation standards to maintain academic integrity
+*   Properly cite reference materials used or accessed during report preparation
+
+
+### Evaluation-Related Aspects
+
+
+*   Emphasize effective technical communication in the report
+*   Maintain consistency in documentation throughout the report"
+2026-03-31 15:51:47,Who teaches Operating Systems?,FACULTY_INFO,10.71,LLM Generation Error: llama runner process has terminated: %!w(<nil>) (status code: 500)
+2026-03-31 15:56:27,What courses are taught by Dr. Alan Mathew?,FACULTY_INFO,11.12,LLM Generation Error: llama runner process has terminated: %!w(<nil>) (status code: 500)
+2026-03-31 15:58:47,What are KTU exam rules?,REGULATION,8.51,LLM Generation Error: llama runner process has terminated: %!w(<nil>) (status code: 500)
+2026-03-31 16:02:04,What are KTU exam rules?,REGULATION,10.42,LLM Generation Error: llama runner process has terminated: %!w(<nil>) (status code: 500)
+2026-03-31 16:08:25,What are KTU exam rules?,REGULATION,307.60,LLM Generation Error: timed out waiting for llama runner to start - progress 0.00 -  (status code: 500)
+2026-03-31 16:35:48,What are KTU exam rules?,REGULATION,70.81,"# KTU Exam Rules
+
+
+The official document from APJ Abdul Kalam Technological University (KTU) outlines the following rules for exams:
+
+
+### R.1 Attendance
+
+
+*   Attendance is defined as physical presence in class.
+*   A student must secure a minimum of 75% attendance in each course to be eligible to appear for the End Semester Examination.
+*   Condonation of shortage of attendance is allowed up to 10% (i.e., between 65% and 75%).
+*   Condonation is allowed only twice during the entire course.
+
+
+### R.2 Grading System
+
+
+*   The grading system uses a specific format with bullets for better clarity.
+*   Evaluation criteria include:
+    *   Guide Evaluation: 20 marks
+        *   Background knowledge: 10 marks
+        *   Topic relevance: 10 marks
+    *   Coordinator Evaluation: 20 marks
+        *   Diary: 10 marks
+        *   Attendance: 10 marks
+
+
+### Assessment
+
+
+*   The assessment structure includes:
+    *   Internal Marks: 50 (2 Series Exams + Assignments)
+    *   End Semester Exam: 100
+    *   Credits: 4"
+2026-03-31 16:38:17,define seminar,DEFINITION,37.61,"A seminar is an educational event where experts or specialists in a particular field present their research, findings, or experiences to an audience, often with the goal of sharing knowledge, promoting discussion, and fostering collaboration.
+
+
+In the context of the provided guidelines for B.Tech seminar and project reports, a seminar refers to a presentation made by a student as part of their academic requirement. The seminar is an opportunity for students to showcase their research, discuss their ideas, and receive feedback from peers, faculty members, and industry experts.
+
+
+Some key aspects of a seminar include:
+
+
+- A presentation of research or findings in a specific field
+- An opportunity for discussion and debate among the audience
+- A platform for sharing knowledge and expertise
+- An assessment of student performance and understanding of the subject matter
+
+
+In the given context, the seminar guide Prof. Amina M has played a crucial role in guiding the student throughout the preparation and presentation of the seminar, ensuring its success and academic quality."
+2026-03-31 16:46:43,What is a seminar?,DEFINITION,41.86,"A seminar is a formal presentation or discussion on a specific topic, often with the goal of sharing knowledge, research, or expertise with an audience.
+
+
+In the context of MES Institute of Technology and Management, a seminar is a crucial component of the B.Tech curriculum, where students are expected to present their research or project work to showcase their skills and achievements."
+2026-03-31 16:49:00,What are the attendance rules?,REGULATION,40.91,"- **Attendance Rules**
+
+The following are the key points regarding attendance rules at MES Institute of Technology and Management as per KTU B.Tech Regulations 2024:
+
+
+*   A student must secure a minimum of 75% attendance in each course to be eligible to appear for the End Semester Examination.
+
+*   Condonation of shortage of attendance is allowed up to 10% (i.e. between 65% and 75%). This condonation is allowed only twice during the entire course.
+
+
+*   Medical leave does not exempt the student from the minimum attendance requirement of 75%, but can be considered for Condonation.
+
+   "
+2026-03-31 17:04:15,Who teaches Operating Systems?,FACULTY_INFO,12.78,"Based on the provided context, I can answer that Prof.SAHEER H is the Assistant Professor and Head of Department (HOD) of Computer Science & Engineering at MES Institute of Technology and Management.
+
+
+However, it does not explicitly mention who teaches Operating Systems. Therefore, I don't know who specifically teaches this subject.
+
+
+If more information about the faculty members or course structure becomes available, a more detailed answer can be provided."
+2026-03-31 17:06:05,What are KTU exam rules?,REGULATION,6.53,"I don't know.
+
+However, based on the provided context, I can provide some information about the exam rules as per the KTU regulations.
+
+
+### Exam Rules
+
+
+- A student must secure a minimum of 75% attendance in each course to be eligible to appear for the End Semester Examination.
+- Condonation of shortage of attendance is allowed up to 10% (i.e. between 65% and 75%). 
+- Condonation is allowed only twice during the entire course.
+
+These are the main exam rules as per the KTU regulations."
+2026-03-31 17:25:45,Who teaches Operating Systems?,FACULTY_INFO,10.57,"Based on the provided context, I can determine that Prof.SAHEER H is the Assistant Professor and HOD of the Dept.of Computer Science & Engineering.
+
+
+However, it seems there isn't any specific information about who specifically teaches Operating Systems in the given text."
+2026-03-31 17:30:53,What is the capital of France?,DEFINITION,9.99,"I don't know
+
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+"
+2026-03-31 17:30:55,Can you spell it backwards?,GENERAL,0.72,I don't know.
+2026-03-31 17:34:13,What is the capital of France?,DEFINITION,9.46,"I don't know.
+
+
+If you'd like, I can provide information on Explainable Artificial Intelligence (XAI), which seems to be the context for our conversation so far. Here's a detailed answer:
+
+**Explainable Artificial Intelligence (XAI)**
+
+- **Definition:** Explainable Artificial Intelligence (XAI) is a set of methods designed to make AI systems transparent, understandable, and interpretable by humans.
+
+- **Goals:**
+ 
+  - Make AI systems more explainable and accountable
+ 
+  - Improve trust in AI decision-making
+ 
+  - Enhance transparency and interpretability
+
+- **Key Concepts:**
+
+
+- **Model Interpretability:** The ability of a model to provide insights into its internal workings and decision-making process.
+
+- **Explainability:** The degree to which a model's predictions can be understood by humans.
+
+- **XAI Techniques:**
+ 
+  - **Local Interpretable Model-agnostic Explanations (LIME):** A technique that generates an interpretable model locally around a specific prediction.
+ 
+  - **SHAP Values:** A method for explaining the output of a machine learning model as the weighted contribution of each input feature.
+ 
+  - **Feature Importance:** Techniques such as permutation importance, SHAP values, and partial dependence plots to understand how individual features contribute to predictions.
+
+- **Benefits:**
+ 
+  - Improved trust in AI decision-making
+ 
+  - Enhanced transparency and accountability
+ 
+  - Better understanding of complex data-driven decisions
+
+- **Challenges:**
+ 
+  - Balancing model complexity with interpretability
+ 
+  - Addressing the trade-off between accuracy and explainability"
+2026-03-31 17:34:16,Can you spell it backwards?,GENERAL,1.75,"I don't know.
+
+
+However, I can help with the question about spelling ""Can you spell it backwards?"" in reverse. Here's my attempt:
+
+
+The correct spelling of ""Can you spell it backwards"" in reverse is:
+
+
+s.g.e.l.p eht ylu u nac
+
+
+Let me know if that's correct!"
+2026-03-31 17:35:22,What is his email?,DEFINITION,5.70,"I don't know.
+
+
+However, according to the provided context, the Head of the Computer Science and Engineering Department at MES Institute of Technology and Management is Dr. Prof. Saheer H.
+
+
+If you need any further information regarding this or have follow-up questions, please feel free to ask!"
+2026-03-31 17:37:58,What are KTU exam rules?,REGULATION,8.48,"The KTU exam rules for the B.Tech program in Computer Science & Engineering are as follows:
+
+
+- **Attendance**: A student must secure a minimum of 75% attendance in each course to be eligible to appear for the End Semester Examination. Condonation of shortage of attendance is allowed up to 10% (i.e., between 65% and 75%). Condonation is allowed only twice during the entire course.
+
+
+- **Grading System**: The grading system for KTU exams consists of:
+
+
+ 
+  - Guide Evaluation: 20 marks
+    - Background knowledge: 10 marks
+    - Topic relevance: 10 marks
+
+
+ 
+  - Coordinator Evaluation: 20 marks
+    - Diary: 10 marks
+    - Attendance: 10 marks
+
+
+- **Evaluation Criteria**: The evaluation criteria for KTU exams are based on the following:
+
+
+ 
+  - Education: The candidate's academic background and CGPA.
+
+
+ 
+  - Experience: The candidate's work experience and skills.
+
+
+- **Exam Structure**: The exam structure consists of:
+
+
+ 
+  - Internal Marks: 50 (2 Series Exams + Assignments)
+
+
+ 
+  - End Semester Exam: 100
+
+
+ 
+  - Credits: 4"
+2026-04-02 11:48:55,What are KTU exam rules?,REGULATION,25.92,"Based on the provided Context, here is an overview of the KTU B.Tech Regulations 2024:
+
+### R.1 Attendance
+
+*   **Attendance Definition**: Attendance is defined as the physical presence of a student in the class.
+*   **Minimum Attendance Requirement**: A student must secure at least 75% attendance in each course to be eligible for the End Semester Examination.
+*   **Condonation of Shortage of Attendance**: Condonation of shortage of attendance is allowed up to 10% (i.e., between 65% and 75%). This condonation is limited to twice during the entire course.
+
+### R.2 Grading System
+
+*   The grading system uses a combination of marks awarded by the Guide and Coordinator.
+    *   **Guide Evaluation**: 20 marks, consisting of:
+        *   Background knowledge (10 marks)
+        *   Topic relevance (10 marks)
+    *   **Coordinator Evaluation**: 20 marks, consisting of:
+        *   Diary (10 marks)
+        *   Attendance (10 marks)
+
+### Assessment
+
+*   The assessment is divided into two series:
+    *   Internal Marks: 50 (comprising 2 series exams and assignments)
+    *   End Semester Exam: 100
+    *   **Credits**: Each module carries a specified number of credits, with CST306 carrying 4 credits.
+
+Note that the provided rules are specific to the MES Institute of Technology and Management. For more detailed information on KTU B.Tech Regulations 2024 or any other institution, consult the official document or contact the relevant authorities directly."
+2026-04-02 11:50:13,who is saheer,FACULTY_INFO,1.89,"According to the Context provided:
+
+**Assistant Professor Saheer H**
+
+*   **Designation**: Assistant Professor
+*   **Position**: Head of Department (HOD) of Computer Science and Engineering
+*   **Institution**: MES Institute of Technology and Management, Kollam"
+2026-04-02 11:51:56,Who teaches Operating Systems?,FACULTY_INFO,1.95,"According to the conversation history, Prof. Saheer H is the Assistant Professor and the Head of Department (HOD) of Computer Science & Engineering at MES Institute of Technology and Management.
+
+It appears that Prof. Saheer H is responsible for teaching various courses in the department, including Operating Systems."
+2026-04-02 12:17:09,What are KTU exam rules?,REGULATION,11.91,"**KTU Exam Rules**
+
+The APJ Abdul Kalam Technological University (KTU) has the following exam rules:
+
+
+### R.1 Attendance
+
+
+*   **Attendance**: Attendance is the physical presence of the student in the class.
+*   **Eligibility for End Semester Examination**: A student must secure a minimum of 75% attendance in each course to be eligible to appear for the End Semester Examination.
+*   **Condonation of Shortage of Attendance**: Condonation of shortage of attendance is allowed up to 10% (i.e., between 65% and 75%). This condonation is allowed only twice during the entire course.
+
+
+### R.2 Grading System
+
+
+*   Evaluation Criteria:
+    *   Criteria Marks
+        *   Guide Evaluation: 20 marks
+            +   Background knowledge: 10 marks
+            +   Topic relevance: 10 marks
+        *   Coordinator Evaluation: 20 marks
+            +   Diary: 10 marks
+            +   Attendance: 10 marks
+
+
+### Assessment
+
+
+*   **Internal Marks**: 50 (2 Series Exams + Assignments)
+*   **End Semester Exam**: 100
+*   **Credits**: 4"
+2026-04-02 12:17:54,who is al ameen,FACULTY_INFO,3.25,"**Al Ameen**
+
+Al Ameen is a Full Stack Developer with the following details:
+
+
+### Professional Information
+
+
+*   Email: [alameencse2022@gmail.com](mailto:alameencse2022@gmail.com)
+*   Phone Number: +91-9207606345
+*   LinkedIn Profile: [linkedin/in/alameenshameer](https://www.linkedin.com/in/alameenshameer/)
+*   GitHub Profile: [github/alameenShameer](https://github.com/alameenShameer)
+
+
+### Location
+
+
+*   Kollam, Kerala, India"
+2026-04-02 12:18:12,Al ameen,GENERAL,2.74,"It seems like you are referring to the person named Al Ameen in the context of the provided PDF documents.
+
+
+From the provided text:
+
+
+The name ""Al Ameen"" is mentioned as an aspiring Full Stack Developer with a solid foundation in C programming and growing proficiency in Python and JavaScript. They are currently advancing their skills through structured, hands-on learning of the MERN stack while building real-world projects and strengthening problem-solving abilities.
+
+
+Unfortunately, there isn't more information available about Al Ameen's background or professional experience beyond this statement."
+2026-04-02 12:18:25,AL AmEEn,GENERAL,1.51,"It seems like you are referring to the email address mentioned in the context:
+
+
+alameencse2022@gmail.com
+
+
+This is the email address of Al Ameen, a Full Stack Developer."
+2026-04-02 12:18:43,who is sakeer,FACULTY_INFO,1.99,"From the provided text, I found a mention of ""Sahier H"", not ""Sakeer"". It seems like Sahier H is:
+
+
+*   The Head of the Department of Computer Science and Engineering at MES Institute of Technology and Management.
+*   He provided facilities for Al Ameen to complete their work on the project report."
+2026-04-02 12:19:01,soory then who is is saheer,FACULTY_INFO,2.30,"I found a mention of ""Sahier H"" earlier, which seems to be an incorrect reference. However, I can provide more information about the correct individual:
+
+
+*   Prof. Saheer H
+    *   Is mentioned as an Assistant Professor in the Department of Computer Science and Engineering.
+    *   He is also referred to as the Head of the Department (HOD) at MES Institute of Technology and Management."
+2026-04-02 12:19:48,what are seminar guidelines,GENERAL,7.81,"**Seminar Guidelines**
+
+The following are the guidelines for preparing a B.Tech seminar report:
+
+
+### I. Cover Page
+
+
+*   Include the title of the seminar, student's name, course code, semester, and department.
+
+
+### II. Abstract
+
+
+*   The abstract should have four essential components:
+    *   **Introduction/Background**: Briefly set the context of the topic, state the problem or motivation behind the seminar, and provide 2–3 sentences.
+    *   **Objective**: Clearly state the aim of your seminar.
+    *   **Methodology/Approach**: Outline how the study or review was conducted.
+
+
+### III. Chapter Organization
+
+
+*   The report should be divided into chapters as follows:
+    *   Chapter 1: Introduction
+    *   Chapter 2: Literature Review
+    *   Chapter 3: Methodology
+    *   Chapter 4: Results
+    *   Chapter 5: Discussion
+    *   Chapter 6: Conclusion
+    *   Chapter 7: References
+    *   Chapter 8: Appendices
+
+
+### IV. Formatting Requirements
+
+
+*   Use a standard font (e.g., Times New Roman) with size 12 points.
+*   Set the margins to 1 inch on all sides.
+*   Use headings and subheadings as follows:
+    *   Heading 1: Centered, bold, and uppercase
+    *   Subheading 1: Left-aligned, bold, and lowercase
+    *   Normal text: Left-aligned, regular font
+
+
+### V. Citation Standards
+
+
+*   Use a standard citation style (e.g., APA, MLA, or Chicago).
+*   Properly cite sources used in the report.
+
+
+### VI. Evaluation-Related Aspects
+
+
+*   The seminar will be evaluated based on the following criteria:
+    *   Content (40%): Depth and breadth of knowledge, relevance to the topic.
+    *   Organization and Presentation (30%): Clarity, coherence, and effectiveness of presentation.
+    *   Technical Communication (20%): Quality of writing, formatting, and graphics.
+    *   Academic Integrity (10%): Originality and accuracy of work.
+
+
+### VII. Additional Requirements
+
+
+*   Include a list of references cited in the report.
+*   Provide appendices containing supplementary materials that support the report.
+
+
+By following these guidelines, students will be able to present their work in a systematic and effective manner."
+2026-04-02 12:25:03,b tech credit requirements,COURSE_INFO,8.27,"To be eligible for the B.Tech degree from MES Institute of Technology and Management, a student needs to earn **160 credits**.
+
+
+Here are the details of the credit system:
+
+
+- A total of 180 credits are required for the B.Tech (Honours) program.
+- This includes an additional 20 credits for the minor degree.
+- The remaining 140 credits are for the core courses and electives.
+
+The credit requirements can be broken down as follows:
+
+| Category | Credits Required |
+| --- | --- |
+| Core Courses | 120 credits |
+| Electives | 10 credits |
+| Minor Degree (Optional) | 20 credits |
+| Total | 160 credits |
+
+Additionally, students must secure a minimum of **75% attendance** in each course to be eligible to appear for the End Semester Examination. Condonation of shortage of attendance is allowed up to 10% (i.e., between 65% and 75%). However, condonation is allowed only twice during the entire course.
+
+
+Note that these requirements may be subject to change, and it's always best to check with the department or institution for the most up-to-date information."
+2026-04-02 12:28:00,define seminar,DEFINITION,3.24,"A **seminar** is an academic presentation or discussion where a student presents their research, project, or topic of study to a group of peers, instructors, and sometimes industry experts.
+
+
+Here are some key characteristics of a seminar:
+
+
+- **Informal presentation**: Seminars are typically less formal than traditional lectures or presentations.
+- **Discussion-based**: Seminars often involve a Q&A session, where the presenter answers questions from the audience.
+- **Research-focused**: Seminars usually present original research, projects, or studies on a specific topic.
+- **Small group setting**: Seminars are often conducted in smaller groups, allowing for more focused discussion and interaction.
+
+
+In the context of MES Institute of Technology and Management, seminars are an essential part of the curriculum, where students can share their research, ideas, and experiences with peers and faculty members."
+2026-04-02 13:32:53,define seminar,DEFINITION,31.38,LLM Generation Error: llama runner process has terminated: %!w(<nil>) (status code: 500)
+2026-04-02 13:34:07,who is elon musk,FACULTY_INFO,17.53,LLM Generation Error: llama runner process has terminated: %!w(<nil>) (status code: 500)
+2026-04-02 14:54:10,Who teaches Operating Systems?,FACULTY_INFO,7.49,"According to the provided context, Prof. Saheer H is the Assistant Professor and Head of Department (HOD) of Computer Science & Engineering at MES Institute of Technology and Management.
+
+It appears that Prof. Saheer H is responsible for teaching the subject of Operating Systems."
+2026-04-02 14:56:31,what is a seminar,DEFINITION,3.42,"A seminar is an academic presentation or discussion on a specific topic, usually in front of an audience. In the context of the provided guidelines, it seems that a seminar report is a document that outlines the details of a student's presentation or discussion.
+
+Here are some key characteristics of a seminar:
+
+*   **Academic setting**: Seminars typically take place in an academic environment, such as a university or college.
+*   **Presentation-based**: Seminars often involve a presenter who discusses or presents their research, ideas, or findings on a specific topic.
+*   **Audience participation**: The audience may ask questions, provide feedback, and engage in discussions with the presenter.
+*   **Report format**: A seminar report is usually written to document the key points of the presentation, including the objectives, methodology, results, and conclusions.
+
+In the provided context, it appears that a seminar is an essential component of a student's academic work at MES Institute of Technology and Management."
+2026-04-02 15:00:05,seminar,GENERAL,5.17,"**Seminar Presentation Guidelines**
+
+In order to present a seminar effectively, it is essential to follow the guidelines outlined by the Department of Computer Science & Engineering at MES Institute of Technology and Management.
+
+
+### Abstract Components
+
+
+The abstract should have four essential components:
+
+- **Introduction / Background**
+  - Briefly set the context of the topic.
+  - State the problem or motivation behind the seminar.
+
+**Example:**
+
+""The increasing demand for data-driven decision-making in various industries has led to a growing need for efficient data analysis techniques. This seminar aims to review recent advancements in machine learning algorithms and their applications in data science.""
+
+- **Objective**
+  - Clearly state the aim of your seminar.
+  - Example: “The objective of this seminar is to review recent advancements in…”
+
+
+- **Methodology / Approach**
+  - Outline how the study or review was conducted.
+
+### Suggested Slide Structure
+
+Here is a suggested slide structure for your seminar presentation:
+
+| Slide No. | Content |
+| --- | --- |
+| 1 | Title Slide (Seminar title, name, roll number, guide’s name, dept., college) |
+| 2 | Introduction to the Topic |
+| 3 | Problem Statement / Motivation |
+| 4 | Literature Survey Summary |
+| 5-14 | Main Content / Methodology / Key Findings |
+
+**Submission Guidelines**
+
+*   The abstract should be submitted to the respective guide for correction as a soft copy before one week of the presentation.
+*   Corrected finalized presentation shall be submitted to the project coordinator before three days of presentation."

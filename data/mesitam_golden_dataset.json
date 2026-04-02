@@ -1,0 +1,22 @@
+[
+    {
+        "question": "What is the minimum attendance required to write the exam?",
+        "ground_truth": "A student must secure a minimum of 75% attendance in each course to be eligible to appear for the End Semester Examination. Condonation is allowed up to 10% (i.e. between 65% and 75%) twice during the course."
+    },
+    {
+        "question": "Who is the HOD of Computer Science Department?",
+        "ground_truth": "Dr. Anitha S is the Professor & HOD of the Computer Science and Engineering (CSE) department."
+    },
+    {
+        "question": "What are the modules in Theory of Computation?",
+        "ground_truth": "Module 1 covers Finite Automata (DFA, NFA). Module 2 covers Regular Expressions and Languages."
+    },
+    {
+        "question": "Explain the rules for Duty Leave.",
+        "ground_truth": "Duty leave is granted to students for participatig in official events. The maximum limit is 10 days per semester. It must be recommended by the Faculty Advisor and approved by the HOD."
+    },
+    {
+        "question": "What is the credit value for a typical B.Tech course like CST301?",
+        "ground_truth": "CST301 (Theory of Computation) has 4 credits."
+    }
+]

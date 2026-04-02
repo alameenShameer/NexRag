@@ -1,0 +1,321 @@
+@prefix : <http://mesitam.ac.in/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+### Classes ###
+:Department a rdfs:Class .
+:Faculty a rdfs:Class .
+:Course a rdfs:Class .
+:Regulation a rdfs:Class .
+
+### Properties ###
+:hasName a rdf:Property ;
+    rdfs:domain :Department ;
+    rdfs:range xsd:string .
+
+:abbreviation a rdf:Property ;
+    rdfs:domain :Department ;
+    rdfs:range xsd:string .
+
+:hasHOD a rdf:Property ;
+    rdfs:domain :Department ;
+    rdfs:range :Faculty .
+
+:teaches a rdf:Property ;
+    rdfs:domain :Faculty ;
+    rdfs:range :Course .
+
+:belongsTo a rdf:Property ;
+    rdfs:domain :Faculty ;
+    rdfs:range :Department .
+
+:hasDesignation a rdf:Property ;
+    rdfs:domain :Faculty ;
+    rdfs:range xsd:string .
+
+:hasCredit a rdf:Property ;
+    rdfs:domain :Course ;
+    rdfs:range xsd:integer .
+
+:governedBy a rdf:Property ;
+    rdfs:domain :Course ;
+    rdfs:range :Regulation .
+
+### Data - Departments ###
+:CSE a :Department ;
+    :hasName "Computer Science and Engineering" ;
+    :abbreviation "CSE" ;
+    :hasHOD :Dr_Anitha .
+
+:ECE a :Department ;
+    :hasName "Electronics and Communication Engineering" ;
+    :abbreviation "ECE" ;
+    :hasHOD :Dr_Rajesh .
+
+:ME a :Department ;
+    :hasName "Mechanical Engineering" ;
+    :abbreviation "ME" ;
+    :hasHOD :Dr_Suresh .
+
+### Data - Faculty ###
+:Dr_Anitha a :Faculty ;
+    :hasName "Dr. Anitha S" ;
+    :hasDesignation "Professor & HOD" ;
+    :belongsTo :CSE ;
+    :teaches :CS301, :CS401 .
+
+:Prof_Rahul a :Faculty ;
+    :hasName "Prof. Rahul K" ;
+    :hasDesignation "Assistant Professor" ;
+    :belongsTo :CSE ;
+    :teaches :CS304 .
+
+:Dr_Rajesh a :Faculty ;
+    :hasName "Dr. Rajesh Kumar" ;
+    :hasDesignation "Professor & HOD" ;
+    :belongsTo :ECE .
+
+### Data - Courses ###
+:CS301 a :Course ;
+    :hasName "Theory of Computation" ;
+    :abbreviation "CS301" ;
+    :hasCode "CST301" ;
+    :hasCredit 4 ;
+    :governedBy :KTU_2019_Scheme .
+
+:CS304 a :Course ;
+    :hasName "Computer Graphics" ;
+    :abbreviation "CS304" ;
+    :hasCode "CST304" ;
+    :hasCredit 4 .
+
+### Data - Regulations (KTU) ###
+:KTU_Attendance_Rule a :Regulation ;
+    :hasName "Minimum Attendance" ;
+    :description "A student must have a minimum of 75% attendance to draft the final exam. Condoation is allowed twice during the course." .
+
+:KTU_Credit_System a :Regulation ;
+    :hasName "B.Tech Credit Requirements" ;
+    :description "Total credits required for B.Tech degree is 160. Honours requires an additional 20 credits." .
+
+:Duty_Leave_Policy a :Regulation ;
+    :hasName "Duty Leave" ;
+    :description "Duty leave is granted for students participating in university-level events. Maximum 10 days per semester." .
+
+### Auto-Generated Departments ###
+:CE a :Department ;
+    :hasName "Civil Engineering" ;
+    :abbreviation "CE" .
+
+:EEE a :Department ;
+    :hasName "Electrical and Electronics Engineering" ;
+    :abbreviation "EEE" .
+
+### Auto-Generated Faculty ###
+:Prof_Aisha a :Faculty ;
+    :hasName "Prof. Aisha" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :ME .
+
+:Prof_Babu a :Faculty ;
+    :hasName "Prof. Babu" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Chitra a :Faculty ;
+    :hasName "Prof. Chitra" ;
+    :hasDesignation "Assistant Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Deepak a :Faculty ;
+    :hasName "Prof. Deepak" ;
+    :hasDesignation "Assistant Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Elena a :Faculty ;
+    :hasName "Prof. Elena" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Faisal a :Faculty ;
+    :hasName "Prof. Faisal" ;
+    :hasDesignation "Professor" ;
+    :belongsTo :ME .
+
+:Prof_Gita a :Faculty ;
+    :hasName "Prof. Gita" ;
+    :hasDesignation "Professor" ;
+    :belongsTo :CSE .
+
+:Prof_Hari a :Faculty ;
+    :hasName "Prof. Hari" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :CE .
+
+:Prof_Isha a :Faculty ;
+    :hasName "Prof. Isha" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :ECE .
+
+:Prof_John a :Faculty ;
+    :hasName "Prof. John" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Kavya a :Faculty ;
+    :hasName "Prof. Kavya" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Leo a :Faculty ;
+    :hasName "Prof. Leo" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :EEE .
+
+:Prof_Maya a :Faculty ;
+    :hasName "Prof. Maya" ;
+    :hasDesignation "Assistant Professor" ;
+    :belongsTo :CSE .
+
+:Prof_Nitin a :Faculty ;
+    :hasName "Prof. Nitin" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :CE .
+
+:Prof_Omar a :Faculty ;
+    :hasName "Prof. Omar" ;
+    :hasDesignation "Professor" ;
+    :belongsTo :EEE .
+
+:Prof_Pooja a :Faculty ;
+    :hasName "Prof. Pooja" ;
+    :hasDesignation "Professor" ;
+    :belongsTo :EEE .
+
+:Prof_Qasim a :Faculty ;
+    :hasName "Prof. Qasim" ;
+    :hasDesignation "Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Ravi a :Faculty ;
+    :hasName "Prof. Ravi" ;
+    :hasDesignation "Assistant Professor" ;
+    :belongsTo :CSE .
+
+:Prof_Sita a :Faculty ;
+    :hasName "Prof. Sita" ;
+    :hasDesignation "Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Tariq a :Faculty ;
+    :hasName "Prof. Tariq" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :ME .
+
+:Prof_Uma a :Faculty ;
+    :hasName "Prof. Uma" ;
+    :hasDesignation "Assistant Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Varun a :Faculty ;
+    :hasName "Prof. Varun" ;
+    :hasDesignation "Assistant Professor" ;
+    :belongsTo :ECE .
+
+:Prof_Zara a :Faculty ;
+    :hasName "Prof. Zara" ;
+    :hasDesignation "Associate Professor" ;
+    :belongsTo :CSE .
+
+### Auto-Generated Courses ###
+:CN_0 a :Course ;
+    :hasName "Computer Networks" ;
+    :abbreviation "CN" ;
+    :hasCode "CS200" ;
+    :hasCredit 4 .
+
+:DBMS_1 a :Course ;
+    :hasName "Database Systems" ;
+    :abbreviation "DBMS" ;
+    :hasCode "CS201" ;
+    :hasCredit 4 .
+
+:OS_2 a :Course ;
+    :hasName "Operating Systems" ;
+    :abbreviation "OS" ;
+    :hasCode "CS202" ;
+    :hasCredit 4 .
+
+:DS_3 a :Course ;
+    :hasName "Data Structures" ;
+    :abbreviation "DS" ;
+    :hasCode "CS203" ;
+    :hasCredit 4 .
+
+:SS_4 a :Course ;
+    :hasName "Signals & Systems" ;
+    :abbreviation "SS" ;
+    :hasCode "EC204" ;
+    :hasCredit 4 .
+
+:VLSI_5 a :Course ;
+    :hasName "VLSI Design" ;
+    :abbreviation "VLSI" ;
+    :hasCode "EC205" ;
+    :hasCredit 4 .
+
+:MC_6 a :Course ;
+    :hasName "Microcontrollers" ;
+    :abbreviation "MC" ;
+    :hasCode "EC206" ;
+    :hasCredit 4 .
+
+:TD_7 a :Course ;
+    :hasName "Thermodynamics" ;
+    :abbreviation "TD" ;
+    :hasCode "ME207" ;
+    :hasCredit 4 .
+
+:FM_8 a :Course ;
+    :hasName "Fluid Mechanics" ;
+    :abbreviation "FM" ;
+    :hasCode "ME208" ;
+    :hasCredit 4 .
+
+:MD_9 a :Course ;
+    :hasName "Machine Design" ;
+    :abbreviation "MD" ;
+    :hasCode "ME209" ;
+    :hasCredit 4 .
+
+:SA_10 a :Course ;
+    :hasName "Structural Analysis" ;
+    :abbreviation "SA" ;
+    :hasCode "CE2010" ;
+    :hasCredit 4 .
+
+:FD_11 a :Course ;
+    :hasName "Fluid Dynamics" ;
+    :abbreviation "FD" ;
+    :hasCode "CE2011" ;
+    :hasCredit 4 .
+
+:SUR_12 a :Course ;
+    :hasName "Surveying" ;
+    :abbreviation "SUR" ;
+    :hasCode "CE2012" ;
+    :hasCredit 4 .
+
+:PS_13 a :Course ;
+    :hasName "Power Systems" ;
+    :abbreviation "PS" ;
+    :hasCode "EE2013" ;
+    :hasCredit 4 .
+
+:CS_14 a :Course ;
+    :hasName "Control Systems" ;
+    :abbreviation "CS" ;
+    :hasCode "EE2014" ;
+    :hasCredit 4 .
+

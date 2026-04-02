@@ -1,0 +1,12 @@
+[
+    {
+        "question": "What is RAG?",
+        "ground_truth": "Retrieval-Augmented Generation (RAG) is a technique that enhances Large Language Models (LLMs) by retrieving relevant data from external sources (like PDFs or databases) to provide accurate and context-aware answers.",
+        "context": ["Retrieval-Augmented Generation (RAG) combines the powers of pre-trained dense retrieval and sequence-to-sequence models."]
+    },
+    {
+        "question": "How does the hybrid router work?",
+        "ground_truth": "The hybrid router classifies user queries into intents (Definition, Comparison, General). Based on the intent, it routes the query to the Knowledge Graph, Vector Store, or both.",
+        "context": ["The router uses keyword matching to classify intents into DEFINITION or COMPARISON."]
+    }
+]

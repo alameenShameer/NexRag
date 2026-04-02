@@ -2,6 +2,10 @@
 streamlit
 # Web UI framework for building the chatbot interface
 
+# ---------- Evaluation ----------
+ragas
+datasets
+
 
 # ---------- PDF Processing ----------
 pdfplumber
@@ -10,7 +14,19 @@ pdfplumber
 
 # ---------- Machine Learning / RAG ----------
 scikit-learn
-# Provides TF-IDF vectorizer and cosine similarity
+# Provides TF-IDF vectorizer and cosine similarity (legacy, kept for compatibility if needed)
+
+sentence-transformers
+# For generating dense vector embeddings (e.g., all-MiniLM-L6-v2)
+
+faiss-cpu
+# Efficient vector similarity search for retrieval
+
+rank_bm25
+# For hybrid search (keyword-based) ranking
+
+langchain-text-splitters
+# For advanced chunking strategies
 
 
 # ---------- Knowledge Graph ----------
