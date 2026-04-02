@@ -1,47 +1,70 @@
 # MESITAM Institutional AI Assistant
 
-## 🎓 Project Overview
-This project transforms a standard RAG system into a domain-specific assistant for **MES Institute of Technology and Management**. It is designed to run locally on moderate hardware (RTX 3050 4GB).
+This repository contains the MESITAM-focused NexRag deployment. It is a local hybrid assistant built around:
 
-**Key Features:**
-- **Institutional Knowledge Graph**: Models Faculty, Courses, and Departments.
-- **Smart Document Library**: Filters PDFs by category (Syllabus, Regulations, Notices).
-- **Role-Awareness**: Tailors answers for Students vs. Faculty.
-- **Hybrid Retrieval**: Combines Vector Search (FAISS) + Graph Search (SPARQL).
+- a FastAPI backend,
+- a React frontend in `frontend/`,
+- a Fuseki-hosted knowledge graph,
+- PDF retrieval using SentenceTransformers, FAISS, BM25, and reranking,
+- answer generation through Ollama.
 
-## 🚀 Quick Start
-1.  **Double-click** `start_mesitam_assistant.bat`.
-    *   This starts the Fuseki Server (Knowledge Graph) in the background.
-    *   This launches the Streamlit Interface in your browser.
+## Quick Start
 
-2.  **Access the App**: [http://localhost:8503](http://localhost:8503)
+### One-click startup
 
-## 📂 Project Structure
-- `app.py`: Main application logic (Streamlit).
-- `rag.py`: Retrieval engine (FAISS + SentenceTransformers).
-- `kg.py`: Knowledge Graph connector (SPARQL).
-- `router.py`: Semantic intent classifier.
-- `data/mesitam_data.ttl`: RDF Data for the Knowledge Graph.
-- `data/pdfs/`: Directory for Uploaded Documents.
+Run:
 
-## 🛠️ Management
-### adding New Documents
-1.  Go to the **"Knowledge Base"** tab in the app.
-2.  Upload a PDF.
-3.  **Select Category**:
-    - `SYLLABUS`: For course content.
-    - `REGULATION`: For university rules (KTU).
-    - `NOTICE`: For circulars/events.
+```powershell
+start_mesitam_assistant.bat
+```
 
-### Editing the Knowledge Graph
-Edit `data/mesitam_data.ttl` using a text editor or Protégé, then restart the application.
+That script will:
 
-## 📊 Evaluation
-To Generate the "Accuracy Report" for your project:
-1.  Ensure the app is NOT running (to free up VRAM).
-2.  Run: `python eval_ragas.py`
-3.  Results will be saved to `logs/ragas_results.csv`.
+1. merge the KG source files,
+2. start Fuseki on `/mesitam_kg`,
+3. start the FastAPI backend on port `8000`,
+4. start the frontend development server.
 
-## ⚠️ Troubleshooting
-- **"Connection Refused"**: Ensure `java` is installed and `start_mesitam_assistant.bat` ran successfully.
-- **"CUDA OOM"**: Close other apps using GPU. The system is tuned for 4GB VRAM.
+### Manual startup
+
+```powershell
+venv\Scripts\python.exe merge_kg.py
+java -jar fuseki\apache-jena-fuseki-5.6.0\fuseki-server.jar --file=data/merged_kg.ttl /mesitam_kg
+venv\Scripts\uvicorn.exe api:app --host 127.0.0.1 --port 8000
+cd frontend
+npm run dev
+```
+
+## Important Files
+
+- `api.py`: backend API and chat orchestration
+- `kg.py`: Fuseki querying and KG health checks
+- `rag.py`: retrieval engine and vector store integration
+- `llm.py`: Ollama prompt and model settings
+- `router.py`: query intent routing
+- `data/mesitam_data.ttl`: institutional knowledge graph source data
+- `data/university_faq.ttl`: additional graph data
+- `frontend/`: web UI
+
+## Operational Notes
+
+- The system is designed to prefer local model caches for offline-friendly startup.
+- If the graph lacks a fact, the assistant should state that clearly instead of guessing.
+- The frontend includes a knowledge graph editor for `.ttl` source updates and restart flows.
+
+## Verification
+
+```powershell
+venv\Scripts\python.exe test_import.py
+venv\Scripts\python.exe test_router.py
+venv\Scripts\python.exe test_retrieval.py
+venv\Scripts\python.exe test_kg.py
+cd frontend
+npm run build
+```
+
+## Troubleshooting
+
+- `Connection refused` from KG calls usually means Fuseki is not running.
+- Backend startup issues often mean Ollama or local embedding model files are unavailable.
+- Frontend build issues inside restricted environments can come from sandboxed process spawning rather than app code.

@@ -1,11 +1,28 @@
+# Frontend
 
-  # Agentic RAG Chatbot Frontend (Community)
+This directory contains the active NexRag React frontend used with the FastAPI backend in the repository root.
 
-  This is a code bundle for Agentic RAG Chatbot Frontend (Community). The original project is available at https://www.figma.com/design/TIuBAEIl83PNR3naWQ8kLt/Agentic-RAG-Chatbot-Frontend--Community-.
+## Development
 
-  ## Running the code
+```powershell
+npm install
+npm run dev
+```
 
-  Run `npm i` to install the dependencies.
+The frontend expects the backend to be available at `http://127.0.0.1:8000`.
 
-  Run `npm run dev` to start the development server.
-  
+## Production Build
+
+```powershell
+npm run build
+```
+
+Generated build output is written to `build/` and is not intended to be committed for normal feature work.
+
+## Features
+
+- chat interface with markdown rendering
+- reasoning and confidence display
+- source snippet panel
+- live system status panel
+- knowledge graph editor entry point

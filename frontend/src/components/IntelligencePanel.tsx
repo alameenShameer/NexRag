@@ -16,6 +16,11 @@ export function IntelligencePanel({ snippets = [], status: externalStatus }: { s
   const [status, setStatus] = useState<any>(null);
 
   useEffect(() => {
+    if (externalStatus) {
+      setStatus(externalStatus);
+      return;
+    }
+
     const fetchStatus = async () => {
       try {
         const res = await fetch('http://127.0.0.1:8000/api/status');
@@ -27,12 +32,6 @@ export function IntelligencePanel({ snippets = [], status: externalStatus }: { s
     fetchStatus();
     const int = setInterval(fetchStatus, 5000);
     return () => clearInterval(int);
-  }, []);
-
-  useEffect(() => {
-    if (externalStatus) {
-      setStatus(externalStatus);
-    }
   }, [externalStatus]);
 
   const sourceChunks: SourceChunk[] = snippets.map((s, i) => ({

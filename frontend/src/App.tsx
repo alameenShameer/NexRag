@@ -37,7 +37,6 @@ function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [activeSnippets, setActiveSnippets] = useState<any[]>([]);
-  const chatAreaRef = useRef<HTMLDivElement>(null);
   const [showKGEditor, setShowKGEditor] = useState(false);
   const [systemStatus, setSystemStatus] = useState<SystemStatus | null>(null);
   const [isDark, setIsDark] = useState(() => {
@@ -185,7 +184,7 @@ function App() {
         <LeftSidebar />
         
         <div className="flex-1 flex flex-col overflow-hidden">
-          <div ref={chatAreaRef} className="flex-1 overflow-hidden">
+          <div className="flex-1 overflow-hidden">
             <ChatAreaWithMessages 
               messages={messages} 
               isTyping={isTyping} 
