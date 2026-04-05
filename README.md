@@ -1,199 +1,126 @@
-🦅 NexRag – Hybrid RAG Assistant (KG + PDF + LLM)
+# NexRag
 
-NexRag is a Hybrid Retrieval-Augmented Generation (RAG) system that intelligently answers questions using:
+NexRag is a local-first academic assistant for MES Institute of Technology and Management that combines an official-source knowledge graph, hybrid retrieval, and a local LLM. The current app uses:
 
-📘 Knowledge Graph (SPARQL + Fuseki) for definition-type questions
+- a FastAPI backend in `api.py`
+- modular backend services in `services/`
+- a Vite + React frontend in `frontend/`
+- Apache Jena Fuseki for the knowledge graph
+- FAISS + BM25 + reranking for document retrieval
+- Ollama for local answer generation
+- an ingestion worker that scrapes official MESITAM pages and downloads
 
-📄 PDF document retrieval (TF-IDF + cosine similarity) for descriptive queries
+## How It Works
 
-🤖 Local LLM (Ollama) for grounded answer generation
+1. `tools/ingestion/run_worker.py` fetches official MESITAM pages and PDFs into the generated knowledge base.
+2. `services/ingestion.py` builds `data/knowledge_base.json`, `data/mesitam_official.ttl`, and `data/official_documents.json`.
+3. `kg.py` answers entity-style questions from the generated RDF graph, with Fuseki support and a local fallback.
+4. `rag.py` retrieves grounded evidence from the official document corpus plus any user uploads in `data/uploads/`.
+5. `llm.py` generates the final answer with strict grounding and concise/detailed answer modes.
+6. `api.py` exposes readiness, chat, structured knowledge, ingestion, and evaluation endpoints to the frontend.
 
-The system is designed to be offline-friendly, privacy-preserving, and demo-ready.
+## Requirements
 
-✨ Key Features
+- Python 3.10+
+- Node.js 18+
+- Java 17+
+- Ollama installed locally
 
-🔀 Hybrid Routing
+Recommended model:
 
-Definitions → Knowledge Graph
-
-Other queries → PDF-based RAG
-
-Automatic fallback if KG has no answer
-
-📄 PDF Upload & Indexing
-
-Upload academic PDFs
-
-Automatic chunking and indexing
-
-🧠 Classical RAG Retriever
-
-TF-IDF vectorization
-
-Cosine similarity
-
-Top-k filtering + thresholding
-
-🤖 Local LLM Inference
-
-Uses Ollama (no cloud, no API keys)
-
-Supports CPU-only mode (stable)
-
-🔐 Privacy-Safe
-
-No data leaves your machine
-
-## 📁 Project Structure
-
-```text
-NexRag/
-├── app.py            # Streamlit UI & main flow
-├── rag.py            # PDF RAG logic (TF-IDF + similarity)
-├── kg.py             # Knowledge Graph (SPARQL queries)
-├── llm.py            # LLM interaction via Ollama
-├── router.py         # Query routing logic
-│
-├── data/
-│   ├── pdfs/         # Uploaded PDFs
-│   └── university_faq.ttl  # Knowledge Graph data
-│
-├── requirements.txt
-├── README.md
-└── venv/
+```powershell
+ollama pull llama3.2:3b
 ```
 
-## 🏗️ System Architecture (High Level)
+## Setup
 
-```text
-User Question
-      |
-      v
-Query Router
-      |
- ┌───────────────┬──────────────────┐
- │ Definition?   │ Other Queries    │
- │               │                  │
- │ Knowledge     │ PDF Retrieval    │
- │ Graph (KG)    │ (TF-IDF + Cosine)│
- └───────┬───────┴─────────┬────────┘
-         |                 |
-         v                 v
-  Answer from KG     Context from PDF
-                          |
-                          v
-                    LLM (Ollama)
-                          |
-                          v
-                    Final Answer
-```
-
-⚙️ Requirements
-
-Python 3.9+
-
-Ollama installed
-
-Apache Jena Fuseki
-
-📦 Installation & Setup
-1️⃣ Clone the Repository
-git clone <your-repo-url>
-cd NexRag
-
-2️⃣ Create Virtual Environment
+```powershell
 python -m venv venv
-venv\Scripts\activate   # Windows
-source venv/bin/activate  # Linux/Mac
-
-3️⃣ Install Dependencies
+venv\Scripts\activate
 pip install -r requirements.txt
+cd frontend
+npm install
+cd ..
+```
 
-4️⃣ Install & Pull LLM (Ollama)
+## Run NexRag
 
-Install Ollama from:
-👉 https://ollama.com
+### One-click startup
 
-Then pull the model:
+```powershell
+start_NexRag.bat
+```
 
-ollama pull mistral:7b-instruct-q4_K_M
+This launcher will:
 
-faster alternative:
-ollama pull phi3:mini
+- build or refresh the active RDF graph in `data/merged_kg.ttl`
+- start Fuseki on `/mesitam_kg`
+- start the FastAPI backend on `http://127.0.0.1:8000`
+- start the frontend on `http://127.0.0.1:5173`
 
-5️⃣ Setup Knowledge Graph (Fuseki)
+### Manual startup
+
+Build or refresh the official knowledge base:
+
+```powershell
+venv\Scripts\python.exe tools\ingestion\run_worker.py --force
+```
 
 Start Fuseki:
 
-fuseki-server
+```powershell
+venv\Scripts\python.exe merge_kg.py
+java -jar fuseki\apache-jena-fuseki-5.6.0\fuseki-server.jar --file=data/merged_kg.ttl /mesitam_kg
+```
 
+Start the backend:
 
-Open browser:
+```powershell
+venv\Scripts\uvicorn.exe api:app --host 127.0.0.1 --port 8000
+```
 
-http://localhost:3030
+Start the frontend:
 
+```powershell
+cd frontend
+npm run dev
+```
 
-Create dataset:
+## Project Layout
 
-Dataset name: university_faq
-Type: Persistent (TDB2)
+- `frontend/`: active web UI
+- `services/`: chat, readiness, ingestion, knowledge-base, and evaluation services
+- `data/`: generated official knowledge artifacts, manifests, and vector artifacts
+- `data/uploads/`: user-uploaded PDFs
+- `tests/`: verification scripts
+- `tools/`: maintenance, ingestion, and evaluation scripts
+- `local/`: ignored local-only references and scratch files
 
+## Useful Checks
 
-Upload:
+```powershell
+venv\Scripts\python.exe tests\test_import.py
+venv\Scripts\python.exe tests\test_router.py
+venv\Scripts\python.exe tests\test_retrieval.py
+venv\Scripts\python.exe tests\test_kg.py
+venv\Scripts\python.exe tests\test_readiness_and_modes.py
+cd frontend
+npm run build
+```
 
-data/university_faq.ttl
+Optional health check:
 
-6️⃣ Run the Application
-streamlit run app.py
+```powershell
+venv\Scripts\python.exe tools\maintenance\check_health.py
+```
 
-🧪 Example Queries
-Question	Answer Source
-what is a seminar	Knowledge Graph
-define seminar	Knowledge Graph
-what are the guidelines	PDF (RAG)
-explain seminar evaluation	PDF (RAG)
-🧠 Why Hybrid RAG?
+## Notes
 
-Knowledge Graphs are accurate for definitions
+- The default Knowledge Base view is structured for users; raw graph inspection and Turtle editing are kept behind Developer Mode.
+- Chat answers are restricted to retrieved MESITAM knowledge. Out-of-domain questions should return: `I don't have enough information in the knowledge base`.
+- The startup UI uses `/api/readiness` so the app can clearly show `loading`, `ready`, or `error`.
+- Generated runtime files such as raw scrape snapshots, logs, and local scratch data are intentionally ignored.
 
-PDFs are rich for explanations
+## License
 
-LLMs provide natural language answers
-
-Hybrid approach ensures robustness & correctness
-
-🧑‍🏫 Viva / Seminar Explanation (Use This)
-
-“The system first attempts structured retrieval using a Knowledge Graph for definition-type queries. If no answer is found, it falls back to document-based retrieval using TF-IDF and cosine similarity, followed by LLM-based answer generation.”
-
-🚀 Future Improvements
-
-🔹 Replace TF-IDF with embeddings (FAISS / Sentence Transformers)
-
-🔹 Multi-PDF indexing
-
-🔹 Confidence score for answers
-
-🔹 Source citation highlighting
-
-🔹 Cloud LLM support (ChatGPT / Gemini)
-
-👨‍🎓 Who Is This For?
-
-Computer Science students
-
-Final-year projects
-
-RAG beginners
-
-Knowledge Graph learners
-
-Offline / privacy-focused AI demos
-
-📜 License
-
-This project is intended for educational and academic use.
-
-⭐ If this helped you
-
-Feel free to ⭐ the repository and share it with your friends 😊
+This project is intended for academic and educational use.

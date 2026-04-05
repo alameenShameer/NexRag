@@ -1,56 +1,44 @@
-# ===============================
-# Python bytecode & cache
-# ===============================
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-
-# ===============================
-# Virtual Environment
-# ===============================
+# Virtual environments
 venv/
 .env/
 
+# Local-only workspace files
+local/
 
-# ===============================
-# Streamlit
-# ===============================
-.streamlit/
+# Runtime logs and temporary files
+logs/
 *.log
+*.tmp
+*.swp
 
+# Generated data artifacts
+data/uploads/*
+!data/uploads/.gitkeep
+data/vector_store.index
+data/chunks_metadata.pkl
+data/merged_kg.ttl
+data/ingestion_state.db
+data/ingestion_status.json
+data/evaluation_metrics.json
 
-# ===============================
-# Uploaded / Generated Data
-# ===============================
-data/pdfs/*
-!data/pdfs/.gitkeep
-
-
-# ===============================
-# Ollama / LLM (local runtime)
-# ===============================
-# Ollama models are stored locally and should NOT be committed
+# Ollama
 .ollama/
 
+# Frontend local artifacts
+frontend/build/
+frontend/vite_live.log
+frontend/vite_live.err.log
 
-# ===============================
-# OS-specific files
-# ===============================
-.DS_Store
-Thumbs.db
-
-
-# ===============================
-# IDE / Editor settings
-# ===============================
+# IDE files
 .vscode/
 .idea/
 
-
-# ===============================
-# Temporary files
-# ===============================
-*.tmp
-*.swp
+# OS files
+.DS_Store
+Thumbs.db

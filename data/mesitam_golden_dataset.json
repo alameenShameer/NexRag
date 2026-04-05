@@ -1,0 +1,26 @@
+[
+  {
+    "question": "When was MESITAM founded and where is it located?",
+    "ground_truth": "MES Institute of Technology and Management was established in 2009 and is located near Thirumukku, Chathannoor, Kollam, Kerala."
+  },
+  {
+    "question": "Who is the HOD of Computer Science & Engineering at MESITAM?",
+    "ground_truth": "Dr. Vineetha G. R. is listed as the Head of the Department of Computer Science & Engineering."
+  },
+  {
+    "question": "What does the MESITAM digital library provide?",
+    "ground_truth": "The MESITAM digital library provides e-learning materials, e-databases, e-journals, and e-books, and it can be accessed from anywhere in the campus."
+  },
+  {
+    "question": "What approval and affiliation years are listed on the approvals page?",
+    "ground_truth": "The approvals page lists AICTE EoA 2025-2026 and KTU Affiliation 2025-2026 among the official approvals."
+  },
+  {
+    "question": "Name a recent MESITAM event from the official events page.",
+    "ground_truth": "The official events page lists ASSOCIATION INAUGURATION 25 - 26 as one of the recent MESITAM events."
+  },
+  {
+    "question": "What placement highlight appears in the MESITAM news page?",
+    "ground_truth": "The news page includes an item stating that a total of 24 students got placed in a placement drive conducted by QSpider."
+  }
+]

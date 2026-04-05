@@ -1,0 +1,315 @@
+\begin{titlepage}
+\newgeometry{top=0.98in, bottom=0.98in, left=1.18in, right=1.18in}
+\begin{center}
+            \vspace{2cm}
+        
+            {\fontsize{16}{18}\selectfont 
+            \textbf{NEXRAG: A HYBRID RAG CHAT-BOT \\[0.2cm]
+            FOR EDUCATION SYSTEM}
+            }\\[0.8cm]
+            
+            {\fontsize{14}{16}\selectfont PROJECT REPORT}\\[0.6cm]
+            
+            {\fontsize{12}{14}\selectfont submitted by}\\[0.6cm]
+            
+            {\fontsize{14}{16}\selectfont \textbf{ADNAN SAIF}}\\
+            {\fontsize{12}{14}\selectfont \textbf{MEK22CS003}}\\[0.4cm]
+            
+            {\fontsize{14}{16}\selectfont \textbf{AJAS N}}\\
+            {\fontsize{12}{14}\selectfont \textbf{MEK22CS006}}\\[0.4cm]
+            
+            {\fontsize{14}{16}\selectfont \textbf{AJMAL AHAMMED KABEER}}\\
+            {\fontsize{12}{14}\selectfont \textbf{MEK22CS007}}\\[0.4cm]
+            
+            {\fontsize{14}{16}\selectfont \textbf{AL AMEEN}}\\
+            {\fontsize{12}{14}\selectfont \textbf{MEK22CS009}}\\[0.6cm]
+            
+            {\fontsize{12}{14}\selectfont \textit{to}}\\[0.6cm]
+            
+            {\fontsize{12}{14}\selectfont 
+            the APJ Abdul Kalam Technological University\\
+            in partial fulfillment of the requirements for the award of Bachelor of Technology\\
+            in Computer Science and Engineering
+            }\\[0.6cm]
+            
+            \includegraphics[width=5cm]{logo.png}\\[0.6cm]
+            
+            {\fontsize{14}{16}\selectfont \textbf{Department of Computer Science and Engineering}}\\[0.4cm]
+            
+            {\fontsize{14}{16}\selectfont 
+            MES Institute of Technology and Management, Chathannoor, Kollam}\\[0.3cm]
+            {\fontsize{14}{16}\selectfont April 2026}
+        
+\end{center}
+\restoregeometry
+\end{titlepage}
+
+\newpage
+\begin{center}
+            \vspace{0.5cm}
+            {\fontsize{14}{16}\selectfont \textbf{DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING}}\\[0.3cm]
+            \resizebox{\textwidth}{!}{\textbf{MES INSTITUTE OF TECHNOLOGY AND MANAGEMENT, KOLLAM}}\\[0.6cm]
+            \includegraphics[width=4.5cm]{logo.png}\\[0.6cm]
+            {\fontsize{14}{16}\selectfont \textbf{CERTIFICATE}}\\[0.6cm]
+\end{center}
+
+\begin{spacing}{1.5}
+\fontsize{12}{14}\selectfont
+\sloppy
+\fontdimen2\font=0.5em
+Certified that this report entitled \textit{``NEXRAG: A HYBRID RAG CHAT-BOT FOR EDUCATION SYSTEM''} is the report of project presented by \textbf{ADNAN SAIF (MEK22CS003), AJAS N (MEK22CS006), AJMAL AHAMMED KABEER (MEK22CS007), AL AMEEN (MEK22CS009)} during the year \textbf{2025--2026} in partial fulfillment of the requirements for the award of the Degree of Bachelor of Technology in Computer Science and Engineering of the \textit{APJ Abdul Kalam Technological University}.
+\end{spacing}
+
+\vspace{0.4cm}
+
+\noindent\textbf{Muneera}\\
+Assistant Professor\\
+Dept. of Computer Science and Engineering\\
+MES Institute of Technology and Management, Kollam
+
+\vspace{0.7cm}
+
+\noindent\textbf{Prof. Ajeena T}\\
+Assistant Professor\\
+Dept. of Computer Science and Engineering\\
+MES Institute of Technology and Management, Kollam
+
+\vspace{0.7cm}
+
+\noindent\textbf{Dr. Vineetha G R}\\
+Head of the Department\\
+Dept. of Computer Science and Engineering\\
+MES Institute of Technology and Management, Kollam
+
+\newpage
+\begin{center}
+            \textbf{\large DECLARATION}
+\end{center}
+\vspace{0.2cm}
+  
+\fontsize{12}{14}\selectfont
+\begin{spacing}{1.5}
+            We, Adnan Saif, Ajas N, Ajmal Ahammed Kabeer, and Al Ameen, hereby declare that this project report entitled ``NEXRAG: A HYBRID RAG CHAT-BOT FOR EDUCATION SYSTEM'' is the bonafide work carried out by us under the supervision of Muneera, Assistant Professor, Department of Computer Science and Engineering. We declare that, to the best of our knowledge, the work reported herein does not form part of any other project report or dissertation on the basis of which a degree or award was conferred on an earlier occasion to any other candidate. The content of this report is not being presented by any other student to this or any other University for the award of a degree.
+\end{spacing}
+  \vspace{0.2cm}
+\noindent Signature: \\[0.2cm]
+\noindent Name of the Student: Adnan Saif\\[0.1cm]
+\noindent University Register No: MEK22CS003 \hspace{0.3cm} of year 2026\\[0.2cm]
+
+\noindent Signature: \\[0.2cm]
+\noindent Name of the Student: Ajas N\\[0.1cm]
+\noindent University Register No: MEK22CS006 \hspace{0.3cm} of year 2026\\[0.2cm]
+
+\noindent Signature: \\[0.2cm]
+\noindent Name of the Student: Ajmal Ahammed Kabeer\\[0.1cm]
+\noindent University Register No: MEK22CS007 \hspace{0.3cm} of year 2026\\[0.2cm]
+
+\noindent Signature: \\[0.2cm]
+\noindent Name of the Student: Al Ameen\\[0.1cm]
+\noindent University Register No: MEK22CS009 \hspace{0.3cm} of year 2026\\[0.2cm]
+
+\noindent Signature(s): \\[0.2cm]
+\noindent Name of Guide(s): Muneera\\[0.2cm]
+
+\noindent Countersigned with Dr. Vineetha G R:\\[0.1cm]
+\noindent Head, Department of Computer Science Engineering\\[0.2cm]
+\noindent MES Institute of Technology and Management, Kollam \hfill Date: \rule{2cm}{0.4pt}
+
+\vfill
+
+\newpage
+\thispagestyle{plain}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\begin{center}
+{\fontsize{14}{16}\selectfont \textbf{ACKNOWLEDGEMENTS}}
+\end{center}
+\vspace{0.2cm}
+
+\begin{spacing}{1.5}
+\fontsize{12}{14}\selectfont
+
+We take this opportunity to express our deep sense of gratitude and sincere thanks to all who helped us to complete the project successfully.\\
+
+\noindent We are deeply indebted to our guide Muneera, Assistant Professor, Department of Computer Science and Engineering, MES Institute of Technology and Management, for excellent guidance, positive criticism, and valuable comments. We are greatly thankful to Dr. Vineetha G R, Head of the Computer Science and Engineering Department, for her support and cooperation.\\
+
+\noindent Finally, we thank our parents, friends, and all those who directly and indirectly contributed to the successful completion of our project.
+
+\end{spacing}
+
+\vspace{1cm}
+
+\begin{flushright}
+\textbf{ADNAN SAIF (MEK22CS003)}\\
+\textbf{AJAS N (MEK22CS006)}\\
+\textbf{AJMAL AHAMMED KABEER (MEK22CS007)} \\
+\textbf{AL AMEEN (MEK22CS009)}\\
+\end{flushright}
+
+\vspace{0.5cm}
+\noindent Place: Kollam\\[0.3cm]
+\noindent Date:
+
+\newpage
+\thispagestyle{plain}
+
+\begin{center}
+            {\fontsize{14}{16}\selectfont \textbf{ABSTRACT}}
+\end{center}
+
+\vspace{0.2cm}
+
+\begin{spacing}{1.5}
+\fontsize{12}{14}\selectfont
+NexRag is a hybrid Retrieval-Augmented Generation chatbot developed for educational institutions to provide accurate answers to academic and administrative queries from both structured and unstructured knowledge sources. The system combines a knowledge graph for entity-centric institutional facts with a document retrieval pipeline for guidelines, regulations, syllabi, and circulars. User queries are processed through an intent router that decides whether graph querying, document retrieval, or a combined evidence path should be prioritized. Retrieved graph facts and ranked document chunks are then supplied to a locally deployed large language model through Ollama so that the final response remains grounded in institutional evidence rather than unsupported model memory. The implementation uses FastAPI for backend orchestration, React and Vite for the frontend, FAISS and BM25 for hybrid retrieval, a cross-encoder for reranking, and Apache Jena Fuseki for SPARQL-based graph access. The system also exposes route labels, source transparency, confidence indicators, and graph-editing support to improve trust and maintainability. Experimental verification from the repository confirms indexed academic documents, working query routing, live graph-backed answers, and effective retrieval for handbook and seminar-related questions. The project demonstrates that a local-first hybrid academic assistant can improve information access, reduce hallucination, and provide a scalable foundation for institution-specific question answering.\\
+
+\noindent\textbf{Key words:} Retrieval-Augmented Generation, Knowledge Graph, BM25, Large Language Model, Academic Chatbot.
+
+\end{spacing}
+
+\newpage
+\begin{center}
+            {\fontsize{14}{16}\selectfont \textbf{CONTENTS}}
+\end{center}
+\vspace{1cm}
+\renewcommand{\arraystretch}{1.5}
+
+\noindent \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
+                \textbf{Title} & \textbf{Page Number} \\[0.6cm]
+                
+                List of Figures & \pageref{front:list-figures} \\[0.3cm]
+                List of Tables & \pageref{front:list-tables} \\[0.3cm]
+                Abbreviations & \pageref{front:abbreviations} \\[0.5cm]
+                
+                \textbf{Chapter-1. Introduction} & \pageref{chap:introduction} \\
+                \hspace{0.5cm} 1.1 Overview & \pageref{sec:introduction-overview} \\
+                \hspace{0.5cm} 1.2 Background & \pageref{sec:introduction-background} \\
+                \hspace{0.5cm} 1.3 Motivation & \pageref{sec:introduction-motivation} \\
+                \hspace{0.5cm} 1.4 Problem Statement & \pageref{sec:introduction-problem} \\
+                \hspace{0.5cm} 1.5 Challenges & \pageref{sec:introduction-challenges} \\
+                \hspace{0.5cm} 1.6 Objectives & \pageref{sec:introduction-objectives} \\
+                \hspace{0.5cm} 1.7 Scope and Delimitations & \pageref{sec:introduction-scope} \\
+                \hspace{0.5cm} 1.8 Organization of Report & \pageref{sec:introduction-organization} \\[0.4cm]
+                
+                \textbf{Chapter-2. Literature Review} & \pageref{chap:literature-review} \\
+                \hspace{0.5cm} 2.1 Introduction & \pageref{sec:literature-introduction} \\
+                \hspace{0.5cm} 2.2 Review of Related Works & \pageref{sec:literature-related-works} \\
+                \hspace{0.5cm} 2.3 Comparative Analysis & \pageref{sec:literature-comparative-analysis} \\
+                \hspace{0.5cm} 2.4 Research Gaps & \pageref{sec:literature-research-gaps} \\[0.4cm]
+                
+                \textbf{Chapter-3. Proposed System} & \pageref{chap:proposed-system} \\
+                \hspace{0.5cm} 3.1 System Overview & \pageref{sec:proposed-overview} \\
+                \hspace{0.5cm} 3.2 System Architecture & \pageref{sec:proposed-architecture} \\
+\end{tabular*}
+
+\newpage
+
+\noindent \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
+\textbf{Chapter-3. Proposed System} & \pageref{chap:proposed-system} \\
+\hspace{0.5cm} 3.3 Modules & \pageref{sec:proposed-modules} \\
+\hspace{0.5cm} 3.4 Algorithms Used & \pageref{sec:proposed-algorithms} \\
+\hspace{0.5cm} 3.5 System Design & \pageref{sec:proposed-system-design} \\
+\hspace{0.5cm} 3.6 Advantages & \pageref{sec:proposed-advantages} \\
+\hspace{0.5cm} 3.7 Applications & \pageref{sec:proposed-applications} \\[0.4cm]
+
+\textbf{Chapter-4. Results and Discussion} & \pageref{chap:results-discussion} \\
+\hspace{0.5cm} 4.1 Introduction & \pageref{sec:results-introduction} \\
+\hspace{0.5cm} 4.2 Implementation Environment & \pageref{sec:results-environment} \\
+\hspace{0.5cm} 4.3 Indexed Knowledge Sources & \pageref{sec:results-indexed-sources} \\
+\hspace{0.5cm} 4.4 Functional Verification & \pageref{sec:results-functional-verification} \\
+\hspace{0.5cm} 4.5 Routing and Retrieval Outcomes & \pageref{sec:results-routing-retrieval} \\
+\hspace{0.5cm} 4.6 Interface and Workflow & \pageref{sec:results-interface-workflow} \\
+\hspace{0.5cm} 4.7 Performance Analysis & \pageref{sec:results-performance} \\
+\hspace{0.5cm} 4.8 Operating Modes & \pageref{sec:results-operating-modes} \\
+\hspace{0.5cm} 4.9 Evaluation Limitations & \pageref{sec:results-limitations} \\
+\textbf{Chapter-5. Conclusion and Future Scope} & \pageref{chap:conclusion} \\
+\hspace{0.5cm} 5.1 Conclusion & \pageref{sec:conclusion-summary} \\
+\hspace{0.5cm} 5.2 Future Scope & \pageref{sec:conclusion-future-scope} \\[0.5cm]
+
+References & \pageref{sec:references} \\
+
+\end{tabular*}
+
+\newpage
+\begin{center}
+            {\fontsize{14}{16}\selectfont \textbf{LIST OF FIGURES}}
+\end{center}
+\label{front:list-figures}
+\vspace{1cm}
+\renewcommand{\arraystretch}{1.5}
+
+\noindent
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}X r}
+            \textbf{Title} & \textbf{Page Number} \\[0.6cm]
+            
+            Fig. 3.1 High-Level Architecture of NexRag & \pageref{fig:nexrag-architecture} \\[0.3cm]
+            Fig. 3.2 End-to-End Query Processing Flow & \pageref{fig:nexrag-query-flow} \\[0.3cm]
+            Fig. 3.3 Knowledge Graph Maintenance and Validation Workflow & \pageref{fig:nexrag-kg-workflow} \\[0.3cm]
+            Fig. 3.4 Data Flow Diagram for the Proposed System & \pageref{fig:nexrag-dfd} \\[0.3cm]
+            Fig. 4.1 Main User Interface of the NexRag Frontend & \pageref{fig:nexrag-main-ui} \\[0.3cm]
+            Fig. 4.2 Streaming Answer View with Routing and Source Evidence & \pageref{fig:nexrag-streaming-answer} \\[0.3cm]
+            Fig. 4.3 Intelligence Panel Showing Retrieved Sources and System Status & \pageref{fig:nexrag-sources-panel} \\[0.3cm]
+            Fig. 4.4 Knowledge Graph Editor Interface for Turtle File Update & \pageref{fig:nexrag-kg-editor} \\[0.3cm]
+            Fig. 4.5 Retrieval Output for an Attendance Rule Query & \pageref{fig:nexrag-query-attendance} \\[0.3cm]
+            Fig. 4.6 Retrieval Output for a Seminar Guideline Query & \pageref{fig:nexrag-query-seminar} \\[0.3cm]
+            Fig. 4.7 Comparative Mode Analysis of KG, Vector, and Combined Responses & \pageref{fig:nexrag-mode-comparison} \\[0.3cm]
+
+\end{tabularx}
+
+\newpage
+\begin{center}
+            {\fontsize{14}{16}\selectfont \textbf{LIST OF TABLES}}
+\end{center}
+\label{front:list-tables}
+\vspace{1cm}
+\renewcommand{\arraystretch}{1.5}
+
+\noindent
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}X r}
+            \textbf{Title} & \textbf{Page Number} \\[0.6cm]
+            
+            Table 2.1 Comparative Review of Related Research Works & \pageref{tab:literature-comparison} \\[0.3cm]
+            Table 3.1 Core Software Stack Used in NexRag & \pageref{tab:software-stack} \\[0.3cm]
+            Table 3.2 Major Backend Modules and Responsibilities & \pageref{tab:backend-modules} \\[0.3cm]
+            Table 3.3 Conceptual Data Entities and Storage Artefacts & \pageref{tab:data-entities} \\[0.3cm]
+            Table 3.4 API Endpoints and Functional Roles & \pageref{tab:api-endpoints} \\[0.3cm]
+            Table 4.1 Repository Verification Summary & \pageref{tab:repository-verification} \\[0.3cm]
+            Table 4.2 Current Indexed Document Collection & \pageref{tab:indexed-document-collection} \\[0.3cm]
+            Table 4.3 Sample Query Routing Outcomes & \pageref{tab:routing-outcomes} \\[0.3cm]
+            Table 4.4 Sample Retrieval Outputs and Relevance Scores & \pageref{tab:retrieval-outputs} \\[0.3cm]
+            Table 4.5 Observed Query Log Characteristics & \pageref{tab:query-log-characteristics} \\[0.3cm]
+            Table 4.6 Comparative Discussion of Operating Modes & \pageref{tab:operating-modes} \\[0.3cm]
+            Table 5.1 Summary of Achievements and Forward Directions & \pageref{tab:conclusion-summary} \\[0.3cm]
+            
+\end{tabularx}
+
+\newpage
+ 
+\begin{center}
+    
+
+ {\fontsize{14}{16}\selectfont \textbf{LIST OF ABBREVIATIONS}}
+ \end{center}
+\label{front:abbreviations}
+\vspace{1cm}
+
+\renewcommand{\arraystretch}{2.0}
+\begin{tabularx}{\textwidth}{p{2cm} p{3cm} X}
+\textbf{Sl. No} & \textbf{Abbreviation} & \textbf{Full Form} \\[5pt]
+
+1 & AI & Artificial Intelligence \\[5pt]
+2 & API & Application Programming Interface \\[5pt]
+3 & BM25 & Best Matching 25 \\[5pt]
+4 & B.Tech & Bachelor of Technology \\[5pt]
+5 & DFD & Data Flow Diagram \\[5pt]
+6 & FAISS & Facebook AI Similarity Search \\[5pt]
+7 & KG & Knowledge Graph \\[5pt]
+8 & LLM & Large Language Model \\[5pt]
+9 & PDF & Portable Document Format \\[5pt]
+10 & RAG & Retrieval-Augmented Generation \\[5pt]
+11 & RDF & Resource Description Framework \\[5pt]
+12 & SPARQL & SPARQL Protocol and RDF Query Language \\[5pt]
+13 & TTL & Terse RDF Triple Language \\[5pt]
+14 & UI & User Interface \\[5pt]
+
+\end{tabularx}

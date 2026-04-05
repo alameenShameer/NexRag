@@ -1,9 +1,24 @@
-@prefix : <http://example.org/unifaq#> .
+@prefix : <http://mesitam.ac.in/ns#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:faq1 rdf:type :FAQ ;
-      :hasQuestion :q1 ;
-      :hasAnswer :a1 .
+### FAQ Definition ###
+:Definition a rdfs:Class .
 
-:q1 :text "what is a seminar?" .
-:a1 :text "A seminar is an academic presentation given by a student or expert to present research findings or discuss a specific topic." .
+### Data - Definitions / FAQs ###
+:Seminar a :Definition ;
+    :hasName "Seminar" ;
+    :description "A seminar is an academic presentation given by a student or expert to present research findings or discuss a specific topic." .
+
+:Project a :Definition ;
+    :hasName "Project" ;
+    :description "A project is a comprehensive independent study or development task undertaken by the student during the final year of study." .
+
+:Viva_Voce a :Definition ;
+    :hasName "Viva" ;
+    :description "A viva voce is an oral examination where a student defends their project or thesis before a panel of examiners." .
+
+:Internship a :Definition ;
+    :hasName "Internship" ;
+    :description "An internship is a period of work experience offered by an organization for a limited period of time, mandatory for students." .

@@ -1,0 +1,49 @@
+\newpage
+\chaptertitle{CHAPTER 5: CONCLUSION AND FUTURE SCOPE}
+\label{chap:conclusion}
+
+\subheading{5.1 CONCLUSION}
+\label{sec:conclusion-summary}
+
+\fontsize{12}{14}\selectfont
+
+This report presented NexRag as a local-first hybrid academic assistant that integrates structured knowledge-graph querying, document retrieval, and grounded language generation. The project addressed a common institutional problem: academic information is available, but it is dispersed across regulations, handbooks, course files, and departmental records, making access slow and inconsistent. NexRag responds to this problem by routing queries to the most suitable evidence source and by generating answers only after relevant graph facts and/or document passages have been assembled.
+
+The implemented system demonstrates several important outcomes. First, it shows that hybrid evidence handling is more suitable for institutional question answering than a single-model chatbot. Second, it validates a local deployment model built with FastAPI, React, FAISS, BM25, Fuseki, and Ollama, thereby avoiding compulsory dependence on cloud APIs. Third, it emphasizes evidence transparency through route labels, source traces, confidence indicators, and graph-editing support. Together, these features make the project operationally meaningful as well as technically relevant.
+
+Repository verification further indicates that the retrieval pipeline is functioning in a materially usable state. The current system contains seven indexed PDFs and 290 chunks, the router tests pass, retrieval models load successfully, and representative academic queries return relevant handbook and guideline passages. The graph service was also reachable during local validation, which confirms that structured facts, routed retrieval, and local generation now work together in the observed implementation. The project therefore demonstrates both functional feasibility and a clear path toward fuller institutional deployment.
+
+The work also has value as an engineering study in system integration. It combines heterogeneous knowledge representations, multiple retrieval strategies, local model serving, interface transparency, and maintenance workflows within one coherent academic application. This integration-oriented contribution is important because many student projects demonstrate isolated models or interfaces, whereas NexRag demonstrates how those components can be assembled into a practical evidence-aware system. At the same time, the project remains appropriately bounded: it does not claim full institutional coverage, but rather establishes a technically sound foundation for that goal.
+
+\begin{center}
+\normalsize \textbf{\textit{Table 5.1: Summary of Achievements and Forward Directions}}
+\end{center}
+
+\begingroup
+\footnotesize
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{4pt}
+\begin{table}[H]
+\centering
+\label{tab:conclusion-summary}
+\begin{tabularx}{\textwidth}{|>{\RaggedRight\arraybackslash\hspace{0pt}}X|>{\RaggedRight\arraybackslash\hspace{0pt}}X|>{\RaggedRight\arraybackslash\hspace{0pt}}X|}
+\hline
+\textbf{Area} & \textbf{Current Achievement} & \textbf{Future Direction} \\ \hline
+Retrieval & Dense, sparse, and reranking pipeline implemented & Improve filtering and score fusion \\ \hline
+Knowledge graph & RDF graph and SPARQL workflow prepared & Expand ontology and ensure live service reliability \\ \hline
+Generation & Local grounded response generation available & Improve prompting and model selection \\ \hline
+Interface & Source-aware chat and status panels implemented & Add role-based and analytical views \\ \hline
+Maintainability & Upload, logging, and KG editing workflows present & Automate more administrative tasks \\ \hline
+Evaluation & Functional verification and evaluation scripts available & Perform full end-to-end benchmarking \\ \hline
+\end{tabularx}
+\end{table}
+\endgroup
+
+\subheading{5.2 FUTURE SCOPE}
+\label{sec:conclusion-future-scope}
+
+Several extensions can improve NexRag further. The first is stronger intent classification through a learned router or hybrid rule-model approach, which would better handle paraphrase and multi-intent questions. The second is more advanced score fusion, including formal methods such as Reciprocal Rank Fusion before reranking, especially as the corpus grows. The third is expansion of the knowledge graph to include richer academic entities such as timetables, prerequisites, examination schedules, laboratories, and administrative contacts.
+
+Future work should also focus on rigorous evaluation and operational scaling. The repository already includes the basis for RAGAs-style assessment, and this can be extended into a benchmark comparing graph-only, retrieval-only, and combined configurations. On the deployment side, improved graph-service automation, larger institutional corpora, authentication, role-specific dashboards, and more detailed source analytics would convert the current prototype into a more robust college-wide platform. With these extensions, NexRag can evolve from a strong B.Tech project into a reusable institutional knowledge-assistance system.
+
+Further development should additionally address governance-oriented features that become important in real institutional use. These include controlled update approval for graph edits, versioning of indexed documents, better audit trails for answered queries, and role-aware access to administrative information. Such enhancements would not change the fundamental hybrid architecture, but they would strengthen reliability, accountability, and long-term maintainability. In that sense, the proposed system is not only a completed student project, but also a viable starting point for an institution-grade academic assistance platform.

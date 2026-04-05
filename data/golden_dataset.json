@@ -1,0 +1,16 @@
+[
+  {
+    "question": "When was MESITAM founded?",
+    "ground_truth": "MES Institute of Technology and Management was established in 2009.",
+    "context": [
+      "Founded in 2009 MES Institute of Technology and Management was established in 2009 under the management of Muslim Educational Society."
+    ]
+  },
+  {
+    "question": "Who heads the Computer Science & Engineering department?",
+    "ground_truth": "Dr. Vineetha G. R. is the Head of the Department of Computer Science & Engineering.",
+    "context": [
+      "Head of Departments: Dr. Vineetha G. R. Dept. of Computer Science & Engineering."
+    ]
+  }
+]

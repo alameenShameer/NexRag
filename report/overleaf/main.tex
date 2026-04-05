@@ -1,0 +1,87 @@
+\documentclass[12pt,a4paper]{report}
+
+% --- Packages ---
+\usepackage{graphicx}
+\usepackage{newtxtext,newtxmath}
+\usepackage{setspace}
+\usepackage{ragged2e}
+\usepackage{titlesec}
+\usepackage[none]{hyphenat}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{placeins}
+\usepackage{changepage}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{xurl}
+\setlength{\parskip}{0.3cm}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+
+\usepackage{geometry}
+\geometry{
+    left=30mm,
+    right=30mm,
+    top=25mm,
+    bottom=25mm,
+    bindingoffset=9mm
+}
+
+\urlstyle{same}
+
+% Chapter title formatting
+\newcommand{\chaptertitle}[1]{
+\begin{center}
+{\fontsize{14}{16}\selectfont \textbf{#1}}
+\end{center}
+\vspace{0.8cm}
+}
+
+\newcommand{\subheading}[1]{
+\vspace{0.3cm}
+\noindent
+{\fontsize{12}{14}\selectfont \textbf{#1}}
+\vspace{0.15cm}
+}
+
+\newcommand{\manualequation}[2]{%
+\begingroup\small
+\begin{equation*}
+#1\tag*{(#2)}
+\end{equation*}
+\endgroup
+}
+
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\input{frontmatter}
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\setstretch{1.5}
+\justifying
+
+\input{chapters/01_introduction.tex}
+\input{chapters/02_literature_review.tex}
+\input{chapters/03_proposed_system.tex}
+\input{chapters/04_results_and_discussion.tex}
+\input{chapters/05_conclusion_and_future_scope.tex}
+
+\newpage
+\begin{center}
+{\fontsize{14}{16}\selectfont \textbf{REFERENCES}}
+\end{center}
+\label{sec:references}
+\vspace{0.8cm}
+\renewcommand{\baselinestretch}{1.5}
+\setlength{\parindent}{0pt}
+\input{chapters/06_references_body.tex}
+
+\end{document}

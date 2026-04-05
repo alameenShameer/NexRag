@@ -1,0 +1,91 @@
+\newpage
+\chaptertitle{CHAPTER 1: INTRODUCTION}
+\label{chap:introduction}
+
+\subheading{1.1 OVERVIEW}
+\label{sec:introduction-overview}
+
+\fontsize{12}{14}\selectfont
+
+Large language models have changed the way users expect to access institutional information. Instead of manually browsing notices, handbooks, circulars, and course files, users increasingly prefer to ask direct questions and receive concise, evidence-backed answers. This expectation is especially visible in academic institutions, where students and faculty repeatedly seek operational information such as attendance rules, seminar procedures, course ownership, report format, and departmental responsibilities. However, institutional knowledge is rarely stored in a single uniform form. Some facts are relational and structured, while other information exists only within lengthy PDF documents. The project domain of NexRag therefore lies at the intersection of academic information systems, information retrieval, knowledge representation, and local conversational artificial intelligence.
+
+Retrieval-Augmented Generation (RAG) has emerged as a practical response to the limitations of standalone language models in knowledge-intensive tasks. Instead of relying entirely on parametric memory, a RAG system retrieves external evidence and uses it to ground the final response, thereby improving factuality and updateability (Lewis et al., 2020). In academic environments this is particularly important because institutional policies, syllabi, guidelines, and staff responsibilities change over time. A purely generative system may produce fluent but inaccurate answers, whereas an evidence-grounded system can align responses with current institutional documents and structured records.
+
+Academic query answering also requires more than document retrieval alone. Questions such as ``Who teaches Computer Graphics?'' or ``Which department offers this course?'' depend on explicit entity relationships rather than only descriptive text. Knowledge graphs are well suited to such cases because they represent entities and links in a machine-readable form that supports direct querying and interpretable reasoning (Hogan et al., 2021). NexRag addresses this dual requirement by combining a knowledge graph for structured institutional facts with a retrieval pipeline for unstructured academic documents, and by using a local language model to synthesize the retrieved evidence into a user-facing response.
+
+Unlike open-domain assistants, a campus-facing assistant operates within a bounded but high-accountability knowledge environment. The indexed corpus may be relatively small, yet the cost of a wrong answer is high because misinformation about attendance, seminar submission, or course responsibility can directly affect academic compliance. The project domain therefore values authority, traceability, and maintainability as strongly as conversational fluency. For this reason, NexRag is framed not as a generic chatbot, but as an evidence-controlled academic information system.
+
+The domain is also relevant from a systems perspective because it requires multiple engineering concerns to be solved together. The assistant must support document ingestion, structured data maintenance, evidence ranking, answer generation, and interface transparency within one workflow. A project in this domain therefore cannot be evaluated only as a chatbot; it must be understood as an integrated academic information system whose success depends on retrieval quality, fact representation, operational control, and user trust.
+
+\subheading{1.2 BACKGROUND}
+\label{sec:introduction-background}
+
+Traditional academic information access follows a document-first model. Users search handbook PDFs, seminar instructions, course files, and departmental notices, often without knowing which source contains the required answer. This creates delay, repeated faculty intervention, and inconsistent interpretation of rules. Even when information is technically available, discoverability remains weak because official documents use formal language that may not match the way users phrase their questions.
+
+Neural retrieval research has shown that dense embedding methods can bridge this vocabulary mismatch by mapping semantically related queries and passages into a shared vector space (Karpukhin et al., 2020). Sentence-level embedding approaches further made semantic retrieval efficient enough for practical search systems (Reimers and Gurevych, 2019). At the same time, lexical methods such as BM25 remain valuable because institutional rules often contain exact phrases, codes, and formal terminology that should strongly influence ranking (Robertson and Zaragoza, 2009). Modern grounded assistants therefore benefit from hybrid retrieval rather than commitment to a single search strategy.
+
+Another important development is neural reranking, where a first-stage candidate set is refined using a more accurate query-passage interaction model. BERT-based rerankers have shown strong precision for passage selection and are particularly useful when users need the most authoritative supporting evidence rather than a long list of loosely related results (Nogueira and Cho, 2019). In a university assistant, this matters because a small ranking error may change the meaning of a policy explanation or direct the user to the wrong guideline.
+
+The importance of local-first deployment adds a practical institutional dimension. Cloud-dependent assistants raise concerns about privacy, cost, internet dependence, and control over internal documents. A local architecture that keeps the model, vector index, and knowledge graph within the institutional environment aligns better with educational settings where budget and governance constraints matter. NexRag is therefore important not only as a question-answering system, but also as a demonstration of how grounded AI can be implemented in a controllable and institution-ready form.
+
+The educational importance of such a system is equally substantial. A usable institutional assistant reduces repetitive faculty queries, improves access for new students, and promotes consistent interpretation of regulations. At the project level, it also demonstrates how information retrieval, semantic technologies, prompt engineering, and software deployment can be combined in an application with direct practical value rather than in disconnected experimental modules.
+
+From an information-systems perspective, the importance of the problem also lies in the diversity of its users. First-year students, final-year project teams, faculty members, and coordinators do not formulate queries in the same way, even when they refer to the same regulation or document. A useful system must therefore translate natural, sometimes informal, user phrasing into institutionally meaningful evidence. This requirement strengthens the case for hybrid retrieval, reranking, and explicit source presentation in the proposed system.
+
+\subheading{1.3 MOTIVATION}
+\label{sec:introduction-motivation}
+
+The primary motivation for NexRag is the gap between the availability of academic information and its actual usability. Students repeatedly need answers to ordinary but high-impact questions involving attendance requirements, seminar instructions, project-report formatting, syllabus details, and faculty-course mapping. These questions should be answerable immediately, yet in practice they often require searching multiple PDFs or contacting faculty members. This creates avoidable communication overhead and delays access to routine academic guidance.
+
+A second motivation arises from the limitations of generic conversational AI. Although large language models can generate fluent explanations, they are not reliable sources of institution-specific information unless grounded in approved evidence. An academic assistant must therefore do more than converse naturally; it must retrieve relevant evidence, preserve factual consistency, and expose the source of its answer. This requirement directly motivated the hybrid design of NexRag.
+
+The project was also motivated by the need to combine multiple knowledge modalities in one coherent system. Pure document retrieval is weak for explicit relations, while pure graph querying is weak for descriptive procedural content. A practical academic assistant must support both. NexRag was therefore conceived as an evidence-routing system in which query intent determines whether graph search, document retrieval, or a combined path should dominate response generation. This makes the system useful not only as a chatbot, but as a structured academic information service.
+
+An additional motivation was transparency. Many AI systems return polished responses without showing how they were produced. In an academic context, this is unsatisfactory because users often need to verify whether an answer is based on an approved guideline, a handbook rule, or a structured institutional fact. NexRag was therefore designed to surface route labels, source snippets, and system-status signals so that response quality can be assessed rather than merely assumed.
+
+The project is also motivated by feasibility and academic relevance. A final-year engineering project should solve a real problem using methods that are contemporary, technically significant, and practically deployable with limited infrastructure. Hybrid RAG satisfies these conditions because it combines modern AI techniques with implementable software components such as FastAPI, FAISS, SPARQL, and local model serving. The resulting system demonstrates both current research relevance and practical engineering discipline.
+
+\subheading{1.4 PROBLEM STATEMENT}
+\label{sec:introduction-problem}
+
+Academic institutions maintain critical information in heterogeneous forms such as handbooks, syllabus documents, seminar guidelines, circulars, and departmental records. Users seeking answers to academic questions often face difficulty locating the right source, identifying the relevant passage, and verifying whether the answer is institution-specific and current. Generic chatbots cannot guarantee factual alignment with institutional rules, while ordinary search systems lack conversational interaction and struggle with semantic intent.
+
+The problem addressed in this project is therefore to design a local-first academic assistant that can answer institutional queries accurately, transparently, and efficiently by combining structured knowledge graph reasoning, unstructured document retrieval, and grounded language generation. The system must classify queries, retrieve the appropriate evidence, present clear answers, and remain maintainable as documents and institutional facts evolve.
+
+In operational terms, the problem also includes orchestration. The system must decide when graph evidence is sufficient, when document retrieval should dominate, and when both sources should be combined. It must expose those decisions through a usable interface and support document and graph updates without compromising consistency. This broader formulation is what separates NexRag from a conventional FAQ bot or standalone search bar.
+
+\subheading{1.5 CHALLENGES}
+\label{sec:introduction-challenges}
+
+Existing systems face several limitations that justify the proposed work. The first is fragmentation of knowledge sources. Academic information is scattered across documents and records with different structures and vocabularies, making centralized access difficult. The second is unsupported generation: large language models can produce plausible answers even when evidence is weak, which is risky in a fact-sensitive academic setting (Lewis et al., 2020; Es et al., 2024).
+
+The third challenge is semantic mismatch between user phrasing and institutional language. Queries such as ``minimum attendance rule'' may correspond to formal handbook wording on eligibility or condonation. Dense retrieval helps address this gap, but lexical specificity remains necessary for codes, formal rule names, and exact policy terms. The fourth challenge is relational reasoning. Queries about courses, faculty, departments, and regulations often require explicit entity links that are handled more naturally by a knowledge graph than by text similarity alone.
+
+The fifth challenge is maintainability. Institutional knowledge changes through new regulations, updated faculty assignments, and revised guidelines. A useful assistant must therefore support document updates, graph maintenance, and index rebuilding without redesigning the whole system. The sixth challenge is evaluation: hybrid RAG systems must be judged not only by fluency, but also by retrieval quality, faithfulness, graph availability, and interface transparency (Es et al., 2024). NexRag addresses these challenges through a modular hybrid architecture rather than a single-model solution.
+
+Another practical challenge is coordination among local services. A local-first assistant depends on the simultaneous health of the backend API, vector artefacts, graph endpoint, and language-model runtime. Even if one component is temporarily unavailable, the system should degrade gracefully and communicate its state. This requirement influenced the design of status endpoints, evidence-based route labels, and operational logging in the proposed system.
+
+Trust therefore emerges as a technical requirement rather than a purely interface-level concern. An academic assistant must answer accurately when evidence exists, but it must also signal uncertainty when evidence is weak, unavailable, or contradictory. Systems that conceal retrieval failure behind confident language are unsuitable for policy-sensitive institutional use. This challenge directly motivates the confidence indicators, source traces, and route visibility adopted in NexRag.
+
+\subheading{1.6 OBJECTIVES}
+\label{sec:introduction-objectives}
+
+The main objective of NexRag is to develop a robust academic assistant that answers institutional queries through evidence-backed hybrid retrieval. To achieve this, the project seeks to build a structured knowledge graph for departments, faculty, courses, and regulations; implement a document ingestion and indexing pipeline for academic PDFs; support both semantic and lexical retrieval; and use a local language model to generate grounded answers from the retrieved context.
+
+The project also aims to classify user intent, expose routing mode and evidence to the user, and provide maintenance support for document updates and graph editing. From a software-engineering perspective, the objective is not merely to demonstrate a chatbot, but to create a maintainable local-first system integrating retrieval, graph querying, interface transparency, and operational workflows within a single full-stack application.
+
+The objectives therefore span both algorithmic and operational layers. At the algorithmic level, the system should retrieve relevant evidence precisely and reduce hallucination. At the operational level, it should remain usable, inspectable, and extensible for real academic data. This dual emphasis is important because an institutional assistant must be reliable in deployment, not only persuasive in demonstration.
+
+\subheading{1.7 SCOPE AND DELIMITATIONS}
+\label{sec:introduction-scope}
+
+The scope of NexRag is limited to institutional academic assistance within a bounded educational environment. The system is designed to answer questions related to regulations, course information, faculty roles, seminar guidance, project formatting, and similar academic topics. Its knowledge sources consist of PDF documents and RDF/Turtle graph files, and its deployment model assumes locally available backend, retrieval, graph, and language-model services.
+
+The project is not intended to serve as a universal academic search engine or a general-purpose open-domain assistant. Its performance depends on the quality and coverage of the indexed documents and graph content. The current router is rule-based rather than learned, and the graph schema is intentionally compact. During the verification session documented later, the Fuseki service was not active, so graph-backed answering could not be demonstrated end to end. These delimitations do not reduce the architectural validity of the project, but they define the present maturity level of the implementation.
+
+The scope also excludes automated institution-wide data ingestion from legacy administrative systems. At the current stage, documents and graph content are maintained through controlled files and update workflows. This keeps the project tractable and transparent, while leaving room for future automation once the core hybrid architecture is stabilized.
+
+\subheading{1.8 ORGANIZATION OF REPORT}
+\label{sec:introduction-organization}
+
+This report is organized into five chapters excluding the front matter and references. Chapter 1 introduces the domain, motivation, challenges, objectives, and scope of the work. Chapter 2 reviews the literature underlying retrieval-augmented generation, dense and sparse retrieval, reranking, knowledge graphs, and evaluation. Chapter 3 presents the proposed NexRag system, including its architecture, modules, algorithms, and design decisions. Chapter 4 discusses implementation evidence, verification results, retrieval behavior, and observed operating characteristics. Chapter 5 concludes the report and outlines the future scope of the system.

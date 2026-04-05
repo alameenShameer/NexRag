@@ -1,0 +1,27 @@
+@prefix : <http://mesitam.ac.in/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:UploadedDocument a rdfs:Class .
+:UploadEntity a rdfs:Class .
+:hasName a rdf:Property .
+:description a rdf:Property .
+:sourceFile a rdf:Property .
+:appearsIn a rdf:Property .
+:keyFeature a rdf:Property .
+
+:UploadDocument_project-guidelines-pdf a :UploadedDocument ;
+    :hasName "Project Guidelines.pdf" ;
+    :description "• Apply engineering knowledge to solve real-world problems." ;
+    :sourceFile "Project Guidelines.pdf" .
+
+:UploadDocument_seminar-guidelines-pdf a :UploadedDocument ;
+    :hasName "Seminar Guidelines.pdf" ;
+    :description "IEC Presentation Evaluation 40 (Clarity: 10, Q&A Interaction: 10, Involvement: 10, Slide Quality: 10)" ;
+    :sourceFile "Seminar Guidelines.pdf" .
+
+:UploadEntity_seminar-guidelines-pdf-iec-presentation-evaluation-40-clarity a :UploadEntity ;
+    :hasName "IEC Presentation Evaluation 40 (Clarity" ;
+    :description "IEC Presentation Evaluation 40 (Clarity: 10, Q&A Interaction: 10, Involvement: 10, Slide Quality: 10)" ;
+    :sourceFile "Seminar Guidelines.pdf" ;
+    :appearsIn :UploadDocument_seminar-guidelines-pdf .

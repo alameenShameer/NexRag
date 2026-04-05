@@ -1,28 +1,27 @@
-# ---------- UI ----------
-streamlit
-# Web UI framework for building the chatbot interface
+fastapi
+uvicorn
+python-multipart
+pandas
+requests
+beautifulsoup4
+lxml
 
+ragas
+datasets
+langchain-community
+langchain-huggingface
 
-# ---------- PDF Processing ----------
 pdfplumber
-# Extracts text content from PDF files
 
-
-# ---------- Machine Learning / RAG ----------
 scikit-learn
-# Provides TF-IDF vectorizer and cosine similarity
+sentence-transformers
+faiss-cpu
+rank_bm25
+langchain-text-splitters
 
-
-# ---------- Knowledge Graph ----------
 SPARQLWrapper
-# Used to query Apache Jena Fuseki (SPARQL endpoint)
+rdflib
 
-
-# ---------- Local LLM ----------
 ollama
-# Python client to interact with local LLMs like Mistral
 
-
-# ---------- Utilities ----------
 numpy
-# Required internally by scikit-learn
