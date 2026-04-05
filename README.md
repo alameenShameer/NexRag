@@ -1,33 +1,23 @@
 # NexRag
 
-NexRag is a local-first hybrid RAG assistant for MES Institute of Technology and Management. It combines:
+NexRag is a local-first academic assistant for MES Institute of Technology and Management that combines an official-source knowledge graph, hybrid retrieval, and a local LLM. The current app uses:
 
-- a knowledge graph served from Apache Jena Fuseki,
-- document retrieval over uploaded PDFs using SentenceTransformers, FAISS, BM25, and a reranker,
-- local answer generation through Ollama,
-- a FastAPI backend and a Vite + React frontend.
+- a FastAPI backend in `api.py`
+- modular backend services in `services/`
+- a Vite + React frontend in `frontend/`
+- Apache Jena Fuseki for the knowledge graph
+- FAISS + BM25 + reranking for document retrieval
+- Ollama for local answer generation
+- an ingestion worker that scrapes official MESITAM pages and downloads
 
-The project no longer runs as the older Streamlit + TF-IDF app described in earlier drafts. The current system is API-backed and optimized for local deployment.
+## How It Works
 
-## Architecture
-
-User query flow:
-
-1. `router.py` classifies the query intent.
-2. `kg.py` tries to answer entity-centric questions from Fuseki.
-3. `rag.py` retrieves supporting document chunks from the vector store.
-4. `llm.py` generates a grounded answer using Ollama.
-5. `api.py` returns the answer, snippets, routing trace, and system status to the frontend.
-
-Main code paths:
-
-- `api.py`: FastAPI service and chat/upload/status endpoints
-- `rag.py`: embedding, indexing, BM25, FAISS, reranking
-- `kg.py`: Fuseki query logic and KG health check
-- `llm.py`: local Ollama prompt and generation config
-- `frontend/`: React app
-- `data/`: PDFs, vector index, KG source files, merged graph
-- `start_mesitam_assistant.bat`: local convenience launcher
+1. `tools/ingestion/run_worker.py` fetches official MESITAM pages and PDFs into the generated knowledge base.
+2. `services/ingestion.py` builds `data/knowledge_base.json`, `data/mesitam_official.ttl`, and `data/official_documents.json`.
+3. `kg.py` answers entity-style questions from the generated RDF graph, with Fuseki support and a local fallback.
+4. `rag.py` retrieves grounded evidence from the official document corpus plus any user uploads in `data/uploads/`.
+5. `llm.py` generates the final answer with strict grounding and concise/detailed answer modes.
+6. `api.py` exposes readiness, chat, structured knowledge, ingestion, and evaluation endpoints to the frontend.
 
 ## Requirements
 
@@ -36,40 +26,45 @@ Main code paths:
 - Java 17+
 - Ollama installed locally
 
-Recommended Ollama model:
+Recommended model:
 
 ```powershell
 ollama pull llama3.2:3b
 ```
 
-## Backend Setup
-
-Create and activate the virtual environment:
+## Setup
 
 ```powershell
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
+cd frontend
+npm install
+cd ..
 ```
 
-The embedding and reranker models are expected to be available locally. The app prefers cached local model files for offline reliability.
+## Run NexRag
 
-## Running The App
-
-### Option 1: one-click local startup
+### One-click startup
 
 ```powershell
-start_mesitam_assistant.bat
+start_NexRag.bat
 ```
 
-This will:
+This launcher will:
 
-- merge `.ttl` knowledge graph files into `data/merged_kg.ttl`,
-- start Fuseki on `/mesitam_kg`,
-- start the FastAPI backend on `http://127.0.0.1:8000`,
-- start the frontend dev server from `frontend/`.
+- build or refresh the active RDF graph in `data/merged_kg.ttl`
+- start Fuseki on `/mesitam_kg`
+- start the FastAPI backend on `http://127.0.0.1:8000`
+- start the frontend on `http://127.0.0.1:5173`
 
-### Option 2: manual startup
+### Manual startup
+
+Build or refresh the official knowledge base:
+
+```powershell
+venv\Scripts\python.exe tools\ingestion\run_worker.py --force
+```
 
 Start Fuseki:
 
@@ -88,46 +83,44 @@ Start the frontend:
 
 ```powershell
 cd frontend
-npm install
 npm run dev
 ```
 
-## Frontend Build
+## Project Layout
 
-For a production-style frontend build:
+- `frontend/`: active web UI
+- `services/`: chat, readiness, ingestion, knowledge-base, and evaluation services
+- `data/`: generated official knowledge artifacts, manifests, and vector artifacts
+- `data/uploads/`: user-uploaded PDFs
+- `tests/`: verification scripts
+- `tools/`: maintenance, ingestion, and evaluation scripts
+- `local/`: ignored local-only references and scratch files
+
+## Useful Checks
 
 ```powershell
+venv\Scripts\python.exe tests\test_import.py
+venv\Scripts\python.exe tests\test_router.py
+venv\Scripts\python.exe tests\test_retrieval.py
+venv\Scripts\python.exe tests\test_kg.py
+venv\Scripts\python.exe tests\test_readiness_and_modes.py
 cd frontend
 npm run build
 ```
 
-## Example Queries
+Optional health check:
 
-- `Who is the HOD of Computer Science and Engineering?`
-- `Who teaches Operating Systems?`
-- `What are KTU exam rules?`
-- `Explain the seminar guidelines.`
-- `What is a project?`
+```powershell
+venv\Scripts\python.exe tools\maintenance\check_health.py
+```
 
 ## Notes
 
-- The knowledge graph may answer only what is actually modeled in the `.ttl` files. If a faculty-to-course relationship is missing, the app should say it does not know rather than guess.
-- The frontend includes a knowledge graph editor that can update source `.ttl` files and trigger a graph restart.
-- Generated artifacts such as `frontend/build/`, `logs/`, and vector store files should not be mixed into feature commits unless intentionally updated.
-
-## Verification
-
-Useful local checks:
-
-```powershell
-venv\Scripts\python.exe test_import.py
-venv\Scripts\python.exe test_router.py
-venv\Scripts\python.exe test_retrieval.py
-venv\Scripts\python.exe test_kg.py
-cd frontend
-npm run build
-```
+- The default Knowledge Base view is structured for users; raw graph inspection and Turtle editing are kept behind Developer Mode.
+- Chat answers are restricted to retrieved MESITAM knowledge. Out-of-domain questions should return: `I don't have enough information in the knowledge base`.
+- The startup UI uses `/api/readiness` so the app can clearly show `loading`, `ready`, or `error`.
+- Generated runtime files such as raw scrape snapshots, logs, and local scratch data are intentionally ignored.
 
 ## License
 
-This project is intended for educational and academic use.
+This project is intended for academic and educational use.

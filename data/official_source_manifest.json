@@ -1,0 +1,263 @@
+[
+  {
+    "id": "mesitam-home",
+    "url": "https://www.mesitam.ac.in/",
+    "kind": "html",
+    "category": "Overview",
+    "title": "MESITAM Home",
+    "parser": "about",
+    "tags": ["college", "overview", "home"]
+  },
+  {
+    "id": "mesitam-about",
+    "url": "https://www.mesitam.ac.in/about.php",
+    "kind": "html",
+    "category": "Overview",
+    "title": "About MESITAM",
+    "parser": "about",
+    "tags": ["college", "overview", "history"]
+  },
+  {
+    "id": "mesitam-hods",
+    "url": "https://www.mesitam.ac.in/HoDs.php",
+    "kind": "html",
+    "category": "Faculty",
+    "title": "MESITAM HODs",
+    "parser": "hods",
+    "tags": ["faculty", "hod", "departments"]
+  },
+  {
+    "id": "department-cse",
+    "url": "https://www.mesitam.ac.in/computer-science-and-engineering.php",
+    "kind": "html",
+    "category": "Department",
+    "title": "Department of Computer Science & Engineering",
+    "parser": "department",
+    "tags": ["department", "cse", "faculty", "courses"]
+  },
+  {
+    "id": "department-cse-ai",
+    "url": "https://www.mesitam.ac.in/computer-science-and-engineering-AI.php",
+    "kind": "html",
+    "category": "Department",
+    "title": "Department of Computer Science & Engineering (Artificial Intelligence)",
+    "parser": "department",
+    "tags": ["department", "cse-ai", "faculty", "courses"]
+  },
+  {
+    "id": "department-civil",
+    "url": "https://www.mesitam.ac.in/civil-engineering.php",
+    "kind": "html",
+    "category": "Department",
+    "title": "Department of Civil Engineering",
+    "parser": "department",
+    "tags": ["department", "civil", "faculty", "courses"]
+  },
+  {
+    "id": "department-eee",
+    "url": "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php",
+    "kind": "html",
+    "category": "Department",
+    "title": "Department of Electrical & Electronics Engineering",
+    "parser": "department",
+    "tags": ["department", "eee", "faculty", "courses"]
+  },
+  {
+    "id": "department-ece",
+    "url": "https://www.mesitam.ac.in/electronics-and-communication-engineering.php",
+    "kind": "html",
+    "category": "Department",
+    "title": "Department of Electronics & Communication Engineering",
+    "parser": "department",
+    "tags": ["department", "ece", "faculty", "courses"]
+  },
+  {
+    "id": "department-me",
+    "url": "https://www.mesitam.ac.in/mechanical-engineering.php",
+    "kind": "html",
+    "category": "Department",
+    "title": "Department of Mechanical Engineering",
+    "parser": "department",
+    "tags": ["department", "mechanical", "faculty", "courses"]
+  },
+  {
+    "id": "department-mba",
+    "url": "https://www.mesitam.ac.in/mba.php",
+    "kind": "html",
+    "category": "Department",
+    "title": "Master of Business Administration (MBA)",
+    "parser": "department",
+    "tags": ["department", "mba", "faculty", "courses"]
+  },
+  {
+    "id": "department-ms",
+    "url": "https://www.mesitam.ac.in/mathematics-and-science.php",
+    "kind": "html",
+    "category": "Department",
+    "title": "Department of Mathematics & Science",
+    "parser": "department",
+    "tags": ["department", "mathematics", "science", "faculty"]
+  },
+  {
+    "id": "mesitam-placement",
+    "url": "https://www.mesitam.ac.in/placement.php",
+    "kind": "html",
+    "category": "Placement",
+    "title": "Career Guidance & Placement Cell",
+    "parser": "simple",
+    "tags": ["placement", "cgpc", "training"]
+  },
+  {
+    "id": "mesitam-facilities",
+    "url": "https://www.mesitam.ac.in/facilities.php",
+    "kind": "html",
+    "category": "Facility",
+    "title": "MESITAM Facilities",
+    "parser": "simple",
+    "tags": ["facilities", "hostel", "internet", "library"]
+  },
+  {
+    "id": "mesitam-library",
+    "url": "https://www.mesitam.ac.in/central-library.php",
+    "kind": "html",
+    "category": "Facility",
+    "title": "Central Library and Information Centre",
+    "parser": "simple",
+    "tags": ["facility", "library"]
+  },
+  {
+    "id": "mesitam-digital-library",
+    "url": "https://www.mesitam.ac.in/digital-library.php",
+    "kind": "html",
+    "category": "Facility",
+    "title": "Digital Library",
+    "parser": "simple",
+    "tags": ["facility", "digital-library", "library"]
+  },
+  {
+    "id": "mesitam-iqac",
+    "url": "https://www.mesitam.ac.in/iqac.php",
+    "kind": "html",
+    "category": "FAQ",
+    "title": "IQAC",
+    "parser": "simple",
+    "tags": ["iqac", "quality", "committee"]
+  },
+  {
+    "id": "mesitam-approvals",
+    "url": "https://www.mesitam.ac.in/approvals.php",
+    "kind": "html",
+    "category": "FAQ",
+    "title": "Approvals",
+    "parser": "simple",
+    "tags": ["approvals", "aicte", "ktu", "affiliation"]
+  },
+  {
+    "id": "mesitam-accreditation",
+    "url": "https://www.mesitam.ac.in/accreditation_status.php",
+    "kind": "html",
+    "category": "FAQ",
+    "title": "Accreditation Status",
+    "parser": "simple",
+    "tags": ["accreditation", "naac", "nba"]
+  },
+  {
+    "id": "mesitam-downloads",
+    "url": "https://www.mesitam.ac.in/downloads.php",
+    "kind": "html",
+    "category": "FAQ",
+    "title": "Downloads",
+    "parser": "downloads",
+    "tags": ["downloads", "regulations", "brochure"]
+  },
+  {
+    "id": "mesitam-news",
+    "url": "https://www.mesitam.ac.in/news.php",
+    "kind": "html",
+    "category": "News",
+    "title": "MESITAM News",
+    "parser": "news",
+    "tags": ["news", "announcements"]
+  },
+  {
+    "id": "mesitam-events",
+    "url": "https://www.mesitam.ac.in/events.php",
+    "kind": "html",
+    "category": "Events",
+    "title": "MESITAM Events",
+    "parser": "events",
+    "tags": ["events", "announcements"]
+  },
+  {
+    "id": "mesitam-syllabus-index",
+    "url": "https://www.mesitam.ac.in/syllabus-department.php",
+    "kind": "html",
+    "category": "Course",
+    "title": "MESITAM Syllabus Index",
+    "parser": "simple",
+    "tags": ["syllabus", "course"]
+  },
+  {
+    "id": "mesitam-previous-questions-index",
+    "url": "https://www.mesitam.ac.in/previous-questions-department.php",
+    "kind": "html",
+    "category": "Course",
+    "title": "MESITAM Previous Questions Index",
+    "parser": "simple",
+    "tags": ["previous-questions", "course"]
+  },
+  {
+    "id": "mesitam-brochure-2022-23",
+    "url": "https://www.mesitam.ac.in/admin/pdf/downloads/MESITAM_Admission_Brochure2022-23.pdf",
+    "kind": "pdf",
+    "category": "Overview",
+    "title": "MESITAM Admission Brochure 2022-23",
+    "parser": "pdf",
+    "tags": ["brochure", "admission", "college"]
+  },
+  {
+    "id": "mesitam-mandatory-disclosure",
+    "url": "https://www.mesitam.ac.in/admin/pdf/downloads/mandatorydisclosure.pdf",
+    "kind": "pdf",
+    "category": "FAQ",
+    "title": "Mandatory Disclosure",
+    "parser": "pdf",
+    "tags": ["mandatory-disclosure", "approvals", "college"]
+  },
+  {
+    "id": "mesitam-btech-regulations-2019",
+    "url": "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-26092024011411B.%20Tech.%20Regulations_2019.pdf",
+    "kind": "pdf",
+    "category": "Regulation",
+    "title": "B.Tech Regulations 2019",
+    "parser": "pdf",
+    "tags": ["regulation", "btech", "attendance"]
+  },
+  {
+    "id": "mesitam-btech-regulation-2024",
+    "url": "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-26092024011448B.%20Tech.%20Regulation_2024.pdf",
+    "kind": "pdf",
+    "category": "Regulation",
+    "title": "B.Tech Regulation 2024",
+    "parser": "pdf",
+    "tags": ["regulation", "btech", "attendance"]
+  },
+  {
+    "id": "mesitam-ktu-exam-general-instructions",
+    "url": "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-05102025165622ukt_p_Fitriya%20Patma%20Sari%20.pdf",
+    "kind": "pdf",
+    "category": "Regulation",
+    "title": "KTU Exam General Instructions",
+    "parser": "pdf",
+    "tags": ["exam", "ktu", "instructions"]
+  },
+  {
+    "id": "mesitam-cse-syllabus-2024",
+    "url": "https://www.mesitam.ac.in/admin/pdf/syllabus/cse/syllabus-25072025175042Computer%20Science%20and%20Engineering_syllabus.pdf",
+    "kind": "pdf",
+    "category": "Course",
+    "title": "Computer Science and Engineering Syllabus 2024 Scheme",
+    "parser": "pdf",
+    "tags": ["syllabus", "cse", "course"]
+  }
+]

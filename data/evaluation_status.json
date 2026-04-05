@@ -1,0 +1,8 @@
+{
+  "state": "idle",
+  "progress_percent": 0,
+  "message": "Evaluation idle.",
+  "started_at": null,
+  "latest_summary": null,
+  "last_error": null
+}

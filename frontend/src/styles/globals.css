@@ -41,6 +41,9 @@
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: rgba(255, 255, 255, 0.1);
   --sidebar-ring: #ffffff;
+  --scrollbar-track: #0a0a0a;
+  --scrollbar-thumb: #262626;
+  --scrollbar-thumb-hover: #404040;
 }
 
 .light {
@@ -71,6 +74,9 @@
   --sidebar-accent-foreground: #020617;
   --sidebar-border: rgba(0, 0, 0, 0.1);
   --sidebar-ring: #020617;
+  --scrollbar-track: #e2e8f0;
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-thumb-hover: #64748b;
 }
 
 @theme inline {
@@ -201,14 +207,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #404040;
+  background: var(--scrollbar-thumb-hover);
 }

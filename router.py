@@ -61,9 +61,12 @@ def get_intent(question):
     if any(x in question for x in ["rule", "regulation", "attendance", "mark", "grade", "pass", "fail", "exam", "duty leave", "condonation"]):
         return "REGULATION"
 
-    # 4. Definitions & Comparisons (General)
-    if any(x in question for x in ["define", "what is", "meaning", "explain"]):
+    # 4. Definitions & Explanations
+    if any(x in question for x in ["define", "what is", "meaning"]):
         return "DEFINITION"
+
+    if any(x in question for x in ["explain", "describe", "summary", "summarize", "how ", "why "]):
+        return "GENERAL"
     
     if "compare" in question or "difference" in question:
         return "COMPARISON"

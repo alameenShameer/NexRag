@@ -1,0 +1,103 @@
+\newpage
+\chaptertitle{CHAPTER 2: LITERATURE REVIEW}
+\label{chap:literature-review}
+
+\subheading{2.1 INTRODUCTION}
+\label{sec:literature-introduction}
+
+\fontsize{12}{14}\selectfont
+
+The design of NexRag is informed by research in retrieval-augmented generation, dense retrieval, lexical ranking, reranking, knowledge graphs, and RAG evaluation. These areas collectively address a central problem: a conversational system becomes useful in institutional settings only when it can retrieve external evidence, preserve relational accuracy, and present grounded answers. The literature therefore suggests a movement away from purely generative chatbots toward hybrid systems that combine retrieval, ranking, and structured knowledge access (Lewis et al., 2020; Gao et al., 2023).
+
+This chapter reviews the main works most relevant to the proposed system. For each work, the emphasis is on the problem addressed, the method introduced, the key result or contribution, and its relevance to NexRag. The discussion shows that no single prior system fully matches the needs of a local academic assistant, but the literature clearly supports a hybrid architecture combining graph querying, document retrieval, reranking, and grounded response generation.
+
+\subheading{2.2 REVIEW OF RELATED WORKS}
+\label{sec:literature-related-works}
+
+\noindent\textbf{2.2.1 REALM: RETRIEVAL-AUGMENTED LANGUAGE MODEL PRE-TRAINING}
+
+REALM, proposed by Guu et al. (2020), demonstrated that retrieval can be incorporated into language-model learning rather than being treated as an external post-processing step. The work addressed knowledge-intensive question answering by allowing the model to access a large evidence store during training and inference. Its main result was that retrieval-aware pre-training improved factual performance compared with parametric-only approaches. For NexRag, REALM is important mainly as a conceptual shift: it established retrieval as a core component of language systems. Its limitation is practical complexity, since pre-training a retrieval-aware model is beyond the scope of a lightweight institutional deployment.
+
+\noindent\textbf{2.2.2 DENSE PASSAGE RETRIEVAL FOR OPEN-DOMAIN QUESTION ANSWERING}
+
+Dense Passage Retrieval (DPR) by Karpukhin et al. (2020) addressed the problem of semantic mismatch between user questions and evidence passages. Using dual encoders, DPR placed queries and passages in a shared vector space and showed strong open-domain QA performance, often surpassing BM25 on benchmark datasets. The relevance to NexRag is direct, because institutional queries frequently differ from the exact wording used in official documents. DPR supports the use of embedding-based retrieval in the proposed system. Its limitation is that semantically similar passages are not always institutionally authoritative, which is why NexRag complements dense search with lexical retrieval and reranking.
+
+\noindent\textbf{2.2.3 RETRIEVAL-AUGMENTED GENERATION}
+
+Lewis et al. (2020) introduced the RAG framework, which couples external retrieval with neural generation. The method addressed hallucination and stale knowledge by grounding responses in retrieved documents. The major contribution of this work was to provide a clear architecture for knowledge-intensive language generation and to show that factuality improves when the generator conditions on retrieved evidence. NexRag adopts this principle directly, but extends it by adding a knowledge-graph pathway for structured institutional facts. Classical RAG is therefore the conceptual foundation of the project, although it does not by itself solve relational question answering.
+
+\noindent\textbf{2.2.4 FUSION-IN-DECODER AND MULTI-PASSAGE REASONING}
+
+Izacard and Grave (2021) showed that open-domain QA improves when the model can combine evidence from multiple retrieved passages instead of relying on a single best hit. Their Fusion-in-Decoder approach highlighted the value of aggregating complementary evidence across chunks. This insight is relevant to NexRag because academic answers often depend on more than one passage, especially when guidelines are distributed across multiple pages or documents. The work supports multi-chunk context construction in the proposed system. Its limitation for the present project is computational cost, since full end-to-end decoder fusion is heavier than prompt-based evidence composition.
+
+\noindent\textbf{2.2.5 SENTENCE-BERT FOR EFFICIENT SEMANTIC RETRIEVAL}
+
+Sentence-BERT (SBERT), proposed by Reimers and Gurevych (2019), solved a practical efficiency problem in semantic similarity by producing reusable sentence embeddings suitable for vector search. The method enabled fast comparison of many text segments using cosine similarity and became foundational for semantic search applications. NexRag uses this line of development through a sentence-transformer embedding model for chunk indexing and query encoding. The main relevance of SBERT is operational efficiency for local semantic retrieval. Its limitation is that embedding quality depends on the pretrained model and may not fully capture institution-specific jargon.
+
+\noindent\textbf{2.2.6 BM25 AND PROBABILISTIC LEXICAL RANKING}
+
+Robertson and Zaragoza (2009) formalized the probabilistic relevance framework underlying BM25, one of the strongest and most durable lexical ranking methods in information retrieval. BM25 addresses exact term importance through term frequency, inverse document frequency, and document-length normalization. Its continuing relevance lies in domains where exact terms, codes, and formal policy language matter. In NexRag, BM25 complements dense retrieval by capturing document language that should not be diluted by semantic smoothing. Its limitation is weak handling of paraphrase, which is why it is most effective when combined with dense retrieval rather than used alone.
+
+\noindent\textbf{2.2.7 PASSAGE RE-RANKING WITH BERT}
+
+Nogueira and Cho (2019) showed that BERT-based cross-encoders can substantially improve passage ranking by jointly modeling query-passage relevance. The work addressed the gap between broad candidate recall and precise top-result selection, and its main contribution was a highly accurate reranking stage for passage retrieval. This idea is implemented in NexRag through a cross-encoder reranker applied after dense and sparse candidate generation. The relevance is clear: academic assistants require a small set of highly reliable supporting passages. The main limitation is latency, which restricts reranking to a short candidate list.
+
+\noindent\textbf{2.2.8 RANK FUSION FOR HYBRID RETRIEVAL}
+
+Cormack, Clarke and Buttcher (2009) showed that Reciprocal Rank Fusion (RRF) is a robust method for combining ranked lists from heterogeneous retrieval systems. The importance of this work lies in its simplicity: it does not require score normalization across fundamentally different retrievers, yet it can outperform more complex voting-style approaches. For systems such as NexRag, which combine dense and sparse retrieval, this literature is directly relevant because each retriever captures different evidence signals. Dense retrieval improves semantic recall, whereas BM25 preserves exact institutional phrasing. The main limitation is that rank fusion alone does not replace deeper relevance modeling, which is why it is best used before a neural reranking stage rather than as a final decision rule.
+
+\noindent\textbf{2.2.9 KNOWLEDGE GRAPHS FOR STRUCTURED REASONING}
+
+Hogan et al. (2021) provided a comprehensive account of knowledge graphs, showing how explicit entities and relations support structured querying, semantic clarity, and explainability. This work is important because many academic questions are inherently relational, involving links among faculty, courses, departments, and regulations. For NexRag, the knowledge-graph literature justifies the use of RDF, Turtle, and SPARQL for fact-oriented queries that are not naturally solved by text similarity alone. Its limitation is the need for schema design and data maintenance, which creates an ongoing update burden.
+
+\noindent\textbf{2.2.10 GRAPH-AUGMENTED QUESTION ANSWERING}
+
+Recent work has explored how graph evidence can be integrated with language models and retrieval pipelines. KAPING uses retrieved knowledge-graph facts to augment prompts for zero-shot graph question answering (Baek, Aji and Saffari, 2023). REANO strengthens retrieval-augmented readers through graph generation over retrieved evidence (Fang, Meng and Macdonald, 2024). G-Retriever focuses on retrieval over textual graph structures for graph-based question answering (He et al., 2024). These systems address a common problem: graph structure improves factual control, but it must be connected to language generation in a scalable way. Their collective relevance to NexRag lies in validating a hybrid graph-text pathway. The main limitation is implementation complexity, which is higher than what is practical for a lightweight B.Tech deployment.
+
+\noindent\textbf{2.2.11 EVALUATION AND BENCHMARKING FRAMEWORKS}
+
+Benchmark and evaluation literature also shapes the design of NexRag. BEIR demonstrated that retrieval effectiveness varies sharply across domains and that zero-shot performance on one dataset does not guarantee robustness elsewhere (Thakur et al., 2021). Gao et al. (2023) surveyed RAG systems and clarified the major design dimensions of retrievers, generators, knowledge sources, and evaluation strategies. RAGAs proposed multi-dimensional evaluation of retrieval-augmented generation through measures such as context precision, answer relevance, and faithfulness (Es et al., 2024). Together, these works show that hybrid assistants should be evaluated not only by fluency, but by retrieval quality, evidence faithfulness, and domain suitability. This is directly relevant to the repository-based evaluation strategy adopted in the present project.
+
+\subheading{2.3 COMPARATIVE ANALYSIS}
+\label{sec:literature-comparative-analysis}
+
+Table 2.1 compares the principal works reviewed in this chapter and highlights their relevance to NexRag.
+
+\begin{center}
+\normalsize \textbf{\textit{Table 2.1: Comparative Review of Related Research Works}}
+\end{center}
+\label{tab:literature-comparison}
+
+\begingroup
+\footnotesize
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{|>{\RaggedRight\arraybackslash\hspace{0pt}}p{0.16\textwidth}|>{\RaggedRight\arraybackslash\hspace{0pt}}p{0.19\textwidth}|>{\RaggedRight\arraybackslash\hspace{0pt}}p{0.15\textwidth}|>{\RaggedRight\arraybackslash\hspace{0pt}}p{0.14\textwidth}|>{\RaggedRight\arraybackslash\hspace{0pt}}p{0.18\textwidth}|}
+\hline
+\textbf{Work} & \textbf{Problem / Method} & \textbf{Major Strength} & \textbf{Key Limitation} & \textbf{Relevance to NexRag} \\ \hline
+Guu et al. (2020) REALM & Retrieval-aware LM pre-training & Strong knowledge integration & High training cost & Motivates retrieval-centric design \\ \hline
+Karpukhin et al. (2020) DPR & Dense dual-encoder retrieval & Handles semantic mismatch & May miss exact policy phrasing & Supports dense search layer \\ \hline
+Lewis et al. (2020) RAG & Retrieval-grounded generation & Reduces hallucination & Limited structured reasoning & Core architectural principle \\ \hline
+Izacard and Grave (2021) FiD & Multi-passage fusion for QA & Aggregates distributed evidence & Resource-intensive & Supports multi-chunk context \\ \hline
+Reimers and Gurevych (2019) SBERT & Efficient semantic embeddings & Practical vector retrieval & Domain gap risk & Enables embedding-based indexing \\ \hline
+Robertson and Zaragoza (2009) BM25 & Probabilistic lexical ranking & Strong exact-term matching & Weak paraphrase handling & Supports sparse retrieval \\ \hline
+Nogueira and Cho (2019) & Cross-encoder reranking & High precision ranking & Higher latency & Supports candidate reranking \\ \hline
+Cormack et al. (2009) & Reciprocal Rank Fusion & Robust hybrid ranking combination & Requires downstream filtering & Motivates future dense-sparse fusion \\ \hline
+Hogan et al. (2021) & Knowledge graph foundations & Explicit relational semantics & Requires curation & Supports graph module design \\ \hline
+Baek et al. (2023), Fang et al. (2024), He et al. (2024) & Graph-augmented QA methods & Improve structured grounding & Complex pipelines & Validates hybrid graph-text path \\ \hline
+Thakur et al. (2021), Gao et al. (2023), Es et al. (2024) & Benchmarking, taxonomy, RAG evaluation & Better diagnostic understanding & No direct institutional benchmark & Guides evaluation strategy \\ \hline
+\end{longtable}
+\endgroup
+
+The comparison shows that no individual method fully addresses the requirements of a local institutional academic assistant. Dense retrieval is effective for semantic access to documents, but it is not ideal for explicit relations. Knowledge graphs provide precise structured facts, but they do not inherently deliver natural language explanation. RAG improves grounded answer generation, but its quality depends on the retriever and the relevance of the evidence. Reranking and evaluation frameworks improve precision and diagnosis, but they do not replace the need for a well-designed hybrid architecture. NexRag therefore emerges as a synthesis of complementary methods rather than a direct adoption of any single prior system.
+
+The literature also shows a progression from isolated component optimization toward end-to-end evidence pipelines. Early work often evaluated retrievers, generators, or graphs separately, whereas recent systems increasingly treat retrieval, grounding, and explanation as a coupled design problem. This shift is significant for the present project because academic assistance is especially sensitive to failures at the interface between components. A retriever may surface relevant text, yet the final answer can still be misleading if the evidence is poorly fused or insufficiently attributed. The proposed system therefore draws not only on individual algorithms, but also on this broader systems-oriented view of grounded question answering.
+
+\subheading{2.4 RESEARCH GAPS}
+\label{sec:literature-research-gaps}
+
+The reviewed literature reveals four main gaps that justify the proposed system. First, most RAG and retrieval studies focus on open-domain benchmarks rather than bounded institutional environments. Academic institutions require support for procedural documents, faculty-course relations, and department-specific rules, which differ from encyclopedic or web-scale corpora. Second, relatively few systems combine graph reasoning and document retrieval in a lightweight local deployment intended for practical operation within a college environment.
+
+Third, the literature pays less attention to user-facing transparency than to retrieval or generation accuracy. In academic assistance, users benefit from knowing whether an answer came from a graph fact, a document passage, or a combined evidence path. Fourth, many research systems underemphasize update workflows for documents and structured data, even though maintainability is essential in institutional use. NexRag is designed to address these gaps by combining hybrid retrieval, graph querying, local deployment, evidence visibility, and maintainable update paths within one system.
+
+An additional gap concerns operational reliability in constrained environments. Many published systems assume always-on services, abundant compute, or centralized managed infrastructure. In contrast, educational institutions often require lower-cost deployments that can continue operating with local resources and tolerate partial service unavailability. This makes graceful degradation, modular maintenance, and bounded-scope deployment central design concerns. The literature offers strong algorithmic ideas, but comparatively fewer institution-ready implementations that integrate those ideas into a practical local workflow. NexRag is proposed precisely in response to this gap.

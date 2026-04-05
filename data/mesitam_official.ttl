@@ -1,0 +1,942 @@
+@prefix : <http://mesitam.ac.in/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+### Classes ###
+:College a rdfs:Class .
+:Department a rdfs:Class .
+:Course a rdfs:Class .
+:Faculty a rdfs:Class .
+:Event a rdfs:Class .
+:Facility a rdfs:Class .
+:FAQ a rdfs:Class .
+:Placement a rdfs:Class .
+
+### Properties ###
+:hasName a rdf:Property .
+:description a rdf:Property .
+:hasCode a rdf:Property .
+:hasDesignation a rdf:Property .
+:sourceUrl a rdf:Property .
+:postedOn a rdf:Property .
+:offers a rdf:Property .
+:has_faculty a rdf:Property .
+:conducts a rdf:Property .
+:has_facility a rdf:Property .
+:belongs_to a rdf:Property .
+:frequently_asked a rdf:Property .
+
+### College ###
+:MESITAM a :College ;
+    :hasName "MES Institute of Technology and Management" ;
+    :description "Official MESITAM knowledge graph generated from the public website and download resources." .
+
+:Department_department-of-computer-science-engineering a :Department ;
+    :hasName "Department of Computer Science & Engineering" ;
+    :description "Department of Computer Science & Engineering Computer Science & Engineering Summary Department of Computer Science and Engineering offers 4-year B.Tech. Degree programs in Computer Science and Engineering with a sanctioned intake of 90 and Computer Science and Engineering (Artificial Intelligence)* with a sanctioned intake of 30. The department has good number of faculty pursuing PhD and substantial experience in teaching and industry. Experienced and well qualified resource persons encourage the students to accomplish a high level knowledge and skills on recent trends in computing technologies and innovations. Read More Department has close relationship with reputed institutions and establishments to support students in their academics and final projects as internship. The prominent features of the department cover continuous evaluation of student performance through well planned assess" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+
+:Department_department-of-computer-science-engineering-artificial-intelligence a :Department ;
+    :hasName "Department of Computer Science & Engineering (Artificial Intelligence)" ;
+    :description "Department of Computer Science & Engineering (Artificial Intelligence) Computer Science & Engineering (Artificial Intelligence) Summary Objectives Head of Department Prof. Basima Yoosaf Prof.Basima Yoosaf is the Head of the Department of Computer Science and Engineering (AI) at MES Institute of Technology and Management, where she has been serving since 2011. She holds a B.Tech and M.Tech in Computer Science and Engineering and has over 14 years of teaching experience in undergraduate engineering education. Her academic journey reflects a dynamic progression of interests beginning with Computer Networks, Data Communication, advancing into Cloud Computing, Python, Data Analytics and currently specializing in Artificial Intelligence, Machine Learning and Data Science. With a strong focus on student-centered education, Prof. Basima emphasizes practical learning, problem-solving, and real-wo" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering-AI.php" .
+
+:Department_department-of-civil-engineering a :Department ;
+    :hasName "Department of Civil Engineering" ;
+    :description "Department of Civil Engineering Summary The Department of Civil Engineering is part of the Institute since the inception of MESITAM in 2009.The department offers B.Tech in Civil Engineering, affiliated to APJ Abdul Kalam Technological University with an approved intake of 60 students. The department has highly qualified faculty members specialized in various Civil Engineering disciplines, educated from reputed institutions across India. The department has excellent Computational and Laboratory facilities for carrying out experimental works in frontier areas of Civil Engineering and also facilitates to execute students innovative project works. Besides quality teaching and instruction at Undergraduate level, the department offers Professional Consultancy works & Technical Assistance to Various Government & Non Governmental organizations. Our department is proud of the Alumni’s, who are we" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+
+:Department_department-of-electrical-electronics-engineering a :Department ;
+    :hasName "Department of Electrical & Electronics Engineering" ;
+    :description "Department of Electrical & Electronics Engineering Electrical & Electronics Engineering Summary There is an exponential expansion in the electrical engineering field in the recent years. Electric vehicles, robotics, artificial intelligence, advancements in material science, renewable energy production, distributed generation and smart grids and so on. All modern equipmens (whether it is industrial or residential) are in one way or other depending on electrical power. Design, application and maintenance of all electrical apparatus demands variety of engineers with sound knowledge in Electrical Engineering. Read More The Department of Electrical & Electronics Engineering, established in the year 2009, is providing quality professional education to aspiring engineers. The department had an annual intake of 60 from 2009 to 2017 admissions, and 30 from 2018 admissions. We are offering Under G" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+
+:Department_department-of-electronics-communication-engineering a :Department ;
+    :hasName "Department of Electronics & Communication Engineering" ;
+    :description "Department of Electronics & Communication Engineering Electronics & Communication Engineering Summary The Department of Electronics and Communication Engineering in MESITAM started in the year 2009 with student intake of 60. Fully fledged laboratories have been set up in the department in due course, as needed, right from 2009. Efficient and experienced faculty was appointed from the beginning of the course. Faculty development programs are frequently arranged within the department by classes handled by faculty within the department itself. Read More Students are having their association within the college and within the department to conduct different academic and cultural activities. Internship programs are arranged for students with experts from various enterprises. Read Less Objectives To impart a strong foundation on the basics of Electronics and Communication Engineering. To cultiv" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+
+:Department_department-of-mechanical-engineering a :Department ;
+    :hasName "Department of Mechanical Engineering" ;
+    :description "Department of Mechanical Engineering Summary Mechanical Engineering Department has started in the year 2011 with an intake of 60 students in undergraduate programme. Lateral entry students are admitted in the third semester as per AICTE norms in the UG course. Add to the charm, the department is enriched with full-fledged laboratories,with latest technology and syllabus requirements which provide the students, a hands-on experience in Mechanical Engineering.In addition to this regular course, department endeavours to conduct various short-term courses / workshops and training programmes. The department offers remedial classes for the weaker students. The department motivate and provide coaching for students, who are preparing for competitive examinations like GATE and IES.The department faculty rooms, various departments and the laboratories are connected by the institute LAN and interne" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+
+:Department_master-of-business-administration-mba a :Department ;
+    :hasName "Master of Business Administration (MBA)" ;
+    :description "Master of Business Administration (MBA) Master of Business Administration Summary The Department of Management Studies at MES Institute of Technology and Management proudly launches its first MBA batch, marking a new chapter of academic excellence and leadership development. The program is designed to nurture future business leaders who can thrive in a dynamic, global environment. With a strong emphasis on academic rigor, innovation, and industry relevance, the MBA program aims to bridge the gap between theory and practice. Students will be guided by an expert faculty team, supported by state-of-the-art resources, and exposed to real-world business challenges that sharpen their decision-making and leadership skills. Objectives The primary objective of the MBA program is to develop competent, ethical, and socially responsible leaders who can adapt to the rapidly changing business landscap" ;
+    :sourceUrl "https://www.mesitam.ac.in/mba.php" .
+
+:Department_department-of-mathematics-science a :Department ;
+    :hasName "Department of Mathematics & Science" ;
+    :description "Department of Mathematics & Science Summary The Department was established in 2009. The department comprises Mathematics, Physics, Chemistry and English. The department has highly qualified, dedicated and sincere Faculty members. The departments of Physics, Chemistry and English have well equipped sophisticated labs. Read More Mathematics Department Mathematics Department has a senior and experienced faculty member together with young and dynamic faculty members. The department has 6 teaching faculties with MPhil degree and teaching experience ranging from 5years to 37 years. The department provides a strong foundation of Mathematical basics which are building blocks of all subjects in engineering field. A sound knowledge of Mathematics is highly essential for the development and understanding of each and every technological process. Chemistry Department The department has an experienced" ;
+    :sourceUrl "https://www.mesitam.ac.in/mathematics-and-science.php" .
+
+:Course_b-tech-in-computer-science-engineering a :Course ;
+    :hasName "B.Tech in Computer Science & Engineering" ;
+    :description "Department of Computer Science & Engineering Computer Science & Engineering Summary Department of Computer Science and Engineering offers 4-year B.Tech. Degree programs in Computer Science and Engineering with a sanctioned intake of 90 and Computer Science and Engineering (Artificial Intelligence)* with a sanctioned intake of 30. The department has good number of faculty pursuing PhD and substantial experience in teaching and industry. Experienced and well qualified resource persons encourage the students to accomplish a high level knowledge and skills on recent trends in computing technologies and innovations. Read More Department has close relationship with reputed institutions and establishments to support students in their academics and final projects as internship. The prominent features of the department cover continuous evaluation of student performance through well planned assess" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:MESITAM :offers :Course_b-tech-in-computer-science-engineering .
+:Course_b-tech-in-computer-science-engineering :belongs_to :Department_department-of-computer-science-engineering .
+
+:Course_b-tech-in-computer-science-engineering-artificial-intelligence a :Course ;
+    :hasName "B.Tech in Computer Science & Engineering (Artificial Intelligence)" ;
+    :description "Department of Computer Science & Engineering (Artificial Intelligence) Computer Science & Engineering (Artificial Intelligence) Summary Objectives Head of Department Prof. Basima Yoosaf Prof.Basima Yoosaf is the Head of the Department of Computer Science and Engineering (AI) at MES Institute of Technology and Management, where she has been serving since 2011. She holds a B.Tech and M.Tech in Computer Science and Engineering and has over 14 years of teaching experience in undergraduate engineering education. Her academic journey reflects a dynamic progression of interests beginning with Computer Networks, Data Communication, advancing into Cloud Computing, Python, Data Analytics and currently specializing in Artificial Intelligence, Machine Learning and Data Science. With a strong focus on student-centered education, Prof. Basima emphasizes practical learning, problem-solving, and real-wo" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering-AI.php" .
+:MESITAM :offers :Course_b-tech-in-computer-science-engineering-artificial-intelligence .
+:Course_b-tech-in-computer-science-engineering-artificial-intelligence :belongs_to :Department_department-of-computer-science-engineering-artificial-intelligence .
+
+:Course_b-tech-in-civil-engineering a :Course ;
+    :hasName "B.Tech in Civil Engineering" ;
+    :description "Department of Civil Engineering Summary The Department of Civil Engineering is part of the Institute since the inception of MESITAM in 2009.The department offers B.Tech in Civil Engineering, affiliated to APJ Abdul Kalam Technological University with an approved intake of 60 students. The department has highly qualified faculty members specialized in various Civil Engineering disciplines, educated from reputed institutions across India. The department has excellent Computational and Laboratory facilities for carrying out experimental works in frontier areas of Civil Engineering and also facilitates to execute students innovative project works. Besides quality teaching and instruction at Undergraduate level, the department offers Professional Consultancy works & Technical Assistance to Various Government & Non Governmental organizations. Our department is proud of the Alumni’s, who are we" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:MESITAM :offers :Course_b-tech-in-civil-engineering .
+:Course_b-tech-in-civil-engineering :belongs_to :Department_department-of-civil-engineering .
+
+:Course_b-tech-in-electrical-electronics-engineering a :Course ;
+    :hasName "B.Tech in Electrical & Electronics Engineering" ;
+    :description "Department of Electrical & Electronics Engineering Electrical & Electronics Engineering Summary There is an exponential expansion in the electrical engineering field in the recent years. Electric vehicles, robotics, artificial intelligence, advancements in material science, renewable energy production, distributed generation and smart grids and so on. All modern equipmens (whether it is industrial or residential) are in one way or other depending on electrical power. Design, application and maintenance of all electrical apparatus demands variety of engineers with sound knowledge in Electrical Engineering. Read More The Department of Electrical & Electronics Engineering, established in the year 2009, is providing quality professional education to aspiring engineers. The department had an annual intake of 60 from 2009 to 2017 admissions, and 30 from 2018 admissions. We are offering Under G" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:MESITAM :offers :Course_b-tech-in-electrical-electronics-engineering .
+:Course_b-tech-in-electrical-electronics-engineering :belongs_to :Department_department-of-electrical-electronics-engineering .
+
+:Course_b-tech-in-electronics-communication-engineering a :Course ;
+    :hasName "B.Tech in Electronics & Communication Engineering" ;
+    :description "Department of Electronics & Communication Engineering Electronics & Communication Engineering Summary The Department of Electronics and Communication Engineering in MESITAM started in the year 2009 with student intake of 60. Fully fledged laboratories have been set up in the department in due course, as needed, right from 2009. Efficient and experienced faculty was appointed from the beginning of the course. Faculty development programs are frequently arranged within the department by classes handled by faculty within the department itself. Read More Students are having their association within the college and within the department to conduct different academic and cultural activities. Internship programs are arranged for students with experts from various enterprises. Read Less Objectives To impart a strong foundation on the basics of Electronics and Communication Engineering. To cultiv" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:MESITAM :offers :Course_b-tech-in-electronics-communication-engineering .
+:Course_b-tech-in-electronics-communication-engineering :belongs_to :Department_department-of-electronics-communication-engineering .
+
+:Course_b-tech-in-mechanical-engineering a :Course ;
+    :hasName "B.Tech in Mechanical Engineering" ;
+    :description "Department of Mechanical Engineering Summary Mechanical Engineering Department has started in the year 2011 with an intake of 60 students in undergraduate programme. Lateral entry students are admitted in the third semester as per AICTE norms in the UG course. Add to the charm, the department is enriched with full-fledged laboratories,with latest technology and syllabus requirements which provide the students, a hands-on experience in Mechanical Engineering.In addition to this regular course, department endeavours to conduct various short-term courses / workshops and training programmes. The department offers remedial classes for the weaker students. The department motivate and provide coaching for students, who are preparing for competitive examinations like GATE and IES.The department faculty rooms, various departments and the laboratories are connected by the institute LAN and interne" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:MESITAM :offers :Course_b-tech-in-mechanical-engineering .
+:Course_b-tech-in-mechanical-engineering :belongs_to :Department_department-of-mechanical-engineering .
+
+:Course_mba-program a :Course ;
+    :hasName "Master of Business Administration (MBA)" ;
+    :description "Master of Business Administration (MBA) Master of Business Administration Summary The Department of Management Studies at MES Institute of Technology and Management proudly launches its first MBA batch, marking a new chapter of academic excellence and leadership development. The program is designed to nurture future business leaders who can thrive in a dynamic, global environment. With a strong emphasis on academic rigor, innovation, and industry relevance, the MBA program aims to bridge the gap between theory and practice. Students will be guided by an expert faculty team, supported by state-of-the-art resources, and exposed to real-world business challenges that sharpen their decision-making and leadership skills. Objectives The primary objective of the MBA program is to develop competent, ethical, and socially responsible leaders who can adapt to the rapidly changing business landscap" ;
+    :sourceUrl "https://www.mesitam.ac.in/mba.php" .
+:MESITAM :offers :Course_mba-program .
+:Course_mba-program :belongs_to :Department_master-of-business-administration-mba .
+
+:Faculty_dept-of-civil-engineering-prof-anoob-d-t a :Faculty ;
+    :hasName "Prof. Anoob D. T." ;
+    :hasDesignation "Head of Department" ;
+    :sourceUrl "https://www.mesitam.ac.in/HoDs.php" .
+
+:Faculty_dept-of-computer-science-engineering-dr-vineetha-g-r a :Faculty ;
+    :hasName "Dr. Vineetha G. R." ;
+    :hasDesignation "Head of Department" ;
+    :sourceUrl "https://www.mesitam.ac.in/HoDs.php" .
+
+:Faculty_dept-of-computer-science-engineering-artificial-intelligence-prof-basima-yoosaf a :Faculty ;
+    :hasName "Prof. Basima Yoosaf" ;
+    :hasDesignation "Head of Department" ;
+    :sourceUrl "https://www.mesitam.ac.in/HoDs.php" .
+
+:Faculty_dept-of-electrical-electronics-engineering-prof-bushra-b-n a :Faculty ;
+    :hasName "Prof. Bushra B. N." ;
+    :hasDesignation "Head of Department" ;
+    :sourceUrl "https://www.mesitam.ac.in/HoDs.php" .
+
+:Faculty_dept-of-electronics-communication-engineering-prof-azad-a a :Faculty ;
+    :hasName "Prof. Azad A." ;
+    :hasDesignation "Head of Department" ;
+    :sourceUrl "https://www.mesitam.ac.in/HoDs.php" .
+
+:Faculty_dept-of-mechanical-engineering-dr-shanavas-s a :Faculty ;
+    :hasName "Dr. Shanavas S." ;
+    :hasDesignation "Head of Department" ;
+    :sourceUrl "https://www.mesitam.ac.in/HoDs.php" .
+
+:Faculty_master-of-business-administration-mba-dr-bharathi-veena-b a :Faculty ;
+    :hasName "Dr. Bharathi Veena B." ;
+    :hasDesignation "Head of Department" ;
+    :sourceUrl "https://www.mesitam.ac.in/HoDs.php" .
+:Faculty_master-of-business-administration-mba-dr-bharathi-veena-b :belongs_to :Department_master-of-business-administration-mba .
+:Department_master-of-business-administration-mba :has_faculty :Faculty_master-of-business-administration-mba-dr-bharathi-veena-b .
+
+:Faculty_dept-of-mathematics-science-prof-priya-raj a :Faculty ;
+    :hasName "Prof. Priya Raj" ;
+    :hasDesignation "Head of Department" ;
+    :sourceUrl "https://www.mesitam.ac.in/HoDs.php" .
+
+:Faculty_department-of-computer-science-engineering-dr-vineetha-g-r a :Faculty ;
+    :hasName "Dr. Vineetha G. R." ;
+    :hasDesignation "Faculty" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-dr-vineetha-g-r :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-dr-vineetha-g-r .
+
+:Faculty_department-of-computer-science-engineering-prof-saheer-h a :Faculty ;
+    :hasName "Prof. Saheer H." ;
+    :hasDesignation "Associate Professor & Head (SC&IS)" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-saheer-h :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-saheer-h .
+
+:Faculty_department-of-computer-science-engineering-prof-amala-k-j-on-leave a :Faculty ;
+    :hasName "Prof. Amala K J ( On Leave )" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-amala-k-j-on-leave :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-amala-k-j-on-leave .
+
+:Faculty_department-of-computer-science-engineering-prof-thasni-sharif a :Faculty ;
+    :hasName "Prof. Thasni Sharif" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-thasni-sharif :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-thasni-sharif .
+
+:Faculty_department-of-computer-science-engineering-prof-anpu-alexander a :Faculty ;
+    :hasName "Prof. Anpu Alexander" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-anpu-alexander :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-anpu-alexander .
+
+:Faculty_department-of-computer-science-engineering-prof-jasmin-s a :Faculty ;
+    :hasName "Prof. Jasmin S" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-jasmin-s :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-jasmin-s .
+
+:Faculty_department-of-computer-science-engineering-prof-salim-s a :Faculty ;
+    :hasName "Prof.Salim S" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-salim-s :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-salim-s .
+
+:Faculty_department-of-computer-science-engineering-prof-ajeena-t a :Faculty ;
+    :hasName "Prof. Ajeena T" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-ajeena-t :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-ajeena-t .
+
+:Faculty_department-of-computer-science-engineering-prof-afia-abdul-rahman a :Faculty ;
+    :hasName "Prof. Afia Abdul Rahman" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-afia-abdul-rahman :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-afia-abdul-rahman .
+
+:Faculty_department-of-computer-science-engineering-prof-muneera a :Faculty ;
+    :hasName "Prof.Muneera" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-muneera :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-muneera .
+
+:Faculty_department-of-computer-science-engineering-prof-naja-m-i a :Faculty ;
+    :hasName "Prof. Naja M. I." ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-naja-m-i :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-naja-m-i .
+
+:Faculty_department-of-computer-science-engineering-prof-viji-m a :Faculty ;
+    :hasName "Prof. Viji M" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-prof-viji-m :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-prof-viji-m .
+
+:Faculty_department-of-computer-science-engineering-mr-shibu-p-s a :Faculty ;
+    :hasName "Mr. Shibu P S" ;
+    :hasDesignation "Trade Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-mr-shibu-p-s :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-mr-shibu-p-s .
+
+:Faculty_department-of-computer-science-engineering-mr-muhammed-shameer-s a :Faculty ;
+    :hasName "Mr Muhammed Shameer S" ;
+    :hasDesignation "Lab Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering.php" .
+:Faculty_department-of-computer-science-engineering-mr-muhammed-shameer-s :belongs_to :Department_department-of-computer-science-engineering .
+:Department_department-of-computer-science-engineering :has_faculty :Faculty_department-of-computer-science-engineering-mr-muhammed-shameer-s .
+
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-prof-basima-yoosaf a :Faculty ;
+    :hasName "Prof. Basima Yoosaf" ;
+    :hasDesignation "Faculty" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering-AI.php" .
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-prof-basima-yoosaf :belongs_to :Department_department-of-computer-science-engineering-artificial-intelligence .
+:Department_department-of-computer-science-engineering-artificial-intelligence :has_faculty :Faculty_department-of-computer-science-engineering-artificial-intelligence-prof-basima-yoosaf .
+
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-prof-arunima-l a :Faculty ;
+    :hasName "Prof. Arunima L" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering-AI.php" .
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-prof-arunima-l :belongs_to :Department_department-of-computer-science-engineering-artificial-intelligence .
+:Department_department-of-computer-science-engineering-artificial-intelligence :has_faculty :Faculty_department-of-computer-science-engineering-artificial-intelligence-prof-arunima-l .
+
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-dr-sreeragi-g-r a :Faculty ;
+    :hasName "Dr. Sreeragi G. R." ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering-AI.php" .
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-dr-sreeragi-g-r :belongs_to :Department_department-of-computer-science-engineering-artificial-intelligence .
+:Department_department-of-computer-science-engineering-artificial-intelligence :has_faculty :Faculty_department-of-computer-science-engineering-artificial-intelligence-dr-sreeragi-g-r .
+
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-prof-jumana-r a :Faculty ;
+    :hasName "Prof. Jumana R" ;
+    :hasDesignation "Assistant professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering-AI.php" .
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-prof-jumana-r :belongs_to :Department_department-of-computer-science-engineering-artificial-intelligence .
+:Department_department-of-computer-science-engineering-artificial-intelligence :has_faculty :Faculty_department-of-computer-science-engineering-artificial-intelligence-prof-jumana-r .
+
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-mrs-arya-asok a :Faculty ;
+    :hasName "Mrs. Arya Asok" ;
+    :hasDesignation "Lab Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/computer-science-and-engineering-AI.php" .
+:Faculty_department-of-computer-science-engineering-artificial-intelligence-mrs-arya-asok :belongs_to :Department_department-of-computer-science-engineering-artificial-intelligence .
+:Department_department-of-computer-science-engineering-artificial-intelligence :has_faculty :Faculty_department-of-computer-science-engineering-artificial-intelligence-mrs-arya-asok .
+
+:Faculty_department-of-civil-engineering-prof-anoob-d-t a :Faculty ;
+    :hasName "Prof. Anoob D. T." ;
+    :hasDesignation "Faculty" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-anoob-d-t :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-anoob-d-t .
+
+:Faculty_department-of-civil-engineering-prof-anees-beegom-h a :Faculty ;
+    :hasName "Prof. Anees Beegom H" ;
+    :hasDesignation "Assistant Professor & HoD (on leave)" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-anees-beegom-h :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-anees-beegom-h .
+
+:Faculty_department-of-civil-engineering-prof-rania-basheer a :Faculty ;
+    :hasName "Prof. Rania Basheer" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-rania-basheer :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-rania-basheer .
+
+:Faculty_department-of-civil-engineering-prof-rajula-ibrahimkutty a :Faculty ;
+    :hasName "Prof. Rajula Ibrahimkutty" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-rajula-ibrahimkutty :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-rajula-ibrahimkutty .
+
+:Faculty_department-of-civil-engineering-prof-neetta-s-kumar a :Faculty ;
+    :hasName "Prof. Neetta S Kumar" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-neetta-s-kumar :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-neetta-s-kumar .
+
+:Faculty_department-of-civil-engineering-prof-thasneem-a a :Faculty ;
+    :hasName "Prof. Thasneem A" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-thasneem-a :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-thasneem-a .
+
+:Faculty_department-of-civil-engineering-prof-khadeeja-siyadh a :Faculty ;
+    :hasName "Prof. Khadeeja Siyadh" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-khadeeja-siyadh :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-khadeeja-siyadh .
+
+:Faculty_department-of-civil-engineering-prof-resna-ibrahimkutty a :Faculty ;
+    :hasName "Prof. Resna Ibrahimkutty" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-resna-ibrahimkutty :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-resna-ibrahimkutty .
+
+:Faculty_department-of-civil-engineering-prof-alfiya-n a :Faculty ;
+    :hasName "Prof. Alfiya.N" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-alfiya-n :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-alfiya-n .
+
+:Faculty_department-of-civil-engineering-prof-saranya-chandran a :Faculty ;
+    :hasName "Prof. Saranya Chandran" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-saranya-chandran :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-saranya-chandran .
+
+:Faculty_department-of-civil-engineering-prof-shibina-s a :Faculty ;
+    :hasName "Prof. Shibina S" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-prof-shibina-s :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-prof-shibina-s .
+
+:Faculty_department-of-civil-engineering-mr-suljashah-s a :Faculty ;
+    :hasName "Mr. Suljashah S" ;
+    :hasDesignation "Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-mr-suljashah-s :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-mr-suljashah-s .
+
+:Faculty_department-of-civil-engineering-mrs-alfia-ansary-on-leave a :Faculty ;
+    :hasName "Mrs. Alfia Ansary ( On Leave )" ;
+    :hasDesignation "Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-mrs-alfia-ansary-on-leave :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-mrs-alfia-ansary-on-leave .
+
+:Faculty_department-of-civil-engineering-mrs-aswathy-s a :Faculty ;
+    :hasName "Mrs. Aswathy S" ;
+    :hasDesignation "Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/civil-engineering.php" .
+:Faculty_department-of-civil-engineering-mrs-aswathy-s :belongs_to :Department_department-of-civil-engineering .
+:Department_department-of-civil-engineering :has_faculty :Faculty_department-of-civil-engineering-mrs-aswathy-s .
+
+:Faculty_department-of-electrical-electronics-engineering-prof-bushra-b-n a :Faculty ;
+    :hasName "Prof. Bushra B N" ;
+    :hasDesignation "Faculty" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-prof-bushra-b-n :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-prof-bushra-b-n .
+
+:Faculty_department-of-electrical-electronics-engineering-prof-sajitha-g-r a :Faculty ;
+    :hasName "Prof. Sajitha G R" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-prof-sajitha-g-r :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-prof-sajitha-g-r .
+
+:Faculty_department-of-electrical-electronics-engineering-prof-shemina-s a :Faculty ;
+    :hasName "Prof. Shemina S" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-prof-shemina-s :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-prof-shemina-s .
+
+:Faculty_department-of-electrical-electronics-engineering-prof-nabeel-muhammed-aslam a :Faculty ;
+    :hasName "Prof. Nabeel Muhammed Aslam" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-prof-nabeel-muhammed-aslam :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-prof-nabeel-muhammed-aslam .
+
+:Faculty_department-of-electrical-electronics-engineering-prof-mohammed-junaid a :Faculty ;
+    :hasName "Prof. Mohammed Junaid" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-prof-mohammed-junaid :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-prof-mohammed-junaid .
+
+:Faculty_department-of-electrical-electronics-engineering-prof-lida-raj a :Faculty ;
+    :hasName "Prof. Lida Raj" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-prof-lida-raj :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-prof-lida-raj .
+
+:Faculty_department-of-electrical-electronics-engineering-prof-devika-s-d a :Faculty ;
+    :hasName "Prof. Devika S D" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-prof-devika-s-d :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-prof-devika-s-d .
+
+:Faculty_department-of-electrical-electronics-engineering-mr-baburajan-s a :Faculty ;
+    :hasName "Mr. Baburajan S" ;
+    :hasDesignation "Superintendent" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-mr-baburajan-s :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-mr-baburajan-s .
+
+:Faculty_department-of-electrical-electronics-engineering-mrs-girija-kumari-o a :Faculty ;
+    :hasName "Mrs. Girija Kumari O" ;
+    :hasDesignation "Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-mrs-girija-kumari-o :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-mrs-girija-kumari-o .
+
+:Faculty_department-of-electrical-electronics-engineering-mr-pradeep-krishnan-r-s a :Faculty ;
+    :hasName "Mr. Pradeep Krishnan R S" ;
+    :hasDesignation "Trade Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-mr-pradeep-krishnan-r-s :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-mr-pradeep-krishnan-r-s .
+
+:Faculty_department-of-electrical-electronics-engineering-mr-mubash-t-a a :Faculty ;
+    :hasName "Mr. Mubash T A" ;
+    :hasDesignation "Trade Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electrical-and-electronics-engineering.php" .
+:Faculty_department-of-electrical-electronics-engineering-mr-mubash-t-a :belongs_to :Department_department-of-electrical-electronics-engineering .
+:Department_department-of-electrical-electronics-engineering :has_faculty :Faculty_department-of-electrical-electronics-engineering-mr-mubash-t-a .
+
+:Faculty_department-of-electronics-communication-engineering-prof-azad-a a :Faculty ;
+    :hasName "Prof. Azad A" ;
+    :hasDesignation "Faculty" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-azad-a :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-azad-a .
+
+:Faculty_department-of-electronics-communication-engineering-dr-mohanan-p-r a :Faculty ;
+    :hasName "Dr. Mohanan P R" ;
+    :hasDesignation "Associate Professor & Dean (Academics)" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-dr-mohanan-p-r :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-dr-mohanan-p-r .
+
+:Faculty_department-of-electronics-communication-engineering-prof-anas-muhammed-basheer a :Faculty ;
+    :hasName "Prof. Anas Muhammed Basheer" ;
+    :hasDesignation "Associate Professor & IQAC Coordinator" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-anas-muhammed-basheer :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-anas-muhammed-basheer .
+
+:Faculty_department-of-electronics-communication-engineering-prof-anju-mary-varghese a :Faculty ;
+    :hasName "Prof. Anju Mary Varghese" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-anju-mary-varghese :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-anju-mary-varghese .
+
+:Faculty_department-of-electronics-communication-engineering-prof-jisha-b-on-leave a :Faculty ;
+    :hasName "Prof. Jisha B (on Leave)" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-jisha-b-on-leave :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-jisha-b-on-leave .
+
+:Faculty_department-of-electronics-communication-engineering-prof-surumi-s a :Faculty ;
+    :hasName "Prof. Surumi. S" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-surumi-s :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-surumi-s .
+
+:Faculty_department-of-electronics-communication-engineering-prof-shabina-mol-a-on-leave a :Faculty ;
+    :hasName "Prof. Shabina Mol A (on Leave)" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-shabina-mol-a-on-leave :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-shabina-mol-a-on-leave .
+
+:Faculty_department-of-electronics-communication-engineering-prof-rafeekha-m-j a :Faculty ;
+    :hasName "Prof. Rafeekha M.J" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-rafeekha-m-j :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-rafeekha-m-j .
+
+:Faculty_department-of-electronics-communication-engineering-prof-shibna-n a :Faculty ;
+    :hasName "Prof. Shibna N" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-shibna-n :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-shibna-n .
+
+:Faculty_department-of-electronics-communication-engineering-prof-abin-shukoor a :Faculty ;
+    :hasName "Prof. Abin Shukoor" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-abin-shukoor :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-abin-shukoor .
+
+:Faculty_department-of-electronics-communication-engineering-prof-nija-shafi a :Faculty ;
+    :hasName "Prof. Nija Shafi" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-prof-nija-shafi :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-prof-nija-shafi .
+
+:Faculty_department-of-electronics-communication-engineering-mrs-shahana-nazar a :Faculty ;
+    :hasName "Mrs. Shahana Nazar" ;
+    :hasDesignation "Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-mrs-shahana-nazar :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-mrs-shahana-nazar .
+
+:Faculty_department-of-electronics-communication-engineering-mr-swalih-s a :Faculty ;
+    :hasName "Mr. Swalih S" ;
+    :hasDesignation "Trade Instructor Senior Grade" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-mr-swalih-s :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-mr-swalih-s .
+
+:Faculty_department-of-electronics-communication-engineering-mr-biju-r a :Faculty ;
+    :hasName "Mr. Biju R" ;
+    :hasDesignation "Trade Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/electronics-and-communication-engineering.php" .
+:Faculty_department-of-electronics-communication-engineering-mr-biju-r :belongs_to :Department_department-of-electronics-communication-engineering .
+:Department_department-of-electronics-communication-engineering :has_faculty :Faculty_department-of-electronics-communication-engineering-mr-biju-r .
+
+:Faculty_department-of-mechanical-engineering-dr-shanavas-s a :Faculty ;
+    :hasName "Dr. Shanavas S" ;
+    :hasDesignation "Faculty" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-dr-shanavas-s :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-dr-shanavas-s .
+
+:Faculty_department-of-mechanical-engineering-prof-rafi-a a :Faculty ;
+    :hasName "Prof. Rafi A" ;
+    :hasDesignation "Associate Professor & Vice Principal" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-prof-rafi-a :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-prof-rafi-a .
+
+:Faculty_department-of-mechanical-engineering-prof-madhusoodanan-pillai-k a :Faculty ;
+    :hasName "Prof. Madhusoodanan Pillai k" ;
+    :hasDesignation "Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-prof-madhusoodanan-pillai-k :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-prof-madhusoodanan-pillai-k .
+
+:Faculty_department-of-mechanical-engineering-prof-mohammed-afsal-a a :Faculty ;
+    :hasName "Prof. Mohammed Afsal A" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-prof-mohammed-afsal-a :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-prof-mohammed-afsal-a .
+
+:Faculty_department-of-mechanical-engineering-prof-sangeetha-sagar a :Faculty ;
+    :hasName "Prof. Sangeetha Sagar" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-prof-sangeetha-sagar :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-prof-sangeetha-sagar .
+
+:Faculty_department-of-mechanical-engineering-prof-mathews-thariyan a :Faculty ;
+    :hasName "Prof. Mathews Thariyan" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-prof-mathews-thariyan :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-prof-mathews-thariyan .
+
+:Faculty_department-of-mechanical-engineering-prof-arun-kumar-v a :Faculty ;
+    :hasName "Prof. Arun Kumar V" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-prof-arun-kumar-v :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-prof-arun-kumar-v .
+
+:Faculty_department-of-mechanical-engineering-prof-akhil-basha-b a :Faculty ;
+    :hasName "Prof. Akhil Basha B" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-prof-akhil-basha-b :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-prof-akhil-basha-b .
+
+:Faculty_department-of-mechanical-engineering-prof-arjun-santhosh a :Faculty ;
+    :hasName "Prof. Arjun Santhosh" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-prof-arjun-santhosh :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-prof-arjun-santhosh .
+
+:Faculty_department-of-mechanical-engineering-prof-afsal-muhammed a :Faculty ;
+    :hasName "Prof. Afsal Muhammed" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-prof-afsal-muhammed :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-prof-afsal-muhammed .
+
+:Faculty_department-of-mechanical-engineering-mr-manoj-kumar-d a :Faculty ;
+    :hasName "Mr. Manoj kumar D" ;
+    :hasDesignation "Lab Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-mr-manoj-kumar-d :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-mr-manoj-kumar-d .
+
+:Faculty_department-of-mechanical-engineering-mr-shajahan-s a :Faculty ;
+    :hasName "Mr. Shajahan S" ;
+    :hasDesignation "Lab Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-mr-shajahan-s :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-mr-shajahan-s .
+
+:Faculty_department-of-mechanical-engineering-mr-ahammed-unais-s a :Faculty ;
+    :hasName "Mr. Ahammed Unais S" ;
+    :hasDesignation "Lab Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-mr-ahammed-unais-s :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-mr-ahammed-unais-s .
+
+:Faculty_department-of-mechanical-engineering-mr-ratheesh-kumar-t-v a :Faculty ;
+    :hasName "Mr. Ratheesh Kumar T V" ;
+    :hasDesignation "Trade Instructor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mechanical-engineering.php" .
+:Faculty_department-of-mechanical-engineering-mr-ratheesh-kumar-t-v :belongs_to :Department_department-of-mechanical-engineering .
+:Department_department-of-mechanical-engineering :has_faculty :Faculty_department-of-mechanical-engineering-mr-ratheesh-kumar-t-v .
+
+:Faculty_master-of-business-administration-mba-dr-bharathi-veena-v a :Faculty ;
+    :hasName "Dr. Bharathi Veena.V" ;
+    :hasDesignation "Faculty" ;
+    :sourceUrl "https://www.mesitam.ac.in/mba.php" .
+:Faculty_master-of-business-administration-mba-dr-bharathi-veena-v :belongs_to :Department_master-of-business-administration-mba .
+:Department_master-of-business-administration-mba :has_faculty :Faculty_master-of-business-administration-mba-dr-bharathi-veena-v .
+
+:Faculty_master-of-business-administration-mba-prof-radhakrishna-pillai a :Faculty ;
+    :hasName "Prof. Radhakrishna Pillai" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mba.php" .
+:Faculty_master-of-business-administration-mba-prof-radhakrishna-pillai :belongs_to :Department_master-of-business-administration-mba .
+:Department_master-of-business-administration-mba :has_faculty :Faculty_master-of-business-administration-mba-prof-radhakrishna-pillai .
+
+:Faculty_master-of-business-administration-mba-dr-soumya-g-s a :Faculty ;
+    :hasName "Dr. Soumya G.S." ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mba.php" .
+:Faculty_master-of-business-administration-mba-dr-soumya-g-s :belongs_to :Department_master-of-business-administration-mba .
+:Department_master-of-business-administration-mba :has_faculty :Faculty_master-of-business-administration-mba-dr-soumya-g-s .
+
+:Faculty_master-of-business-administration-mba-prof-thanooj-t a :Faculty ;
+    :hasName "Prof. Thanooj T" ;
+    :hasDesignation "Assistant Professor" ;
+    :sourceUrl "https://www.mesitam.ac.in/mba.php" .
+:Faculty_master-of-business-administration-mba-prof-thanooj-t :belongs_to :Department_master-of-business-administration-mba .
+:Department_master-of-business-administration-mba :has_faculty :Faculty_master-of-business-administration-mba-prof-thanooj-t .
+
+:Faculty_department-of-mathematics-science-prof-priya-raj a :Faculty ;
+    :hasName "Prof. Priya Raj" ;
+    :hasDesignation "Faculty" ;
+    :sourceUrl "https://www.mesitam.ac.in/mathematics-and-science.php" .
+:Faculty_department-of-mathematics-science-prof-priya-raj :belongs_to :Department_department-of-mathematics-science .
+:Department_department-of-mathematics-science :has_faculty :Faculty_department-of-mathematics-science-prof-priya-raj .
+
+:Faculty_department-of-mathematics-science-prof-shareer-a a :Faculty ;
+    :hasName "Prof. Shareer A" ;
+    :hasDesignation "Assistant Professor Physical Education" ;
+    :sourceUrl "https://www.mesitam.ac.in/mathematics-and-science.php" .
+:Faculty_department-of-mathematics-science-prof-shareer-a :belongs_to :Department_department-of-mathematics-science .
+:Department_department-of-mathematics-science :has_faculty :Faculty_department-of-mathematics-science-prof-shareer-a .
+
+:Faculty_department-of-mathematics-science-prof-shymsha a :Faculty ;
+    :hasName "Prof. Shymsha" ;
+    :hasDesignation "Assistant Professor Economics" ;
+    :sourceUrl "https://www.mesitam.ac.in/mathematics-and-science.php" .
+:Faculty_department-of-mathematics-science-prof-shymsha :belongs_to :Department_department-of-mathematics-science .
+:Department_department-of-mathematics-science :has_faculty :Faculty_department-of-mathematics-science-prof-shymsha .
+
+:Faculty_department-of-mathematics-science-prof-rudhaina-iqubal a :Faculty ;
+    :hasName "Prof. Rudhaina Iqubal" ;
+    :hasDesignation "Assistant Professor English" ;
+    :sourceUrl "https://www.mesitam.ac.in/mathematics-and-science.php" .
+:Faculty_department-of-mathematics-science-prof-rudhaina-iqubal :belongs_to :Department_department-of-mathematics-science .
+:Department_department-of-mathematics-science :has_faculty :Faculty_department-of-mathematics-science-prof-rudhaina-iqubal .
+
+:Faculty_department-of-mathematics-science-prof-aamina-rahim-on-leave a :Faculty ;
+    :hasName "Prof. Aamina Rahim (on Leave)" ;
+    :hasDesignation "Assistant Professor Mathematics" ;
+    :sourceUrl "https://www.mesitam.ac.in/mathematics-and-science.php" .
+:Faculty_department-of-mathematics-science-prof-aamina-rahim-on-leave :belongs_to :Department_department-of-mathematics-science .
+:Department_department-of-mathematics-science :has_faculty :Faculty_department-of-mathematics-science-prof-aamina-rahim-on-leave .
+
+:Faculty_department-of-mathematics-science-prof-dhanya-g-nair a :Faculty ;
+    :hasName "Prof. Dhanya G Nair" ;
+    :hasDesignation "Assistant Professor Chemistry" ;
+    :sourceUrl "https://www.mesitam.ac.in/mathematics-and-science.php" .
+:Faculty_department-of-mathematics-science-prof-dhanya-g-nair :belongs_to :Department_department-of-mathematics-science .
+:Department_department-of-mathematics-science :has_faculty :Faculty_department-of-mathematics-science-prof-dhanya-g-nair .
+
+:Faculty_department-of-mathematics-science-prof-anandu-a-n a :Faculty ;
+    :hasName "Prof. Anandu A N" ;
+    :hasDesignation "Assistant Professor Mathematics" ;
+    :sourceUrl "https://www.mesitam.ac.in/mathematics-and-science.php" .
+:Faculty_department-of-mathematics-science-prof-anandu-a-n :belongs_to :Department_department-of-mathematics-science .
+:Department_department-of-mathematics-science :has_faculty :Faculty_department-of-mathematics-science-prof-anandu-a-n .
+
+:Faculty_department-of-mathematics-science-prof-rasni-rahim a :Faculty ;
+    :hasName "Prof. Rasni Rahim" ;
+    :hasDesignation "Assistant Professor Physics" ;
+    :sourceUrl "https://www.mesitam.ac.in/mathematics-and-science.php" .
+:Faculty_department-of-mathematics-science-prof-rasni-rahim :belongs_to :Department_department-of-mathematics-science .
+:Department_department-of-mathematics-science :has_faculty :Faculty_department-of-mathematics-science-prof-rasni-rahim .
+
+:Facility_computing-facilities a :Facility ;
+    :hasName "Computing Facilities" ;
+    :description "Welcome to MESITAM Engineering THE RIGHT WAY Computing Facilities The Institute is having state of the art computer labs and resource center. Recognizing the challenges that the industry has put forth in terms of information technology, the institution's computer labs hosts a range of latest software and hardware. Whole computers are networked. Leased line connectivity for a bandwidth of 100 Mbps is being catered across the network. All latest hardware/software support is given in synchronization with the curriculum prescribed by the university. Central Library and Information Centre A fully automated modern Library & Information Centre (LIC) is on its way to becoming an outstanding learning resource centre catering to the ever growing information and intellectual requirements of the students, faculty, and researchers. A state of the art Digital Library is set in the Library premises for catering e-resources to the students and teachers. Digital Library A state of the art Digital library has been established in the Central Library premises with effective e-Iearning materials, e-databases, e-journals, e-books etc. It can be accessed from anywhere in the campus. The library is an act" ;
+    :sourceUrl "https://www.mesitam.ac.in/facilities.php" .
+:MESITAM :has_facility :Facility_computing-facilities .
+
+:Facility_central-library-and-information-centre a :Facility ;
+    :hasName "Central Library and Information Centre" ;
+    :description "Welcome to MESITAM Engineering THE RIGHT WAY Computing Facilities The Institute is having state of the art computer labs and resource center. Recognizing the challenges that the industry has put forth in terms of information technology, the institution's computer labs hosts a range of latest software and hardware. Whole computers are networked. Leased line connectivity for a bandwidth of 100 Mbps is being catered across the network. All latest hardware/software support is given in synchronization with the curriculum prescribed by the university. Central Library and Information Centre A fully automated modern Library & Information Centre (LIC) is on its way to becoming an outstanding learning resource centre catering to the ever growing information and intellectual requirements of the students, faculty, and researchers. A state of the art Digital Library is set in the Library premises for catering e-resources to the students and teachers. Digital Library A state of the art Digital library has been established in the Central Library premises with effective e-Iearning materials, e-databases, e-journals, e-books etc. It can be accessed from anywhere in the campus. The library is an act" ;
+    :sourceUrl "https://www.mesitam.ac.in/facilities.php" .
+:MESITAM :has_facility :Facility_central-library-and-information-centre .
+
+:Facility_digital-library a :Facility ;
+    :hasName "Digital Library" ;
+    :description "Welcome to MESITAM Engineering THE RIGHT WAY Computing Facilities The Institute is having state of the art computer labs and resource center. Recognizing the challenges that the industry has put forth in terms of information technology, the institution's computer labs hosts a range of latest software and hardware. Whole computers are networked. Leased line connectivity for a bandwidth of 100 Mbps is being catered across the network. All latest hardware/software support is given in synchronization with the curriculum prescribed by the university. Central Library and Information Centre A fully automated modern Library & Information Centre (LIC) is on its way to becoming an outstanding learning resource centre catering to the ever growing information and intellectual requirements of the students, faculty, and researchers. A state of the art Digital Library is set in the Library premises for catering e-resources to the students and teachers. Digital Library A state of the art Digital library has been established in the Central Library premises with effective e-Iearning materials, e-databases, e-journals, e-books etc. It can be accessed from anywhere in the campus. The library is an act" ;
+    :sourceUrl "https://www.mesitam.ac.in/facilities.php" .
+:MESITAM :has_facility :Facility_digital-library .
+
+:Facility_internet-facilities a :Facility ;
+    :hasName "Internet Facilities" ;
+    :description "Welcome to MESITAM Engineering THE RIGHT WAY Computing Facilities The Institute is having state of the art computer labs and resource center. Recognizing the challenges that the industry has put forth in terms of information technology, the institution's computer labs hosts a range of latest software and hardware. Whole computers are networked. Leased line connectivity for a bandwidth of 100 Mbps is being catered across the network. All latest hardware/software support is given in synchronization with the curriculum prescribed by the university. Central Library and Information Centre A fully automated modern Library & Information Centre (LIC) is on its way to becoming an outstanding learning resource centre catering to the ever growing information and intellectual requirements of the students, faculty, and researchers. A state of the art Digital Library is set in the Library premises for catering e-resources to the students and teachers. Digital Library A state of the art Digital library has been established in the Central Library premises with effective e-Iearning materials, e-databases, e-journals, e-books etc. It can be accessed from anywhere in the campus. The library is an act" ;
+    :sourceUrl "https://www.mesitam.ac.in/facilities.php" .
+:MESITAM :has_facility :Facility_internet-facilities .
+
+:Facility_hostels a :Facility ;
+    :hasName "Hostels" ;
+    :description "Welcome to MESITAM Engineering THE RIGHT WAY Computing Facilities The Institute is having state of the art computer labs and resource center. Recognizing the challenges that the industry has put forth in terms of information technology, the institution's computer labs hosts a range of latest software and hardware. Whole computers are networked. Leased line connectivity for a bandwidth of 100 Mbps is being catered across the network. All latest hardware/software support is given in synchronization with the curriculum prescribed by the university. Central Library and Information Centre A fully automated modern Library & Information Centre (LIC) is on its way to becoming an outstanding learning resource centre catering to the ever growing information and intellectual requirements of the students, faculty, and researchers. A state of the art Digital Library is set in the Library premises for catering e-resources to the students and teachers. Digital Library A state of the art Digital library has been established in the Central Library premises with effective e-Iearning materials, e-databases, e-journals, e-books etc. It can be accessed from anywhere in the campus. The library is an act" ;
+    :sourceUrl "https://www.mesitam.ac.in/facilities.php" .
+:MESITAM :has_facility :Facility_hostels .
+
+:FAQ_iqac a :FAQ ;
+    :hasName "What is available on IQAC?" ;
+    :description "Internal Quality Assurance Cell (IQAC) Internal Quality Assurance Cell (IQAC) is constituted with the following members Internal Quality Assurance Cell Prof. Rafi A, Associate Professor & HOD, ME Prof. Anas Mohammed Basheer, Assistant Professor, ECE Prof. Neetta S Kumar, Assistant Professor, CE Prof. Sajitha G R, Assistant Professor, EEE Prof. Jisha B, Assistant Professor, ECE Member Pof. Priya Raj , Assistant Professor M&Sc Jb. A Nisam, Representative from Management Mr. Shihab , Administrative Assistant , Mr. Safeer H, Representative from Local Society Mr. Muhammed Farhan F, S7 ME, Represent" ;
+    :sourceUrl "https://www.mesitam.ac.in/iqac.php" .
+:MESITAM :frequently_asked :FAQ_iqac .
+
+:FAQ_approvals a :FAQ ;
+    :hasName "What is available on Approvals?" ;
+    :description "Approvals MESITAM AICTE Approvals EoA - 2025-2026 EoA - 2024-2025 EoA - 2023-2024 EoA - 2022-2023 EoA - 2021-2022 EoA - 2020-2021 EoA - 2019-2020 EoA - 2018-2019 EoA - 2017-2018 EoA - 2016-2017 EoA - 2015-2016 EoA - 2014-2015 EoA - 2013-2014 EoA - 2012-2013 EoA - 2011-2012 EoA - 2010-2011 LoA - 2009-2010 University Approvals KTU Affiliation 2025-2026 KTU Affiliation 2024-25 KTU Affiliation 2023-24 KTU Affiliation 2022-23 KTU Affiliation 2021 KTU Affiliation 2020 KTU Affiliation 2019 KTU Affiliation 2018 KTU Affiliation 2017 KTU Affiliation 2016" ;
+    :sourceUrl "https://www.mesitam.ac.in/approvals.php" .
+:MESITAM :frequently_asked :FAQ_approvals .
+
+:FAQ_accreditation-status a :FAQ ;
+    :hasName "What is available on Accreditation Status?" ;
+    :description "Accreditation Status Preparing for NAAC acceditaion for college and NBA Accreditation for various departments." ;
+    :sourceUrl "https://www.mesitam.ac.in/accreditation_status.php" .
+:MESITAM :frequently_asked :FAQ_accreditation-status .
+
+:FAQ_download-admission-brochure-2022-23 a :FAQ ;
+    :hasName "Where can I find Admission Brochure 2022-23?" ;
+    :description "The document 'Admission Brochure 2022-23' is listed on the official MESITAM downloads page." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/MESITAM_Admission_Brochure2022-23.pdf" .
+:MESITAM :frequently_asked :FAQ_download-admission-brochure-2022-23 .
+
+:FAQ_download-application-form a :FAQ ;
+    :hasName "Where can I find Application Form?" ;
+    :description "The document 'Application Form' is listed on the official MESITAM downloads page." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/ApplicationForm.pdf" .
+:MESITAM :frequently_asked :FAQ_download-application-form .
+
+:FAQ_download-mandatory-disclosure a :FAQ ;
+    :hasName "Where can I find Mandatory Disclosure?" ;
+    :description "The document 'Mandatory Disclosure' is listed on the official MESITAM downloads page." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/mandatorydisclosure.pdf" .
+:MESITAM :frequently_asked :FAQ_download-mandatory-disclosure .
+
+:FAQ_download-ktu-exam-general-instructions a :FAQ ;
+    :hasName "Where can I find KTU EXAM General Instructions?" ;
+    :description "The document 'KTU EXAM General Instructions' is listed on the official MESITAM downloads page." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-05102025165622ukt_p_Fitriya Patma Sari .pdf" .
+:MESITAM :frequently_asked :FAQ_download-ktu-exam-general-instructions .
+
+:FAQ_download-b-tech-regulations-2019 a :FAQ ;
+    :hasName "Where can I find B. Tech. Regulations 2019?" ;
+    :description "The document 'B. Tech. Regulations 2019' is listed on the official MESITAM downloads page." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-26092024011411B. Tech. Regulations_2019.pdf" .
+:MESITAM :frequently_asked :FAQ_download-b-tech-regulations-2019 .
+
+:FAQ_download-b-tech-regulation-2024-pdf a :FAQ ;
+    :hasName "Where can I find B. Tech. Regulation 2024.pdf?" ;
+    :description "The document 'B. Tech. Regulation 2024.pdf' is listed on the official MESITAM downloads page." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-26092024011448B. Tech. Regulation_2024.pdf" .
+:MESITAM :frequently_asked :FAQ_download-b-tech-regulation-2024-pdf .
+
+:FAQ_mesitam-btech-regulations-2019-attendance a :FAQ ;
+    :hasName "What is the minimum attendance required?" ;
+    :description "The official B.Tech regulation documents mention a minimum attendance requirement of 75%." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-26092024011411B.%20Tech.%20Regulations_2019.pdf" .
+:MESITAM :frequently_asked :FAQ_mesitam-btech-regulations-2019-attendance .
+
+:FAQ_mesitam-btech-regulations-2019-document a :FAQ ;
+    :hasName "Where can I access B.Tech Regulations 2019?" ;
+    :description "B.Tech Regulations 2019 is available from the official MESITAM downloads page." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-26092024011411B.%20Tech.%20Regulations_2019.pdf" .
+:MESITAM :frequently_asked :FAQ_mesitam-btech-regulations-2019-document .
+
+:FAQ_mesitam-btech-regulation-2024-attendance a :FAQ ;
+    :hasName "What is the minimum attendance required?" ;
+    :description "The official B.Tech regulation documents mention a minimum attendance requirement of 75%." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-26092024011448B.%20Tech.%20Regulation_2024.pdf" .
+:MESITAM :frequently_asked :FAQ_mesitam-btech-regulation-2024-attendance .
+
+:FAQ_mesitam-btech-regulation-2024-document a :FAQ ;
+    :hasName "Where can I access B.Tech Regulation 2024?" ;
+    :description "B.Tech Regulation 2024 is available from the official MESITAM downloads page." ;
+    :sourceUrl "https://www.mesitam.ac.in/admin/pdf/downloads/downloads-26092024011448B.%20Tech.%20Regulation_2024.pdf" .
+:MESITAM :frequently_asked :FAQ_mesitam-btech-regulation-2024-document .
+
+:Event_announcement-ire-gef-innovation-idea-contest-2025-topic-carbon-neutral-living-for-environmental-sustainability a :Event ;
+    :hasName "IRE-GEF Innovation Idea Contest 2025 Topic: Carbon Neutral Living for Environmental Sustainability" ;
+    :description "IRE-GEF Innovation Idea Contest 2025 Topic: Carbon Neutral Living for Environmental Sustainability" ;
+    :postedOn "18 September 2025" ;
+    :sourceUrl "https://www.mesitam.ac.in/news.php" .
+:MESITAM :conducts :Event_announcement-ire-gef-innovation-idea-contest-2025-topic-carbon-neutral-living-for-environmental-sustainability .
+
+:Event_announcement-mou-with-nims-cgm-noorul-islam-institute-of-medical-science-centre-for-genomics-medicine-and-nich a :Event ;
+    :hasName "MoU with NIMS-CGM(Noorul Islam Institute of Medical Science - Centre for Genomics Medicine) and NICH" ;
+    :description "MoU with NIMS-CGM(Noorul Islam Institute of Medical Science - Centre for Genomics Medicine) and NICH" ;
+    :postedOn "23 April 2025" ;
+    :sourceUrl "https://www.mesitam.ac.in/news.php" .
+:MESITAM :conducts :Event_announcement-mou-with-nims-cgm-noorul-islam-institute-of-medical-science-centre-for-genomics-medicine-and-nich .
+
+:Event_announcement-inauguration-of-first-year-batches-and-launch-of-skill-development-programes a :Event ;
+    :hasName "INAUGURATION OF FIRST YEAR BATCHES AND LAUNCH OF SKILL DEVELOPMENT PROGRAMES" ;
+    :description "INAUGURATION OF FIRST YEAR BATCHES AND LAUNCH OF SKILL DEVELOPMENT PROGRAMES" ;
+    :postedOn "08 September 2024" ;
+    :sourceUrl "https://www.mesitam.ac.in/news.php" .
+:MESITAM :conducts :Event_announcement-inauguration-of-first-year-batches-and-launch-of-skill-development-programes .
+
+:Event_announcement-management-presenting-memento a :Event ;
+    :hasName "Management Presenting Memento" ;
+    :description "Management Presenting Memento" ;
+    :postedOn "07 August 2024" ;
+    :sourceUrl "https://www.mesitam.ac.in/news.php" .
+:MESITAM :conducts :Event_announcement-management-presenting-memento .
+
+:Event_announcement-a-total-of-24-students-got-placed-in-placement-drive-conducted-by-qspider a :Event ;
+    :hasName "A total of 24 students got placed in placement drive conducted by QSpider" ;
+    :description "A total of 24 students got placed in placement drive conducted by QSpider" ;
+    :postedOn "26 March 2024" ;
+    :sourceUrl "https://www.mesitam.ac.in/news.php" .
+:MESITAM :conducts :Event_announcement-a-total-of-24-students-got-placed-in-placement-drive-conducted-by-qspider .
+
+:Event_announcement-scientia-2024-kerala-s-largest-inter-collegiate-quiz-competition a :Event ;
+    :hasName "Scientia 2024, Kerala's largest inter-collegiate quiz competition" ;
+    :description "Scientia 2024, Kerala's largest inter-collegiate quiz competition" ;
+    :postedOn "29 February 2024" ;
+    :sourceUrl "https://www.mesitam.ac.in/news.php" .
+:MESITAM :conducts :Event_announcement-scientia-2024-kerala-s-largest-inter-collegiate-quiz-competition .
+
+:Event_announcement-onam-celebration-2023 a :Event ;
+    :hasName "Onam Celebration 2023" ;
+    :description "Onam Celebration 2023" ;
+    :postedOn "28 August 2023" ;
+    :sourceUrl "https://www.mesitam.ac.in/news.php" .
+:MESITAM :conducts :Event_announcement-onam-celebration-2023 .
+
+:Event_announcement-keam-2023-joining-schedule-for-b-tech-admission-government-quota a :Event ;
+    :hasName "KEAM 2023 - JOINING SCHEDULE FOR B.TECH ADMISSION GOVERNMENT QUOTA" ;
+    :description "KEAM 2023 - JOINING SCHEDULE FOR B.TECH ADMISSION GOVERNMENT QUOTA" ;
+    :postedOn "11 August 2023" ;
+    :sourceUrl "https://www.mesitam.ac.in/news.php" .
+:MESITAM :conducts :Event_announcement-keam-2023-joining-schedule-for-b-tech-admission-government-quota .
+
+:Event_event-association-inauguration-25-26 a :Event ;
+    :hasName "ASSOCIATION INAUGURATION 25 - 26" ;
+    :description "ASSOCIATION INAUGURATION 25 - 26" ;
+    :postedOn "18 February 2026" ;
+    :sourceUrl "https://www.mesitam.ac.in/events.php" .
+:MESITAM :conducts :Event_event-association-inauguration-25-26 .
+
+:Event_event-swathi-memorial-quiz-competition-for-higher-secondary-students a :Event ;
+    :hasName "Swathi Memorial Quiz Competition for Higher Secondary Students" ;
+    :description "Swathi Memorial Quiz Competition for Higher Secondary Students" ;
+    :postedOn "11 February 2026" ;
+    :sourceUrl "https://www.mesitam.ac.in/events.php" .
+:MESITAM :conducts :Event_event-swathi-memorial-quiz-competition-for-higher-secondary-students .
+
+:Placement_career-guidance-placement-cell a :Placement ;
+    :hasName "Career Guidance & Placement Cell" ;
+    :description "Career Guidance & Placement Cell MESITAM The winner is not one who never fails but one who never quits Career Guidance & Placement Cell [CGPC] of MES Institute of Technology and Management, Chathannoor having the aim of helping our young professionals by giving intensive training to incur the capacity to come out with fine colors in the respective fields of study. It is the duty of CGPC to give training for our students in the areas of soft skill, aptitude group discussion and prepare the students to face the interviews. CGPC frequently arrange motivation classes for our students, thereby we mould our students to get exposed to the industry, which will help our students to obtain great heights with attractive perks. CGPC is a team work. It is being headed by the Coordinator, Placement & Training officer, Professor In Charge of Training with the support of staff coordinators from each fro" ;
+    :sourceUrl "https://www.mesitam.ac.in/placement.php" .
+:Placement_career-guidance-placement-cell :belongs_to :MESITAM .
+
+:Placement_placement-a-total-of-24-students-got-placed-in-placement-drive-conducted-by-qspider a :Placement ;
+    :hasName "A total of 24 students got placed in placement drive conducted by QSpider" ;
+    :description "A total of 24 students got placed in placement drive conducted by QSpider" ;
+    :sourceUrl "https://www.mesitam.ac.in/news.php" .
+:Placement_placement-a-total-of-24-students-got-placed-in-placement-drive-conducted-by-qspider :belongs_to :MESITAM .

@@ -1,6 +1,7 @@
 import os
 import glob
 from rdflib import Graph
+from services.config import OFFICIAL_KG_PATH, UPLOAD_KG_PATH
 
 def merge_ttl_files(data_dir="data", output_file="data/merged_kg.ttl"):
     g = Graph()
@@ -8,12 +9,13 @@ def merge_ttl_files(data_dir="data", output_file="data/merged_kg.ttl"):
     # Track if we successfully parsed anything
     parsed_files = []
     
-    # Glob all .ttl files in data_dir
-    files = glob.glob(os.path.join(data_dir, "*.ttl"))
+    preferred_files = [str(path) for path in (OFFICIAL_KG_PATH, UPLOAD_KG_PATH) if path.exists()]
+    files = preferred_files or glob.glob(os.path.join(data_dir, "*.ttl"))
     
     for file in files:
-        # Skip the merged file itself if it already exists
-        if os.path.basename(file) == os.path.basename(output_file):
+        file_name = os.path.basename(file)
+        # Skip inactive legacy graph sources and the merged file itself.
+        if file_name == os.path.basename(output_file) or file_name in {"mesitam_data.ttl", "university_faq.ttl"}:
             continue
             
         try:

@@ -1,0 +1,24 @@
+{
+  "Seminar Guidelines.pdf": {
+    "id": "Seminar Guidelines.pdf",
+    "name": "Seminar Guidelines.pdf",
+    "status": "indexed",
+    "progress": 100,
+    "job_id": "upload-5bc5e4c5bfd3",
+    "message": "Indexed and searchable",
+    "error": null,
+    "uploaded_at": "2026-04-05T08:38:41.005005+00:00",
+    "updated_at": "2026-04-05T08:38:44.253213+00:00"
+  },
+  "Project Guidelines.pdf": {
+    "id": "Project Guidelines.pdf",
+    "name": "Project Guidelines.pdf",
+    "status": "indexed",
+    "progress": 100,
+    "job_id": "upload-aa9da356eeec",
+    "message": "Indexed and searchable",
+    "error": null,
+    "uploaded_at": "2026-04-05T08:39:40.520546+00:00",
+    "updated_at": "2026-04-05T08:39:44.400073+00:00"
+  }
+}

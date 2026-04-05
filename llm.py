@@ -1,5 +1,7 @@
 import ollama
 
+from services.pipeline_v2.prompts import answer_style_for, build_system_prompt
+
 MODEL_NAME = "llama3.2:3b"
 
 
@@ -9,24 +11,12 @@ def get_llm_info():
         "model": MODEL_NAME,
     }
 
-def generate_answer(question, context, history=None):
+def generate_answer(question, context, history=None, stream=False, response_type="explanation", answer_mode=None):
     if history is None:
         history = []
-    system_prompt = f"""You are the official AI Academic Assistant for MES Institute of Technology and Management.
-You must answer the User's question using the Context below. If the Context lacks the answer, use the Conversation History to resolve pronouns (e.g., 'he', 'that module') or missing details.
-If the answer cannot be logically deduced from the Context or History, explicitly say "I don't know".
-
-Guidelines:
-- Start with the most direct answer possible.
-- Never guess, invent faculty names, or fill gaps with likely-sounding details.
-- If the context only gives a partial answer, clearly separate what is known from what is unknown.
-- Prefer short paragraphs or flat bullet lists over long filler text.
-- Mention the source basis briefly, such as "According to the knowledge graph" or "From the uploaded documents", when helpful.
-- Always keep the tone confident but honest.
-
-Context:
-{context}
-"""
+    _ = answer_mode
+    _, num_predict = answer_style_for(response_type)
+    system_prompt = build_system_prompt(context=context, response_type=response_type)
 
     # Build discrete roles for Llama 3 instruct mapping
     messages_list = [{"role": "system", "content": system_prompt}]
@@ -42,13 +32,20 @@ Context:
         response = ollama.chat(
             model=MODEL_NAME,
             messages=messages_list,
-            stream=False,
+            stream=stream,
             options={
-                "temperature": 0.2,
-                "num_ctx": 2048, 
-                "num_predict": 384
+                "temperature": 0.0,
+                "num_ctx": 8192, 
+                "num_predict": num_predict
             }
         )
+        if stream:
+            for chunk in response:
+                content = chunk.get("message", {}).get("content", "")
+                if content:
+                    yield content
+            return
+
         yield response["message"]["content"]
     except Exception as e:
         yield f"LLM Generation Error: {str(e)}"
