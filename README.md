@@ -116,7 +116,7 @@ venv\Scripts\python.exe tools\maintenance\check_health.py
 
 ## Notes
 
-- The default Knowledge Base view is structured for users; raw graph inspection and Turtle editing are kept behind Developer Mode.
+- The default Knowledge Base view is structured for users; graph inspection and Turtle editing are kept behind Developer Mode.
 - Chat answers are restricted to retrieved MESITAM knowledge. Out-of-domain questions should return: `I don't have enough information in the knowledge base`.
 - The startup UI uses `/api/readiness` so the app can clearly show `loading`, `ready`, or `error`.
 - Generated runtime files such as raw scrape snapshots, logs, and local scratch data are intentionally ignored.
